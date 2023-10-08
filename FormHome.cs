@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MAD.imagenes
+namespace MAD
 {
-    public partial class FORM_HOME : Form
+    public partial class FORM_Home : Form
     {
-        public FORM_HOME()
+        public FORM_Home()
         {
             InitializeComponent();
         }

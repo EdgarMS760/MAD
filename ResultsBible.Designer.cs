@@ -36,15 +36,17 @@
             // 
             // PIC_UserControl_icon
             // 
-            PIC_UserControl_icon.Location = new Point(19, 24);
+            PIC_UserControl_icon.Image = Properties.Resources.bookIcon;
+            PIC_UserControl_icon.Location = new Point(13, 37);
             PIC_UserControl_icon.Name = "PIC_UserControl_icon";
             PIC_UserControl_icon.Size = new Size(114, 98);
+            PIC_UserControl_icon.SizeMode = PictureBoxSizeMode.Zoom;
             PIC_UserControl_icon.TabIndex = 0;
             PIC_UserControl_icon.TabStop = false;
             // 
             // LBL_UserControl_Title
             // 
-            LBL_UserControl_Title.Location = new Point(152, 24);
+            LBL_UserControl_Title.Location = new Point(13, 7);
             LBL_UserControl_Title.Name = "LBL_UserControl_Title";
             LBL_UserControl_Title.Size = new Size(297, 30);
             LBL_UserControl_Title.TabIndex = 1;
@@ -52,22 +54,21 @@
             // 
             // LBL_UserControl_Content
             // 
-            LBL_UserControl_Content.Location = new Point(152, 72);
+            LBL_UserControl_Content.Location = new Point(133, 37);
             LBL_UserControl_Content.Name = "LBL_UserControl_Content";
-            LBL_UserControl_Content.Size = new Size(518, 85);
+            LBL_UserControl_Content.Size = new Size(546, 180);
             LBL_UserControl_Content.TabIndex = 2;
             LBL_UserControl_Content.Text = "Content";
-            LBL_UserControl_Content.Click += label2_Click;
             // 
-            // UserControl1
+            // ResultsBible
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(LBL_UserControl_Content);
             Controls.Add(LBL_UserControl_Title);
             Controls.Add(PIC_UserControl_icon);
-            Name = "UserControl1";
-            Size = new Size(702, 179);
+            Name = "ResultsBible";
+            Size = new Size(706, 242);
             ((System.ComponentModel.ISupportInitialize)PIC_UserControl_icon).EndInit();
             ResumeLayout(false);
         }

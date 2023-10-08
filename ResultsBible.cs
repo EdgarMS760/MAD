@@ -25,24 +25,31 @@ namespace MAD
         public string Title
         {
             get { return _title; }
-            set { _title = value; }
+            set
+            {
+                _title = value;
+                LBL_UserControl_Title.Text = value;
+            }
         }
         [Category("Custom Props")]
         public string Message
         {
             get { return _message; }
-            set { _message = value; }
+            set
+            {
+                _message = value;
+                LBL_UserControl_Content.Text = value;
+            }
         }
-        [Category("Custom Props")]
         public Image Icon
         {
             get { return _icon; }
-            set { _icon = value; }
+            set
+            {
+                _icon = value;
+                PIC_UserControl_icon.Image = value;
+            }
         }
         #endregion
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

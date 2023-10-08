@@ -186,7 +186,7 @@
             // 
             PIC_Login_Close.Cursor = Cursors.Hand;
             PIC_Login_Close.Image = (Image)resources.GetObject("PIC_Login_Close.Image");
-            PIC_Login_Close.Location = new Point(795, 0);
+            PIC_Login_Close.Location = new Point(805, 0);
             PIC_Login_Close.Name = "PIC_Login_Close";
             PIC_Login_Close.Size = new Size(25, 24);
             PIC_Login_Close.SizeMode = PictureBoxSizeMode.StretchImage;

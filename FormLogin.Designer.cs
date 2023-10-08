@@ -30,7 +30,6 @@
         {
             Label label1;
             Label label2;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FORM_Login));
             LBL_Login_Email = new Label();
             LBL_Login_Pass = new Label();
             TXTB_Login_Email = new TextBox();
@@ -151,7 +150,7 @@
             // Pic_Login_Logo
             // 
             Pic_Login_Logo.BackColor = Color.Transparent;
-            Pic_Login_Logo.Image = (Image)resources.GetObject("Pic_Login_Logo.Image");
+            Pic_Login_Logo.Image = Properties.Resources.MAD_Logo;
             Pic_Login_Logo.Location = new Point(-12, 49);
             Pic_Login_Logo.Name = "Pic_Login_Logo";
             Pic_Login_Logo.Size = new Size(336, 293);
@@ -173,7 +172,7 @@
             // PIC_Login_Minimizar
             // 
             PIC_Login_Minimizar.Cursor = Cursors.Hand;
-            PIC_Login_Minimizar.Image = (Image)resources.GetObject("PIC_Login_Minimizar.Image");
+            PIC_Login_Minimizar.Image = Properties.Resources.minimizar;
             PIC_Login_Minimizar.Location = new Point(760, 0);
             PIC_Login_Minimizar.Name = "PIC_Login_Minimizar";
             PIC_Login_Minimizar.Size = new Size(29, 24);
@@ -185,7 +184,7 @@
             // PIC_Login_Close
             // 
             PIC_Login_Close.Cursor = Cursors.Hand;
-            PIC_Login_Close.Image = (Image)resources.GetObject("PIC_Login_Close.Image");
+            PIC_Login_Close.Image = Properties.Resources.cerrar;
             PIC_Login_Close.Location = new Point(805, 0);
             PIC_Login_Close.Name = "PIC_Login_Close";
             PIC_Login_Close.Size = new Size(25, 24);

@@ -7,7 +7,13 @@ namespace MAD
         public FORM_Login()
         {
             InitializeComponent();
+
         }
+        // Importa funciones necesarias de user32.dll para mover el formulario sin barra de título
+        [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.dll", EntryPoint = "SendMessage")]
+        public extern static void SendMessage(IntPtr hwnd, int wmsg, int wparam, int lparam);
 
 
         private void label2_Click(object sender, EventArgs e)
@@ -68,6 +74,12 @@ namespace MAD
         private void PIC_Login_Minimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void FORM_Login_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

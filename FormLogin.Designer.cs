@@ -53,7 +53,9 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.CausesValidation = false;
+            label1.FlatStyle = FlatStyle.Popup;
             label1.ForeColor = SystemColors.ControlDarkDark;
             label1.Location = new Point(405, 158);
             label1.Name = "label1";
@@ -64,6 +66,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
             label2.CausesValidation = false;
             label2.ForeColor = SystemColors.ControlDarkDark;
             label2.Location = new Point(405, 229);
@@ -96,9 +99,10 @@
             TXTB_Login_Email.BorderStyle = BorderStyle.None;
             TXTB_Login_Email.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             TXTB_Login_Email.ForeColor = Color.DimGray;
-            TXTB_Login_Email.Location = new Point(407, 131);
+            TXTB_Login_Email.Location = new Point(405, 125);
+            TXTB_Login_Email.Multiline = true;
             TXTB_Login_Email.Name = "TXTB_Login_Email";
-            TXTB_Login_Email.Size = new Size(323, 28);
+            TXTB_Login_Email.Size = new Size(323, 42);
             TXTB_Login_Email.TabIndex = 1;
             TXTB_Login_Email.Text = "EMAIL";
             TXTB_Login_Email.TextChanged += TXTB_Login_Email_TextChanged;
@@ -111,7 +115,7 @@
             TXTB_Login_Pass.BorderStyle = BorderStyle.None;
             TXTB_Login_Pass.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             TXTB_Login_Pass.ForeColor = Color.DimGray;
-            TXTB_Login_Pass.Location = new Point(405, 198);
+            TXTB_Login_Pass.Location = new Point(407, 198);
             TXTB_Login_Pass.MaxLength = 15;
             TXTB_Login_Pass.Name = "TXTB_Login_Pass";
             TXTB_Login_Pass.Size = new Size(325, 28);
@@ -148,7 +152,7 @@
             // 
             Pic_Login_Logo.BackColor = Color.Transparent;
             Pic_Login_Logo.Image = (Image)resources.GetObject("Pic_Login_Logo.Image");
-            Pic_Login_Logo.Location = new Point(-22, 44);
+            Pic_Login_Logo.Location = new Point(-12, 49);
             Pic_Login_Logo.Name = "Pic_Login_Logo";
             Pic_Login_Logo.Size = new Size(336, 293);
             Pic_Login_Logo.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -160,7 +164,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("PMingLiU-ExtB", 36F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(337, 21);
+            label3.Location = new Point(454, 9);
             label3.Name = "label3";
             label3.Size = new Size(250, 48);
             label3.TabIndex = 7;
@@ -170,7 +174,7 @@
             // 
             PIC_Login_Minimizar.Cursor = Cursors.Hand;
             PIC_Login_Minimizar.Image = (Image)resources.GetObject("PIC_Login_Minimizar.Image");
-            PIC_Login_Minimizar.Location = new Point(687, 0);
+            PIC_Login_Minimizar.Location = new Point(760, 0);
             PIC_Login_Minimizar.Name = "PIC_Login_Minimizar";
             PIC_Login_Minimizar.Size = new Size(29, 24);
             PIC_Login_Minimizar.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -182,7 +186,7 @@
             // 
             PIC_Login_Close.Cursor = Cursors.Hand;
             PIC_Login_Close.Image = (Image)resources.GetObject("PIC_Login_Close.Image");
-            PIC_Login_Close.Location = new Point(725, 0);
+            PIC_Login_Close.Location = new Point(795, 0);
             PIC_Login_Close.Name = "PIC_Login_Close";
             PIC_Login_Close.Size = new Size(25, 24);
             PIC_Login_Close.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -206,7 +210,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Black;
-            ClientSize = new Size(762, 391);
+            ClientSize = new Size(842, 391);
             Controls.Add(LINKLBL_Login_ForgotPass);
             Controls.Add(PIC_Login_Close);
             Controls.Add(PIC_Login_Minimizar);
@@ -224,6 +228,7 @@
             Opacity = 0.95D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
+            MouseDown += FORM_Login_MouseDown;
             PANEL_Login.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Pic_Login_Logo).EndInit();
             ((System.ComponentModel.ISupportInitialize)PIC_Login_Minimizar).EndInit();

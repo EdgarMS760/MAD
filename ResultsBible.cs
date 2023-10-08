@@ -14,14 +14,31 @@ namespace MAD
     {
         public ResultsBible()
         {
+
             InitializeComponent();
+            PIC_UserControl_icon.Image = Properties.Resources.bookIcon;
+        }
+
+
+        private void PIC_UserControl_icon_Click(object sender, EventArgs e)
+        {
+
         }
         #region properties
         private string _title;
         private string _message;
         private Image _icon;
 
-        [Category("Custom Props")]
+        private void ResultsBible_MouseLeave(object sender, EventArgs e)
+        {
+            this.BackColor = Color.White;
+        }
+
+        private void ResultsBible_MouseEnter(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Silver;
+        }
+
         public string Title
         {
             get { return _title; }
@@ -31,7 +48,6 @@ namespace MAD
                 LBL_UserControl_Title.Text = value;
             }
         }
-        [Category("Custom Props")]
         public string Message
         {
             get { return _message; }

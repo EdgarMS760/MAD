@@ -36,7 +36,7 @@ namespace MAD
             if (TXTB_Login_Email.Text == "EMAIL")
             {
                 TXTB_Login_Email.Text = "";
-                TXTB_Login_Email.ForeColor = Color.LightGray;
+                TXTB_Login_Email.ForeColor = Color.Black;
             }
         }
         private void TXTB_Login_Email_Leave(object sender, EventArgs e)
@@ -62,7 +62,7 @@ namespace MAD
             if (TXTB_Login_Pass.Text == "")
             {
                 TXTB_Login_Pass.Text = "PASSWORD";
-                TXTB_Login_Pass.ForeColor = Color.DimGray;
+                TXTB_Login_Pass.ForeColor = Color.Black;
                 TXTB_Login_Pass.UseSystemPasswordChar = false;
             }
         }
@@ -80,6 +80,13 @@ namespace MAD
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void BTN_Login_Entrar_Click(object sender, EventArgs e)
+        {
+            FORM_Home _formhome=new FORM_Home();
+            _formhome.Show();
+            
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MAD.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +17,32 @@ namespace MAD
         {
             InitializeComponent();
         }
+        private void FORM_Home_Load(object sender, EventArgs e)
+        {
+            populateItems();
+        }
+
+        private void populateItems()
+        {
+            ResultsBible[] resultsBible = new ResultsBible[5];
+            for (int i = 0; i < resultsBible.Length; i++)
+            {
+                resultsBible[i] = new ResultsBible();
+                resultsBible[i].Icon = Resources.bookIcon;
+                resultsBible[i].Title = "Book chapter:versicle";
+                resultsBible[i].Message = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec semper pharetra ante, at tempor nibh venenatis id. Aenean vel aliquam eros. Donec sodales libero sed massa hendrerit ultricies. Pellentesque dapibus justo in turpis sollicitudin fringilla. Etiam ac pulvinar lectus. Donec sit amet odio et ex consequat maximus nec eget ex. Ut vehicula rhoncus lobortis. Pellentesque id augue sit amet nisl dapibus volutpat eu eu ex. Nulla laoreet sed ex a facilisis. Nullam ac efficitur ex. Maecenas faucibus quam bibendum ligula pharetra, sed molestie sem rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec ut feugiat quam, ut varius turpis. Ut facilisis congue mi. Sed libero felis, molestie vel augue et, vehicula iaculis mauris. Quisque vitae aliquet turpis. Aenean eu dui at lorem vestibulum rhoncus vel nec nulla. Curabitur id sollicitudin elit. Proin vitae orci laoreet, sagittis lorem id, placerat tellus. Praesent in ipsum in libero aliquet fermentum a eu tellus.";
+                if (flowPanel_Home_content.Controls.Count < 0)
+                {
+                    flowPanel_Home_content.Controls.Clear();
+                }
+                else
+                {
+                    flowPanel_Home_content.Controls.Add(resultsBible[i]);
+                }
+
+            }
+        }
+
+
     }
 }

@@ -29,19 +29,30 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Favoritos));
+            label1 = new Label();
             SuspendLayout();
+            // 
+            // label1
+            // 
+            resources.ApplyResources(label1, "label1");
+            label1.ForeColor = Color.DimGray;
+            label1.Name = "label1";
             // 
             // Form_Favoritos
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Beige;
+            Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form_Favoritos";
             Load += Form1_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label1;
     }
 }

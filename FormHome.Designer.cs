@@ -28,45 +28,185 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Label label1;
             panel1_Home = new Panel();
+            RICHTXTB_Home_Content = new RichTextBox();
+            panel2 = new Panel();
             flowPanel_Home_content = new FlowLayoutPanel();
             panel_Home_search = new Panel();
+            label4 = new Label();
+            label3 = new Label();
+            CB_Home_Book = new ComboBox();
+            CB_Home_Version = new ComboBox();
+            label2 = new Label();
+            pictureBox1 = new PictureBox();
+            CB_Home_Lang = new ComboBox();
+            TXTB_Home_Search = new TextBox();
             panel1 = new Panel();
+            label1 = new Label();
             panel1_Home.SuspendLayout();
+            panel_Home_search.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.CausesValidation = false;
+            label1.FlatStyle = FlatStyle.Popup;
+            label1.ForeColor = SystemColors.ControlDarkDark;
+            label1.Location = new Point(53, 56);
+            label1.Name = "label1";
+            label1.Size = new Size(327, 15);
+            label1.TabIndex = 1;
+            label1.Text = "________________________________________________________________";
             // 
             // panel1_Home
             // 
+            panel1_Home.Controls.Add(RICHTXTB_Home_Content);
+            panel1_Home.Controls.Add(panel2);
             panel1_Home.Controls.Add(flowPanel_Home_content);
             panel1_Home.Controls.Add(panel_Home_search);
-            panel1_Home.Dock = DockStyle.Right;
             panel1_Home.Location = new Point(194, 0);
             panel1_Home.Name = "panel1_Home";
             panel1_Home.Size = new Size(1450, 952);
             panel1_Home.TabIndex = 0;
             // 
+            // RICHTXTB_Home_Content
+            // 
+            RICHTXTB_Home_Content.BackColor = SystemColors.Control;
+            RICHTXTB_Home_Content.Dock = DockStyle.Right;
+            RICHTXTB_Home_Content.Location = new Point(749, 102);
+            RICHTXTB_Home_Content.Name = "RICHTXTB_Home_Content";
+            RICHTXTB_Home_Content.ReadOnly = true;
+            RICHTXTB_Home_Content.Size = new Size(701, 816);
+            RICHTXTB_Home_Content.TabIndex = 3;
+            RICHTXTB_Home_Content.Text = "";
+            // 
+            // panel2
+            // 
+            panel2.Dock = DockStyle.Bottom;
+            panel2.Location = new Point(0, 918);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1450, 34);
+            panel2.TabIndex = 2;
+            // 
             // flowPanel_Home_content
             // 
             flowPanel_Home_content.AutoScroll = true;
-            flowPanel_Home_content.Location = new Point(3, 108);
+            flowPanel_Home_content.Location = new Point(0, 102);
             flowPanel_Home_content.Name = "flowPanel_Home_content";
-            flowPanel_Home_content.Size = new Size(743, 790);
+            flowPanel_Home_content.Size = new Size(743, 816);
             flowPanel_Home_content.TabIndex = 1;
             // 
             // panel_Home_search
             // 
+            panel_Home_search.Controls.Add(label4);
+            panel_Home_search.Controls.Add(label3);
+            panel_Home_search.Controls.Add(CB_Home_Book);
+            panel_Home_search.Controls.Add(CB_Home_Version);
+            panel_Home_search.Controls.Add(label2);
+            panel_Home_search.Controls.Add(pictureBox1);
+            panel_Home_search.Controls.Add(CB_Home_Lang);
+            panel_Home_search.Controls.Add(TXTB_Home_Search);
+            panel_Home_search.Controls.Add(label1);
             panel_Home_search.Dock = DockStyle.Top;
             panel_Home_search.Location = new Point(0, 0);
             panel_Home_search.Name = "panel_Home_search";
             panel_Home_search.Size = new Size(1450, 102);
             panel_Home_search.TabIndex = 0;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(1062, 35);
+            label4.Name = "label4";
+            label4.Size = new Size(42, 15);
+            label4.TabIndex = 9;
+            label4.Text = "BOOK:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(783, 35);
+            label3.Name = "label3";
+            label3.Size = new Size(73, 15);
+            label3.TabIndex = 8;
+            label3.Text = "TESTAMENT:";
+            // 
+            // CB_Home_Book
+            // 
+            CB_Home_Book.BackColor = Color.Snow;
+            CB_Home_Book.DropDownStyle = ComboBoxStyle.DropDownList;
+            CB_Home_Book.FormattingEnabled = true;
+            CB_Home_Book.Location = new Point(997, 56);
+            CB_Home_Book.Name = "CB_Home_Book";
+            CB_Home_Book.Size = new Size(232, 23);
+            CB_Home_Book.TabIndex = 7;
+            // 
+            // CB_Home_Version
+            // 
+            CB_Home_Version.BackColor = Color.Snow;
+            CB_Home_Version.DropDownStyle = ComboBoxStyle.DropDownList;
+            CB_Home_Version.FormattingEnabled = true;
+            CB_Home_Version.Location = new Point(719, 56);
+            CB_Home_Version.Name = "CB_Home_Version";
+            CB_Home_Version.Size = new Size(232, 23);
+            CB_Home_Version.TabIndex = 6;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(499, 35);
+            label2.Name = "label2";
+            label2.Size = new Size(71, 15);
+            label2.TabIndex = 5;
+            label2.Text = "LANGUAGE:";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.Search;
+            pictureBox1.Location = new Point(1261, 29);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(49, 50);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            // 
+            // CB_Home_Lang
+            // 
+            CB_Home_Lang.BackColor = Color.Snow;
+            CB_Home_Lang.DropDownStyle = ComboBoxStyle.DropDownList;
+            CB_Home_Lang.FormattingEnabled = true;
+            CB_Home_Lang.Location = new Point(426, 53);
+            CB_Home_Lang.Name = "CB_Home_Lang";
+            CB_Home_Lang.Size = new Size(232, 23);
+            CB_Home_Lang.TabIndex = 3;
+            // 
+            // TXTB_Home_Search
+            // 
+            TXTB_Home_Search.BackColor = SystemColors.Control;
+            TXTB_Home_Search.BorderStyle = BorderStyle.None;
+            TXTB_Home_Search.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            TXTB_Home_Search.ForeColor = Color.DimGray;
+            TXTB_Home_Search.Location = new Point(53, 23);
+            TXTB_Home_Search.Multiline = true;
+            TXTB_Home_Search.Name = "TXTB_Home_Search";
+            TXTB_Home_Search.Size = new Size(323, 42);
+            TXTB_Home_Search.TabIndex = 2;
+            TXTB_Home_Search.Text = "SEARCH";
+            TXTB_Home_Search.TextChanged += TXTB_Home_Search_TextChanged;
+            TXTB_Home_Search.Enter += TXTB_Home_Search_Enter;
+            TXTB_Home_Search.Leave += TXTB_Home_Search_Leave;
+            // 
             // panel1
             // 
             panel1.BackColor = Color.Wheat;
-            panel1.Location = new Point(2, 0);
+            panel1.Dock = DockStyle.Left;
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(186, 940);
+            panel1.Size = new Size(186, 952);
             panel1.TabIndex = 1;
             // 
             // FORM_Home
@@ -76,10 +216,14 @@
             ClientSize = new Size(1644, 952);
             Controls.Add(panel1);
             Controls.Add(panel1_Home);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FORM_Home";
             Text = "Home";
             Load += FORM_Home_Load;
             panel1_Home.ResumeLayout(false);
+            panel_Home_search.ResumeLayout(false);
+            panel_Home_search.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -89,5 +233,15 @@
         private Panel panel1;
         private FlowLayoutPanel flowPanel_Home_content;
         private Panel panel_Home_search;
+        private Panel panel2;
+        private TextBox TXTB_Home_Search;
+        private PictureBox pictureBox1;
+        private ComboBox CB_Home_Lang;
+        private ComboBox CB_Home_Book;
+        private ComboBox CB_Home_Version;
+        private Label label2;
+        private Label label3;
+        private RichTextBox RICHTXTB_Home_Content;
+        private Label label4;
     }
 }

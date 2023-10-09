@@ -123,6 +123,26 @@ namespace MAD.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap Rounded_Rectangle_Stroked {
+            get {
+                object obj = ResourceManager.GetObject("Rounded Rectangle Stroked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap Search {
+            get {
+                object obj = ResourceManager.GetObject("Search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap X_Letter_PNG_Transparent_Picture {
             get {
                 object obj = ResourceManager.GetObject("X-Letter-PNG-Transparent-Picture", resourceCulture);

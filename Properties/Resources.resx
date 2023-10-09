@@ -121,8 +121,8 @@
   <data name="bookIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imagenes\bookIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MAD_Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imagenes\MAD_Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="minimizeNew" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imagenes\minimizeNew.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="minimizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imagenes\minimizar.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,13 +130,19 @@
   <data name="X-Letter-PNG-Transparent-Picture" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imagenes\X-Letter-PNG-Transparent-Picture.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Rounded Rectangle Stroked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imagenes\Rounded Rectangle Stroked.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="cerrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imagenes\cerrar.JPG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MAD_Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imagenes\MAD_Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1_Pscyr6Z4K5v8XVbhSl7bQg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\imagenes\1_Pscyr6Z4K5v8XVbhSl7bQg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="minimizeNew" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imagenes\minimizeNew.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\imagenes\Search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

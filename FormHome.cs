@@ -43,6 +43,27 @@ namespace MAD
             }
         }
 
+        private void TXTB_Home_Search_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void TXTB_Home_Search_Enter(object sender, EventArgs e)
+        {
+            if (TXTB_Home_Search.Text == "SEARCH")
+            {
+                TXTB_Home_Search.Text = "";
+                TXTB_Home_Search.ForeColor = Color.Black;
+            }
+        }
+
+        private void TXTB_Home_Search_Leave(object sender, EventArgs e)
+        {
+            if (TXTB_Home_Search.Text == "")
+            {
+                TXTB_Home_Search.Text = "SEARCH";
+                TXTB_Home_Search.ForeColor = Color.DimGray;
+            }
+        }
     }
 }

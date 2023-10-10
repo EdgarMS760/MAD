@@ -32,6 +32,9 @@
             label1 = new Label();
             FlowPanel_Favs_Favoritos = new FlowLayoutPanel();
             panel1 = new Panel();
+            Pic_Favs_ClickExit = new PictureBox();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Pic_Favs_ClickExit).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -50,7 +53,18 @@
             // 
             resources.ApplyResources(panel1, "panel1");
             panel1.BackColor = Color.PaleGoldenrod;
+            panel1.Controls.Add(Pic_Favs_ClickExit);
+            panel1.Controls.Add(label1);
             panel1.Name = "panel1";
+            panel1.Paint += panel1_Paint;
+            // 
+            // Pic_Favs_ClickExit
+            // 
+            resources.ApplyResources(Pic_Favs_ClickExit, "Pic_Favs_ClickExit");
+            Pic_Favs_ClickExit.Image = Properties.Resources.Salir_gris;
+            Pic_Favs_ClickExit.Name = "Pic_Favs_ClickExit";
+            Pic_Favs_ClickExit.TabStop = false;
+            Pic_Favs_ClickExit.Click += Pic_Favs_ClickExit_Click;
             // 
             // Form_Favoritos
             // 
@@ -58,13 +72,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Beige;
             Controls.Add(FlowPanel_Favs_Favoritos);
-            Controls.Add(label1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form_Favoritos";
             Load += Form1_Load;
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)Pic_Favs_ClickExit).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -72,5 +86,6 @@
         private Label label1;
         private FlowLayoutPanel FlowPanel_Favs_Favoritos;
         private Panel panel1;
+        private PictureBox Pic_Favs_ClickExit;
     }
 }

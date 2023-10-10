@@ -21,5 +21,15 @@ namespace MAD
         {
 
         }
+
+        private void Pic_Favs_ClickExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

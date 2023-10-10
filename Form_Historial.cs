@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace MAD
 {
-    public partial class Form1 : Form
+    public partial class Form_Historial : Form
     {
-        public Form1()
+        public Form_Historial()
         {
             InitializeComponent();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

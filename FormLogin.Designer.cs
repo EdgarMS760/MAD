@@ -152,11 +152,11 @@
             // PIC_Login_Minimizar
             // 
             PIC_Login_Minimizar.Cursor = Cursors.Hand;
-            PIC_Login_Minimizar.Image = Properties.Resources.minimizar;
-            PIC_Login_Minimizar.Location = new Point(760, 0);
+            PIC_Login_Minimizar.Image = Properties.Resources.Minimizar_gris;
+            PIC_Login_Minimizar.Location = new Point(770, 0);
             PIC_Login_Minimizar.Name = "PIC_Login_Minimizar";
             PIC_Login_Minimizar.Size = new Size(29, 24);
-            PIC_Login_Minimizar.SizeMode = PictureBoxSizeMode.StretchImage;
+            PIC_Login_Minimizar.SizeMode = PictureBoxSizeMode.Zoom;
             PIC_Login_Minimizar.TabIndex = 8;
             PIC_Login_Minimizar.TabStop = false;
             PIC_Login_Minimizar.Click += PIC_Login_Minimizar_Click;
@@ -164,11 +164,11 @@
             // PIC_Login_Close
             // 
             PIC_Login_Close.Cursor = Cursors.Hand;
-            PIC_Login_Close.Image = Properties.Resources.cerrar;
+            PIC_Login_Close.Image = Properties.Resources.Salir_gris;
             PIC_Login_Close.Location = new Point(805, 0);
             PIC_Login_Close.Name = "PIC_Login_Close";
             PIC_Login_Close.Size = new Size(25, 24);
-            PIC_Login_Close.SizeMode = PictureBoxSizeMode.StretchImage;
+            PIC_Login_Close.SizeMode = PictureBoxSizeMode.Zoom;
             PIC_Login_Close.TabIndex = 9;
             PIC_Login_Close.TabStop = false;
             PIC_Login_Close.Click += PIC_Login_Close_Click;

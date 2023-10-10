@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MAD
 {
-    public partial class Favs_User_Book : UserControl
+    public partial class Favs_User_Chapter : UserControl
     {
-        public Favs_User_Book()
+        public Favs_User_Chapter()
         {
             InitializeComponent();
         }

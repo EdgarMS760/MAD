@@ -30,8 +30,6 @@
         {
             Label label1;
             Label label2;
-            LBL_Login_Email = new Label();
-            LBL_Login_Pass = new Label();
             TXTB_Login_Email = new TextBox();
             TXTB_Login_Pass = new TextBox();
             BTN_Login_Entrar = new Button();
@@ -74,27 +72,9 @@
             label2.TabIndex = 6;
             label2.Text = "________________________________________________________________";
             // 
-            // LBL_Login_Email
-            // 
-            LBL_Login_Email.AutoSize = true;
-            LBL_Login_Email.Location = new Point(360, 143);
-            LBL_Login_Email.Name = "LBL_Login_Email";
-            LBL_Login_Email.Size = new Size(39, 15);
-            LBL_Login_Email.TabIndex = 0;
-            LBL_Login_Email.Text = "Email:";
-            // 
-            // LBL_Login_Pass
-            // 
-            LBL_Login_Pass.AutoSize = true;
-            LBL_Login_Pass.Location = new Point(360, 113);
-            LBL_Login_Pass.Name = "LBL_Login_Pass";
-            LBL_Login_Pass.Size = new Size(60, 15);
-            LBL_Login_Pass.TabIndex = 1;
-            LBL_Login_Pass.Text = "Password:";
-            // 
             // TXTB_Login_Email
             // 
-            TXTB_Login_Email.BackColor = Color.Black;
+            TXTB_Login_Email.BackColor = Color.Beige;
             TXTB_Login_Email.BorderStyle = BorderStyle.None;
             TXTB_Login_Email.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             TXTB_Login_Email.ForeColor = Color.DimGray;
@@ -110,7 +90,7 @@
             // 
             // TXTB_Login_Pass
             // 
-            TXTB_Login_Pass.BackColor = Color.Black;
+            TXTB_Login_Pass.BackColor = Color.Beige;
             TXTB_Login_Pass.BorderStyle = BorderStyle.None;
             TXTB_Login_Pass.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             TXTB_Login_Pass.ForeColor = Color.DimGray;
@@ -139,7 +119,7 @@
             // 
             // PANEL_Login
             // 
-            PANEL_Login.BackColor = Color.DarkRed;
+            PANEL_Login.BackColor = Color.Wheat;
             PANEL_Login.Controls.Add(Pic_Login_Logo);
             PANEL_Login.Dock = DockStyle.Left;
             PANEL_Login.Location = new Point(0, 0);
@@ -172,11 +152,11 @@
             // PIC_Login_Minimizar
             // 
             PIC_Login_Minimizar.Cursor = Cursors.Hand;
-            PIC_Login_Minimizar.Image = Properties.Resources.minimizar;
-            PIC_Login_Minimizar.Location = new Point(760, 0);
+            PIC_Login_Minimizar.Image = Properties.Resources.Minimizar_gris;
+            PIC_Login_Minimizar.Location = new Point(770, 0);
             PIC_Login_Minimizar.Name = "PIC_Login_Minimizar";
             PIC_Login_Minimizar.Size = new Size(29, 24);
-            PIC_Login_Minimizar.SizeMode = PictureBoxSizeMode.StretchImage;
+            PIC_Login_Minimizar.SizeMode = PictureBoxSizeMode.Zoom;
             PIC_Login_Minimizar.TabIndex = 8;
             PIC_Login_Minimizar.TabStop = false;
             PIC_Login_Minimizar.Click += PIC_Login_Minimizar_Click;
@@ -184,11 +164,11 @@
             // PIC_Login_Close
             // 
             PIC_Login_Close.Cursor = Cursors.Hand;
-            PIC_Login_Close.Image = Properties.Resources.cerrar;
+            PIC_Login_Close.Image = Properties.Resources.Salir_gris;
             PIC_Login_Close.Location = new Point(805, 0);
             PIC_Login_Close.Name = "PIC_Login_Close";
             PIC_Login_Close.Size = new Size(25, 24);
-            PIC_Login_Close.SizeMode = PictureBoxSizeMode.StretchImage;
+            PIC_Login_Close.SizeMode = PictureBoxSizeMode.Zoom;
             PIC_Login_Close.TabIndex = 9;
             PIC_Login_Close.TabStop = false;
             PIC_Login_Close.Click += PIC_Login_Close_Click;
@@ -208,7 +188,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Black;
+            BackColor = Color.LightGoldenrodYellow;
+            BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(842, 391);
             Controls.Add(LINKLBL_Login_ForgotPass);
             Controls.Add(PIC_Login_Close);
@@ -220,13 +201,12 @@
             Controls.Add(BTN_Login_Entrar);
             Controls.Add(TXTB_Login_Pass);
             Controls.Add(TXTB_Login_Email);
-            Controls.Add(LBL_Login_Pass);
-            Controls.Add(LBL_Login_Email);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FORM_Login";
             Opacity = 0.95D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
+            Load += FORM_Login_Load;
             MouseDown += FORM_Login_MouseDown;
             PANEL_Login.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Pic_Login_Logo).EndInit();
@@ -237,9 +217,6 @@
         }
 
         #endregion
-
-        private Label LBL_Login_Email;
-        private Label LBL_Login_Pass;
         private TextBox TXTB_Login_Email;
         private TextBox TXTB_Login_Pass;
         private Button BTN_Login_Entrar;

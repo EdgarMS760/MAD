@@ -81,5 +81,10 @@ namespace MAD
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        private void FORM_Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

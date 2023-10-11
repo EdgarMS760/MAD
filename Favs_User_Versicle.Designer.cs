@@ -1,6 +1,6 @@
 ﻿namespace MAD
 {
-    partial class UserControl1
+    partial class Favs_User_Versicle
     {
         /// <summary> 
         /// Variable del diseñador necesaria.

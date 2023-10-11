@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace MAD
 {
-    public partial class UserControl1 : UserControl
+    public partial class Form_EditUser : Form
     {
-        public UserControl1()
+        public Form_EditUser()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Pic_EditUser_ClickExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

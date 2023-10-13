@@ -16,6 +16,8 @@ namespace MAD
         public FORM_Home()
         {
             InitializeComponent();
+            MenuCustom()
+;
         }
         private void FORM_Home_Load(object sender, EventArgs e)
         {
@@ -64,6 +66,50 @@ namespace MAD
                 TXTB_Home_Search.Text = "SEARCH";
                 TXTB_Home_Search.ForeColor = Color.DimGray;
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void MenuCustom()
+        {
+            panel_favs_home.Visible = false;
+        }
+        private void HideFavsOptions()
+        {
+            if (panel_favs_home.Visible)
+            {
+                panel_favs_home.Visible = false;
+            }
+        }
+        private void ShowFavsOptions(Panel favsOptions)
+        {
+            if (!panel_favs_home.Visible)
+            {
+                HideFavsOptions();
+                favsOptions.Visible = true;
+            }
+            else
+            {
+                favsOptions.Visible = false;
+            }
+        }
+
+        private void BTN_Home_Favs_Click(object sender, EventArgs e)
+        {
+            ShowFavsOptions(panel_favs_home);
+        }
+
+        private void BTN_Home_Favs_verFavs_Click(object sender, EventArgs e)
+        {
+            HideFavsOptions();
+        }
+
+        private void BTN_Home_Favs_EditFavs_Click(object sender, EventArgs e)
+        {
+            HideFavsOptions();
         }
     }
 }

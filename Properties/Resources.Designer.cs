@@ -93,6 +93,16 @@ namespace MAD.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap HISTORY {
+            get {
+                object obj = ResourceManager.GetObject("HISTORY", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap MAD_Logo {
             get {
                 object obj = ResourceManager.GetObject("MAD_Logo", resourceCulture);
@@ -136,6 +146,26 @@ namespace MAD.Properties {
         public static System.Drawing.Bitmap Search {
             get {
                 object obj = ResourceManager.GetObject("Search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap STAR {
+            get {
+                object obj = ResourceManager.GetObject("STAR", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap USERCONFIG {
+            get {
+                object obj = ResourceManager.GetObject("USERCONFIG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

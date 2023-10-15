@@ -410,10 +410,11 @@
             ClientSize = new Size(1644, 952);
             Controls.Add(panel1);
             Controls.Add(panel1_Home);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "FORM_Home";
             Text = "Home";
             Load += FORM_Home_Load;
+            MouseDown += FORM_Home_MouseDown;
             panel1_Home.ResumeLayout(false);
             panel_Home_search.ResumeLayout(false);
             panel_Home_search.PerformLayout();

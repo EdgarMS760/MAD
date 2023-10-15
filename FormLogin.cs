@@ -9,7 +9,7 @@ namespace MAD
             InitializeComponent();
 
         }
-        // Importa funciones necesarias de user32.dll para mover el formulario sin barra de título
+        // Importa funciones necesarias de user32.dll para mover el formulario sin barra de tÃ­tulo
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.dll", EntryPoint = "SendMessage")]
@@ -86,7 +86,6 @@ namespace MAD
         {
             FORM_Home _formhome=new FORM_Home();
             _formhome.Show();
-            
         }
     }
 }

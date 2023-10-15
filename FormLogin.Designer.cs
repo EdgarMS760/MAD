@@ -158,7 +158,7 @@
             PIC_Login_Minimizar.Location = new Point(772, 0);
             PIC_Login_Minimizar.Name = "PIC_Login_Minimizar";
             PIC_Login_Minimizar.Size = new Size(29, 24);
-            PIC_Login_Minimizar.SizeMode = PictureBoxSizeMode.StretchImage;
+            PIC_Login_Minimizar.SizeMode = PictureBoxSizeMode.Zoom;
             PIC_Login_Minimizar.TabIndex = 8;
             PIC_Login_Minimizar.TabStop = false;
             PIC_Login_Minimizar.Click += PIC_Login_Minimizar_Click;
@@ -170,7 +170,7 @@
             PIC_Login_Close.Location = new Point(816, 0);
             PIC_Login_Close.Name = "PIC_Login_Close";
             PIC_Login_Close.Size = new Size(25, 24);
-            PIC_Login_Close.SizeMode = PictureBoxSizeMode.StretchImage;
+            PIC_Login_Close.SizeMode = PictureBoxSizeMode.Zoom;
             PIC_Login_Close.TabIndex = 9;
             PIC_Login_Close.TabStop = false;
             PIC_Login_Close.Click += PIC_Login_Close_Click;
@@ -207,6 +207,7 @@
             Opacity = 0.95D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
+            Load += FORM_Login_Load;
             MouseDown += FORM_Login_MouseDown;
             PANEL_Login.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Pic_Login_Logo).EndInit();

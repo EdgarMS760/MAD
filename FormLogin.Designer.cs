@@ -116,6 +116,7 @@
             BTN_Login_Entrar.TabIndex = 4;
             BTN_Login_Entrar.Text = "LOGIN";
             BTN_Login_Entrar.UseVisualStyleBackColor = false;
+            BTN_Login_Entrar.Click += BTN_Login_Entrar_Click;
             // 
             // PANEL_Login
             // 
@@ -151,9 +152,10 @@
             // 
             // PIC_Login_Minimizar
             // 
+            PIC_Login_Minimizar.BackColor = Color.Transparent;
             PIC_Login_Minimizar.Cursor = Cursors.Hand;
-            PIC_Login_Minimizar.Image = Properties.Resources.Minimizar_gris;
-            PIC_Login_Minimizar.Location = new Point(770, 0);
+            PIC_Login_Minimizar.Image = Properties.Resources.minimizeNew;
+            PIC_Login_Minimizar.Location = new Point(772, 0);
             PIC_Login_Minimizar.Name = "PIC_Login_Minimizar";
             PIC_Login_Minimizar.Size = new Size(29, 24);
             PIC_Login_Minimizar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -164,8 +166,8 @@
             // PIC_Login_Close
             // 
             PIC_Login_Close.Cursor = Cursors.Hand;
-            PIC_Login_Close.Image = Properties.Resources.Salir_gris;
-            PIC_Login_Close.Location = new Point(805, 0);
+            PIC_Login_Close.Image = Properties.Resources.X_Letter_PNG_Transparent_Picture;
+            PIC_Login_Close.Location = new Point(816, 0);
             PIC_Login_Close.Name = "PIC_Login_Close";
             PIC_Login_Close.Size = new Size(25, 24);
             PIC_Login_Close.SizeMode = PictureBoxSizeMode.Zoom;
@@ -188,8 +190,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightGoldenrodYellow;
-            BackgroundImageLayout = ImageLayout.Center;
+            BackColor = Color.Beige;
             ClientSize = new Size(842, 391);
             Controls.Add(LINKLBL_Login_ForgotPass);
             Controls.Add(PIC_Login_Close);

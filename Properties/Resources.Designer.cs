@@ -93,6 +93,12 @@ namespace MAD.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap HISTORY {
+            get {
+                object obj = ResourceManager.GetObject("HISTORY", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
         internal static System.Drawing.Bitmap Estrella {
             get {
                 object obj = ResourceManager.GetObject("Estrella", resourceCulture);
@@ -143,9 +149,9 @@ namespace MAD.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Minimizar_gris {
+        internal static System.Drawing.Bitmap minimizeNew {
             get {
-                object obj = ResourceManager.GetObject("Minimizar gris", resourceCulture);
+                object obj = ResourceManager.GetObject("minimizeNew", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +159,49 @@ namespace MAD.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Salir_gris {
+        internal static System.Drawing.Bitmap Rounded_Rectangle_Stroked {
             get {
-                object obj = ResourceManager.GetObject("Salir gris", resourceCulture);
+                object obj = ResourceManager.GetObject("Rounded Rectangle Stroked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Search {
+            get {
+                object obj = ResourceManager.GetObject("Search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap STAR {
+            get {
+                object obj = ResourceManager.GetObject("STAR", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap USERCONFIG {
+            get {
+                object obj = ResourceManager.GetObject("USERCONFIG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap X_Letter_PNG_Transparent_Picture {
+            get {
+                object obj = ResourceManager.GetObject("X-Letter-PNG-Transparent-Picture", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

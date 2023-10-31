@@ -207,7 +207,6 @@
             Opacity = 0.95D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
-            Load += FORM_Login_Load;
             MouseDown += FORM_Login_MouseDown;
             PANEL_Login.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Pic_Login_Logo).EndInit();

@@ -61,7 +61,6 @@
             // Pic_Favs_ClickExit
             // 
             resources.ApplyResources(Pic_Favs_ClickExit, "Pic_Favs_ClickExit");
-            Pic_Favs_ClickExit.Image = Properties.Resources.Salir_gris;
             Pic_Favs_ClickExit.Name = "Pic_Favs_ClickExit";
             Pic_Favs_ClickExit.TabStop = false;
             Pic_Favs_ClickExit.Click += Pic_Favs_ClickExit_Click;

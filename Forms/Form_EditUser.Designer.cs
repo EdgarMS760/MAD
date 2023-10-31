@@ -63,7 +63,6 @@
             // 
             // Pic_EditUser_ClickExit
             // 
-            Pic_EditUser_ClickExit.Image = Properties.Resources.Salir_gris;
             Pic_EditUser_ClickExit.Location = new Point(735, 3);
             Pic_EditUser_ClickExit.Name = "Pic_EditUser_ClickExit";
             Pic_EditUser_ClickExit.Size = new Size(27, 26);

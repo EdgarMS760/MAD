@@ -72,7 +72,7 @@
             BackColor = Color.Beige;
             Controls.Add(FlowPanel_Favs_Favoritos);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Form_Favoritos";
             Load += Form1_Load;
             panel1.ResumeLayout(false);

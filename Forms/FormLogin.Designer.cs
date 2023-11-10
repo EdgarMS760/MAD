@@ -185,6 +185,7 @@
             LINKLBL_Login_ForgotPass.TabIndex = 0;
             LINKLBL_Login_ForgotPass.TabStop = true;
             LINKLBL_Login_ForgotPass.Text = "FORGOT PASSWORD?";
+            LINKLBL_Login_ForgotPass.LinkClicked += LINKLBL_Login_ForgotPass_LinkClicked;
             // 
             // FORM_Login
             // 

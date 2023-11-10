@@ -185,6 +185,7 @@
             LINKLBL_Login_ForgotPass.TabIndex = 0;
             LINKLBL_Login_ForgotPass.TabStop = true;
             LINKLBL_Login_ForgotPass.Text = "FORGOT PASSWORD?";
+            LINKLBL_Login_ForgotPass.LinkClicked += LINKLBL_Login_ForgotPass_LinkClicked;
             // 
             // FORM_Login
             // 
@@ -207,6 +208,7 @@
             Opacity = 0.95D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
+            Load += FORM_Login_Load;
             MouseDown += FORM_Login_MouseDown;
             PANEL_Login.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)Pic_Login_Logo).EndInit();

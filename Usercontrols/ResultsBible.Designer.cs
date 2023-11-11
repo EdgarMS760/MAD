@@ -32,7 +32,10 @@
             LBL_UserControl_Title = new Label();
             LBL_UserControl_Content = new Label();
             panel_select = new Panel();
+            LBL_UserControl_Title_Book = new Label();
+            panel_ResultBible_title = new Panel();
             ((System.ComponentModel.ISupportInitialize)PIC_UserControl_icon).BeginInit();
+            panel_ResultBible_title.SuspendLayout();
             SuspendLayout();
             // 
             // PIC_UserControl_icon
@@ -50,12 +53,14 @@
             // 
             // LBL_UserControl_Title
             // 
+            LBL_UserControl_Title.AutoSize = true;
+            LBL_UserControl_Title.Dock = DockStyle.Left;
             LBL_UserControl_Title.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
-            LBL_UserControl_Title.Location = new Point(3, 4);
+            LBL_UserControl_Title.Location = new Point(64, 0);
             LBL_UserControl_Title.Name = "LBL_UserControl_Title";
-            LBL_UserControl_Title.Size = new Size(297, 30);
+            LBL_UserControl_Title.Size = new Size(166, 30);
             LBL_UserControl_Title.TabIndex = 1;
-            LBL_UserControl_Title.Text = "book chapter:versicle";
+            LBL_UserControl_Title.Text = "chapter:versicle";
             LBL_UserControl_Title.MouseEnter += ResultsBible_MouseEnter;
             LBL_UserControl_Title.MouseLeave += ResultsBible_MouseLeave;
             // 
@@ -66,6 +71,7 @@
             LBL_UserControl_Content.Size = new Size(546, 127);
             LBL_UserControl_Content.TabIndex = 2;
             LBL_UserControl_Content.Text = "content";
+            LBL_UserControl_Content.Click += LBL_UserControl_Content_Click;
             LBL_UserControl_Content.MouseEnter += ResultsBible_MouseEnter;
             LBL_UserControl_Content.MouseLeave += ResultsBible_MouseLeave;
             // 
@@ -77,19 +83,45 @@
             panel_select.Size = new Size(706, 1);
             panel_select.TabIndex = 3;
             // 
+            // LBL_UserControl_Title_Book
+            // 
+            LBL_UserControl_Title_Book.AutoSize = true;
+            LBL_UserControl_Title_Book.Dock = DockStyle.Left;
+            LBL_UserControl_Title_Book.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            LBL_UserControl_Title_Book.Location = new Point(0, 0);
+            LBL_UserControl_Title_Book.Name = "LBL_UserControl_Title_Book";
+            LBL_UserControl_Title_Book.Size = new Size(64, 30);
+            LBL_UserControl_Title_Book.TabIndex = 4;
+            LBL_UserControl_Title_Book.Text = "book";
+            // 
+            // panel_ResultBible_title
+            // 
+            panel_ResultBible_title.Controls.Add(LBL_UserControl_Title);
+            panel_ResultBible_title.Controls.Add(LBL_UserControl_Title_Book);
+            panel_ResultBible_title.Dock = DockStyle.Top;
+            panel_ResultBible_title.Location = new Point(0, 0);
+            panel_ResultBible_title.Name = "panel_ResultBible_title";
+            panel_ResultBible_title.Size = new Size(706, 34);
+            panel_ResultBible_title.TabIndex = 5;
+            panel_ResultBible_title.Click += panel_ResultBible_title_Click;
+            // 
             // ResultsBible
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel_select);
             Controls.Add(LBL_UserControl_Content);
-            Controls.Add(LBL_UserControl_Title);
             Controls.Add(PIC_UserControl_icon);
+            Controls.Add(panel_ResultBible_title);
             Name = "ResultsBible";
             Size = new Size(706, 178);
+            Load += ResultsBible_Load;
+            Click += ResultsBible_Click;
             MouseEnter += ResultsBible_MouseEnter;
             MouseLeave += ResultsBible_MouseLeave;
             ((System.ComponentModel.ISupportInitialize)PIC_UserControl_icon).EndInit();
+            panel_ResultBible_title.ResumeLayout(false);
+            panel_ResultBible_title.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -99,5 +131,7 @@
         private Label LBL_UserControl_Title;
         private Label LBL_UserControl_Content;
         private Panel panel_select;
+        private Label LBL_UserControl_Title_Book;
+        private Panel panel_ResultBible_title;
     }
 }

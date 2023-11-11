@@ -235,5 +235,47 @@ namespace MAD.Services
             
             return versiculos;
         }
+
+        public List<FullChapterDto> fullChapter(string nombreLibro, int numCap)
+        {
+            List<FullChapterDto> chapter = new List<FullChapterDto>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("ObtenerCapitulo", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    try
+                    {
+                        
+                        command.Parameters.AddWithValue("@NombreLibro", nombreLibro);
+                        command.Parameters.AddWithValue("@NumeroCap", numCap);
+
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            FullChapterDto chapterDto = new FullChapterDto
+                            {
+                                numeroCap=numCap,
+                                nombreLibro = reader["NombreLibro"].ToString(),
+                                numeroVers = (byte)reader["NumeroVers"],
+                                texto = reader["Texto"].ToString()
+                            };
+                            chapter.Add(chapterDto);
+                        }
+                        connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        connection.Close();
+                        MessageBox.Show("Error al obtener el capitulo: " + ex.Message);
+                    }
+                }
+            }
+
+            return chapter;
+        }
     }
 }

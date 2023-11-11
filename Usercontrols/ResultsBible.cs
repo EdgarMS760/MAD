@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MAD.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,13 +13,14 @@ namespace MAD
 {
     public partial class ResultsBible : UserControl
     {
-        public ResultsBible()
+        private FORM_Home _formHome;
+        public ResultsBible(FORM_Home formHome)
         {
 
             InitializeComponent();
             PIC_UserControl_icon.Image = Properties.Resources.bookIcon;
+            _formHome = formHome;
         }
-
 
         private void PIC_UserControl_icon_Click(object sender, EventArgs e)
         {
@@ -26,19 +28,9 @@ namespace MAD
         }
         #region properties
         private string _title;
+        private string _titleBook;
         private string _message;
         private Image _icon;
-
-        private void ResultsBible_MouseLeave(object sender, EventArgs e)
-        {
-            this.BackColor = Color.White;
-        }
-
-        private void ResultsBible_MouseEnter(object sender, EventArgs e)
-        {
-            this.BackColor = Color.Silver;
-        }
-
         public string Title
         {
             get { return _title; }
@@ -46,6 +38,15 @@ namespace MAD
             {
                 _title = value;
                 LBL_UserControl_Title.Text = value;
+            }
+        }
+        public string TitleBook
+        {
+            get { return _titleBook; }
+            set
+            {
+                _titleBook = value;
+                LBL_UserControl_Title_Book.Text = value;
             }
         }
         public string Message
@@ -67,5 +68,47 @@ namespace MAD
             }
         }
         #endregion
+        private void ResultsBible_MouseLeave(object sender, EventArgs e)
+        {
+            this.BackColor = Color.White;
+        }
+
+        private void ResultsBible_MouseEnter(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Silver;
+        }
+
+        private void ResultsBible_Click(object sender, EventArgs e)
+        {
+            clickaux();
+        }
+
+        private void ResultsBible_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clickaux()
+        {
+            string chapterVersicle = LBL_UserControl_Title.Text;
+            string book = LBL_UserControl_Title_Book.Text;
+            string[] partsCV = chapterVersicle.Split(':');
+            int chapter = int.Parse(partsCV[0]);
+
+            HomeServices home = new HomeServices();
+            var fullChapter = home.fullChapter(book, chapter);
+
+            _formHome.buildChapter(fullChapter);
+        }
+
+        private void LBL_UserControl_Content_Click(object sender, EventArgs e)
+        {
+            clickaux();
+        }
+
+        private void panel_ResultBible_title_Click(object sender, EventArgs e)
+        {
+            clickaux();
+        }
     }
 }

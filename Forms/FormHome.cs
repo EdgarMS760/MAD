@@ -21,6 +21,7 @@ namespace MAD
             InitializeComponent();
             MenuCustom();
             CargarIdiomas();
+
         }
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -37,10 +38,11 @@ namespace MAD
 
             foreach (var versiculo in versiculoDtos)
             {
-                ResultsBible resultBible = new ResultsBible
+                ResultsBible resultBible = new ResultsBible(this)
                 {
                     Icon = Resources.bookIcon,
-                    Title = $"{versiculo.nombreLibro} {versiculo.numeroCap}:{versiculo.numeroVers}",
+                    Title = $"{versiculo.numeroCap}:{versiculo.numeroVers}",
+                    TitleBook = $"{versiculo.nombreLibro}",
                     Message = versiculo.texto
                 };
 
@@ -223,62 +225,62 @@ namespace MAD
             HomeServices home = new HomeServices();
             List<IdiomaDto> idiomas = home.ObtenerIdiomas();
             string nombreIdiomaSeleccionado = CB_Home_Lang.Text;
-            int idIdioma = 0; // Supongamos que 0 es un valor por defecto o un valor inválido
+            int idIdioma = 0;
 
-            // Buscar el Id correspondiente al Nombre seleccionado en el ComboBox
+
             foreach (IdiomaDto idioma in idiomas)
             {
                 if (idioma.nombre == nombreIdiomaSeleccionado)
                 {
                     idIdioma = idioma.id_Idioma;
-                    break; // Salir del bucle una vez que encuentres la correspondencia
+                    break;
                 }
             }
             List<VersionDto> versiones = home.ObtenerVersion(idIdioma);
             string versionselec = CB_Home_Version.Text;
-            int idversion = 0; // Supongamos que 0 es un valor por defecto o un valor inválido
+            int idversion = 0;
 
-            // Buscar el Id correspondiente al Nombre seleccionado en el ComboBox
+
             foreach (VersionDto version in versiones)
             {
                 if (version.nombre == versionselec)
                 {
                     idversion = version.id_Version;
-                    break; // Salir del bucle una vez que encuentres la correspondencia
+                    break;
                 }
             }
 
             List<TestamentoDto> testamentos = home.ObtenerTestamento(idIdioma);
             string testamentoselec = CB_Home_Testament.Text;
-            int idtestamento = 0; // Supongamos que 0 es un valor por defecto o un valor inválido
+            int idtestamento = 0;
 
-            // Buscar el Id correspondiente al Nombre seleccionado en el ComboBox
+
             foreach (TestamentoDto testamento in testamentos)
             {
                 if (testamento.nombre == testamentoselec)
                 {
                     idtestamento = testamento.id_Testamento;
-                    break; // Salir del bucle una vez que encuentres la correspondencia
+                    break;
                 }
             }
             List<LibroDto> libros = home.ObtenerLibros(idIdioma);
             string libroselec = CB_Home_Book.Text;
             int idlibro = 0; // Supongamos que 0 es un valor por defecto o un valor inválido
 
-            // Buscar el Id correspondiente al Nombre seleccionado en el ComboBox
+
             foreach (LibroDto libro in libros)
             {
                 if (libro.nombre == libroselec)
                 {
                     idlibro = libro.id_Libro;
-                    break; // Salir del bucle una vez que encuentres la correspondencia
+                    break;
                 }
             }
             ids.Add(idversion);
             ids.Add(idtestamento);
             ids.Add(idlibro);
             return ids;
-         }
+        }
         private void BTN_Home_History_Click(object sender, EventArgs e)
         {
             Form_Historial _formHisto = new Form_Historial();
@@ -289,6 +291,36 @@ namespace MAD
         {
             Form_EditUser _formEdUser = new Form_EditUser();
             _formEdUser.Show();
+        }
+
+        public void buildChapter(List<FullChapterDto> fullChapterDtos)
+        {
+            RICHTXTB_Home_Content.Clear();
+
+            if (fullChapterDtos != null && fullChapterDtos.Count > 0)
+            {
+                Font boldFont = new Font(RICHTXTB_Home_Content.Font, FontStyle.Bold);
+                Font chapterFont = new Font(RICHTXTB_Home_Content.Font.FontFamily, 32, FontStyle.Bold);
+                RICHTXTB_Home_Content.SelectionFont = boldFont;
+                RICHTXTB_Home_Content.SelectionFont = chapterFont;
+                RICHTXTB_Home_Content.AppendText(fullChapterDtos[0].numeroCap.ToString() + Environment.NewLine);
+                RICHTXTB_Home_Content.SelectionFont = RICHTXTB_Home_Content.Font;
+                foreach (var versiculo in fullChapterDtos)
+                {
+                    RICHTXTB_Home_Content.AppendText($"{Environment.NewLine}");
+                    RICHTXTB_Home_Content.SelectionFont = boldFont;
+                    RICHTXTB_Home_Content.AppendText($"{versiculo.numeroVers} ");
+                    RICHTXTB_Home_Content.SelectionFont = RICHTXTB_Home_Content.Font;
+
+                    string capitulo = $"{versiculo.texto}{Environment.NewLine}";
+                    RICHTXTB_Home_Content.AppendText(capitulo);
+                }
+            }
+            else
+            {
+                RICHTXTB_Home_Content.AppendText("No hay versículos para mostrar.");
+            }
+
         }
     }
 }

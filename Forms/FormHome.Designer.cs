@@ -103,6 +103,7 @@
             // 
             RICHTXTB_Home_Content.BackColor = SystemColors.Control;
             RICHTXTB_Home_Content.Dock = DockStyle.Right;
+            RICHTXTB_Home_Content.Font = new Font("Times New Roman", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             RICHTXTB_Home_Content.Location = new Point(749, 102);
             RICHTXTB_Home_Content.Name = "RICHTXTB_Home_Content";
             RICHTXTB_Home_Content.ReadOnly = true;

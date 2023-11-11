@@ -1,3 +1,4 @@
+using MAD.Forms;
 using MAD.Services;
 using System.Runtime.InteropServices;
 namespace MAD
@@ -97,8 +98,20 @@ namespace MAD
             //    MessageBox.Show("correo electronico o contrasena incorrecta", "Error de autenticacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             //}
+
             FORM_Home _formhome = new FORM_Home();
             _formhome.Show();
+        }
+
+        private void FORM_Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LINKLBL_Login_ForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form_CrearUsuario _formCreateUser = new Form_CrearUsuario();
+            _formCreateUser.Show();
         }
     }
 }

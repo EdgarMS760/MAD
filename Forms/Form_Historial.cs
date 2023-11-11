@@ -21,5 +21,10 @@ namespace MAD
         {
             this.Close();
         }
+
+        private void Form_Historial_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

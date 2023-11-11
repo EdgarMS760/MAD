@@ -151,6 +151,7 @@
             // RB_EditUser_Activo
             // 
             RB_EditUser_Activo.AutoSize = true;
+            RB_EditUser_Activo.Enabled = false;
             RB_EditUser_Activo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             RB_EditUser_Activo.ForeColor = Color.DimGray;
             RB_EditUser_Activo.Location = new Point(308, 388);
@@ -164,6 +165,7 @@
             // RB_EditUser_Inactivo
             // 
             RB_EditUser_Inactivo.AutoSize = true;
+            RB_EditUser_Inactivo.Enabled = false;
             RB_EditUser_Inactivo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             RB_EditUser_Inactivo.ForeColor = Color.DimGray;
             RB_EditUser_Inactivo.Location = new Point(385, 389);
@@ -187,10 +189,12 @@
             BTN_EditUser_Editar.TabIndex = 9;
             BTN_EditUser_Editar.Text = "Editar";
             BTN_EditUser_Editar.UseVisualStyleBackColor = false;
+            BTN_EditUser_Editar.Click += BTN_EditUser_Editar_Click;
             // 
             // TXTB_EditUser_Name
             // 
             TXTB_EditUser_Name.BackColor = Color.LemonChiffon;
+            TXTB_EditUser_Name.Enabled = false;
             TXTB_EditUser_Name.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             TXTB_EditUser_Name.ForeColor = Color.DimGray;
             TXTB_EditUser_Name.Location = new Point(308, 216);
@@ -201,6 +205,7 @@
             // TXTB_EditUser_Genere
             // 
             TXTB_EditUser_Genere.BackColor = Color.LemonChiffon;
+            TXTB_EditUser_Genere.Enabled = false;
             TXTB_EditUser_Genere.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             TXTB_EditUser_Genere.ForeColor = Color.DimGray;
             TXTB_EditUser_Genere.Location = new Point(308, 300);
@@ -211,6 +216,7 @@
             // TXTB_EditUser_Email
             // 
             TXTB_EditUser_Email.BackColor = Color.LemonChiffon;
+            TXTB_EditUser_Email.Enabled = false;
             TXTB_EditUser_Email.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             TXTB_EditUser_Email.ForeColor = Color.DimGray;
             TXTB_EditUser_Email.Location = new Point(308, 342);
@@ -231,6 +237,7 @@
             BTN_EditUser_Guardar.TabIndex = 14;
             BTN_EditUser_Guardar.Text = "Guardar";
             BTN_EditUser_Guardar.UseVisualStyleBackColor = false;
+            BTN_EditUser_Guardar.Click += BTN_EditUser_Guardar_Click;
             // 
             // DTP_EditUser_BirthDate
             // 
@@ -238,6 +245,7 @@
             DTP_EditUser_BirthDate.CalendarMonthBackground = Color.NavajoWhite;
             DTP_EditUser_BirthDate.CalendarTitleBackColor = Color.PeachPuff;
             DTP_EditUser_BirthDate.CalendarTrailingForeColor = Color.DimGray;
+            DTP_EditUser_BirthDate.Enabled = false;
             DTP_EditUser_BirthDate.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             DTP_EditUser_BirthDate.Location = new Point(308, 255);
             DTP_EditUser_BirthDate.Name = "DTP_EditUser_BirthDate";
@@ -247,6 +255,7 @@
             // CHEKB_EditUser_Tipo
             // 
             CHEKB_EditUser_Tipo.AutoSize = true;
+            CHEKB_EditUser_Tipo.Enabled = false;
             CHEKB_EditUser_Tipo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             CHEKB_EditUser_Tipo.ForeColor = Color.DimGray;
             CHEKB_EditUser_Tipo.Location = new Point(308, 427);
@@ -278,9 +287,9 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Name = "Form_EditUser";
-            Text = "Form1";
+            Text = "Editar Datos del Usuario";
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

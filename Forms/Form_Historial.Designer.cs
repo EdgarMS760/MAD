@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             label1 = new Label();
             dataGridView1 = new DataGridView();
-            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -47,6 +47,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(825, 100);
             panel1.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(792, 3);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(30, 27);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // label1
             // 
@@ -73,16 +83,6 @@
             dataGridView1.Size = new Size(729, 523);
             dataGridView1.TabIndex = 1;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Location = new Point(792, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(30, 27);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
-            // 
             // Form_Historial
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -91,13 +91,14 @@
             ClientSize = new Size(825, 695);
             Controls.Add(dataGridView1);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Form_Historial";
             Text = "Historial";
+            Load += Form_Historial_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 

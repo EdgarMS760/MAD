@@ -300,13 +300,14 @@
             BTN_Home_Config.TabIndex = 4;
             BTN_Home_Config.Text = "CONFIGURATION";
             BTN_Home_Config.UseVisualStyleBackColor = false;
+            BTN_Home_Config.Click += BTN_Home_Config_Click;
             // 
             // panel4
             // 
             panel4.Controls.Add(PIC_Home_History);
             panel4.Controls.Add(BTN_Home_History);
             panel4.Dock = DockStyle.Top;
-            panel4.Location = new Point(0, 446);
+            panel4.Location = new Point(0, 398);
             panel4.Name = "panel4";
             panel4.Size = new Size(186, 54);
             panel4.TabIndex = 5;
@@ -336,6 +337,7 @@
             BTN_Home_History.TabIndex = 4;
             BTN_Home_History.Text = "SEARCH HISTORY";
             BTN_Home_History.UseVisualStyleBackColor = false;
+            BTN_Home_History.Click += BTN_Home_History_Click;
             // 
             // panel_favs_home
             // 
@@ -344,7 +346,7 @@
             panel_favs_home.Dock = DockStyle.Top;
             panel_favs_home.Location = new Point(0, 299);
             panel_favs_home.Name = "panel_favs_home";
-            panel_favs_home.Size = new Size(186, 147);
+            panel_favs_home.Size = new Size(186, 99);
             panel_favs_home.TabIndex = 4;
             // 
             // BTN_Home_Favs_EditFavs

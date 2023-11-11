@@ -130,6 +130,8 @@ namespace MAD
         private void BTN_Home_Favs_EditFavs_Click(object sender, EventArgs e)
         {
             HideFavsOptions();
+            Form_Favoritos _formEFav = new Form_Favoritos();
+            _formEFav.Show();
         }
 
         private void FORM_Home_MouseDown(object sender, MouseEventArgs e)
@@ -276,6 +278,17 @@ namespace MAD
             ids.Add(idtestamento);
             ids.Add(idlibro);
             return ids;
+         }
+        private void BTN_Home_History_Click(object sender, EventArgs e)
+        {
+            Form_Historial _formHisto = new Form_Historial();
+            _formHisto.Show();
+        }
+
+        private void BTN_Home_Config_Click(object sender, EventArgs e)
+        {
+            Form_EditUser _formEdUser = new Form_EditUser();
+            _formEdUser.Show();
         }
     }
 }

@@ -32,4 +32,12 @@ namespace MAD.Dtos
         public string? nombre { get; set; }
         public int id_Testamento { get; set; }
     }
+
+    public class FullChapterDto
+    {
+        public string? nombreLibro { get;set; }
+        public int numeroCap { get; set; }
+        public int numeroVers { get; set; }
+        public string? texto { get;set;}
+    }
 }

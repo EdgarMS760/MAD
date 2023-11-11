@@ -63,7 +63,7 @@
             // 
             LBL_UserControl_Content.Location = new Point(133, 37);
             LBL_UserControl_Content.Name = "LBL_UserControl_Content";
-            LBL_UserControl_Content.Size = new Size(546, 180);
+            LBL_UserControl_Content.Size = new Size(546, 127);
             LBL_UserControl_Content.TabIndex = 2;
             LBL_UserControl_Content.Text = "content";
             LBL_UserControl_Content.MouseEnter += ResultsBible_MouseEnter;
@@ -86,7 +86,7 @@
             Controls.Add(LBL_UserControl_Title);
             Controls.Add(PIC_UserControl_icon);
             Name = "ResultsBible";
-            Size = new Size(706, 242);
+            Size = new Size(706, 178);
             MouseEnter += ResultsBible_MouseEnter;
             MouseLeave += ResultsBible_MouseLeave;
             ((System.ComponentModel.ISupportInitialize)PIC_UserControl_icon).EndInit();

@@ -34,12 +34,14 @@
             panel2 = new Panel();
             flowPanel_Home_content = new FlowLayoutPanel();
             panel_Home_search = new Panel();
+            CB_Home_Version = new ComboBox();
+            LBL_Home_Search_Version = new Label();
             label4 = new Label();
             label3 = new Label();
             CB_Home_Book = new ComboBox();
-            CB_Home_Version = new ComboBox();
+            CB_Home_Testament = new ComboBox();
             label2 = new Label();
-            pictureBox1 = new PictureBox();
+            PIC_Home_Search = new PictureBox();
             CB_Home_Lang = new ComboBox();
             TXTB_Home_Search = new TextBox();
             panel1 = new Panel();
@@ -60,7 +62,7 @@
             label1 = new Label();
             panel1_Home.SuspendLayout();
             panel_Home_search.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PIC_Home_Search).BeginInit();
             panel1.SuspendLayout();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PIC_Home_Config).BeginInit();
@@ -126,12 +128,14 @@
             // 
             // panel_Home_search
             // 
+            panel_Home_search.Controls.Add(CB_Home_Version);
+            panel_Home_search.Controls.Add(LBL_Home_Search_Version);
             panel_Home_search.Controls.Add(label4);
             panel_Home_search.Controls.Add(label3);
             panel_Home_search.Controls.Add(CB_Home_Book);
-            panel_Home_search.Controls.Add(CB_Home_Version);
+            panel_Home_search.Controls.Add(CB_Home_Testament);
             panel_Home_search.Controls.Add(label2);
-            panel_Home_search.Controls.Add(pictureBox1);
+            panel_Home_search.Controls.Add(PIC_Home_Search);
             panel_Home_search.Controls.Add(CB_Home_Lang);
             panel_Home_search.Controls.Add(TXTB_Home_Search);
             panel_Home_search.Controls.Add(label1);
@@ -141,10 +145,29 @@
             panel_Home_search.Size = new Size(1450, 102);
             panel_Home_search.TabIndex = 0;
             // 
+            // CB_Home_Version
+            // 
+            CB_Home_Version.BackColor = Color.Snow;
+            CB_Home_Version.DropDownStyle = ComboBoxStyle.DropDownList;
+            CB_Home_Version.FormattingEnabled = true;
+            CB_Home_Version.Location = new Point(598, 53);
+            CB_Home_Version.Name = "CB_Home_Version";
+            CB_Home_Version.Size = new Size(232, 23);
+            CB_Home_Version.TabIndex = 11;
+            // 
+            // LBL_Home_Search_Version
+            // 
+            LBL_Home_Search_Version.AutoSize = true;
+            LBL_Home_Search_Version.Location = new Point(686, 35);
+            LBL_Home_Search_Version.Name = "LBL_Home_Search_Version";
+            LBL_Home_Search_Version.Size = new Size(57, 15);
+            LBL_Home_Search_Version.TabIndex = 10;
+            LBL_Home_Search_Version.Text = "VERSION:";
+            // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(1089, 35);
+            label4.Location = new Point(1224, 35);
             label4.Name = "label4";
             label4.Size = new Size(42, 15);
             label4.TabIndex = 9;
@@ -153,7 +176,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(783, 35);
+            label3.Location = new Point(918, 35);
             label3.Name = "label3";
             label3.Size = new Size(73, 15);
             label3.TabIndex = 8;
@@ -164,39 +187,41 @@
             CB_Home_Book.BackColor = Color.Snow;
             CB_Home_Book.DropDownStyle = ComboBoxStyle.DropDownList;
             CB_Home_Book.FormattingEnabled = true;
-            CB_Home_Book.Location = new Point(997, 53);
+            CB_Home_Book.Location = new Point(1132, 53);
             CB_Home_Book.Name = "CB_Home_Book";
             CB_Home_Book.Size = new Size(232, 23);
             CB_Home_Book.TabIndex = 7;
             // 
-            // CB_Home_Version
+            // CB_Home_Testament
             // 
-            CB_Home_Version.BackColor = Color.Snow;
-            CB_Home_Version.DropDownStyle = ComboBoxStyle.DropDownList;
-            CB_Home_Version.FormattingEnabled = true;
-            CB_Home_Version.Location = new Point(720, 53);
-            CB_Home_Version.Name = "CB_Home_Version";
-            CB_Home_Version.Size = new Size(232, 23);
-            CB_Home_Version.TabIndex = 6;
+            CB_Home_Testament.BackColor = Color.Snow;
+            CB_Home_Testament.DropDownStyle = ComboBoxStyle.DropDownList;
+            CB_Home_Testament.FormattingEnabled = true;
+            CB_Home_Testament.Location = new Point(855, 53);
+            CB_Home_Testament.Name = "CB_Home_Testament";
+            CB_Home_Testament.Size = new Size(232, 23);
+            CB_Home_Testament.TabIndex = 6;
+            CB_Home_Testament.SelectedIndexChanged += CB_Home_Testament_SelectedIndexChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(499, 35);
+            label2.Location = new Point(458, 35);
             label2.Name = "label2";
             label2.Size = new Size(71, 15);
             label2.TabIndex = 5;
             label2.Text = "LANGUAGE:";
             // 
-            // pictureBox1
+            // PIC_Home_Search
             // 
-            pictureBox1.Image = Properties.Resources.Search;
-            pictureBox1.Location = new Point(1261, 29);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(49, 50);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 4;
-            pictureBox1.TabStop = false;
+            PIC_Home_Search.Image = Properties.Resources.Search;
+            PIC_Home_Search.Location = new Point(1396, 29);
+            PIC_Home_Search.Name = "PIC_Home_Search";
+            PIC_Home_Search.Size = new Size(49, 50);
+            PIC_Home_Search.SizeMode = PictureBoxSizeMode.Zoom;
+            PIC_Home_Search.TabIndex = 4;
+            PIC_Home_Search.TabStop = false;
+            PIC_Home_Search.Click += PIC_Home_Search_Click;
             // 
             // CB_Home_Lang
             // 
@@ -205,8 +230,9 @@
             CB_Home_Lang.FormattingEnabled = true;
             CB_Home_Lang.Location = new Point(426, 53);
             CB_Home_Lang.Name = "CB_Home_Lang";
-            CB_Home_Lang.Size = new Size(232, 23);
+            CB_Home_Lang.Size = new Size(124, 23);
             CB_Home_Lang.TabIndex = 3;
+            CB_Home_Lang.SelectedIndexChanged += CB_Home_Lang_SelectedIndexChanged;
             // 
             // TXTB_Home_Search
             // 
@@ -418,7 +444,7 @@
             panel1_Home.ResumeLayout(false);
             panel_Home_search.ResumeLayout(false);
             panel_Home_search.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PIC_Home_Search).EndInit();
             panel1.ResumeLayout(false);
             panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)PIC_Home_Config).EndInit();
@@ -440,10 +466,10 @@
         private Panel panel_Home_search;
         private Panel panel2;
         private TextBox TXTB_Home_Search;
-        private PictureBox pictureBox1;
+        private PictureBox PIC_Home_Search;
         private ComboBox CB_Home_Lang;
         private ComboBox CB_Home_Book;
-        private ComboBox CB_Home_Version;
+        private ComboBox CB_Home_Testament;
         private Label label2;
         private Label label3;
         private RichTextBox RICHTXTB_Home_Content;
@@ -462,5 +488,7 @@
         private PictureBox PIC_Home_Config;
         private Button BTN_Home_Config;
         private PictureBox pictureBox2;
+        private ComboBox CB_Home_Version;
+        private Label LBL_Home_Search_Version;
     }
 }

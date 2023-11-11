@@ -86,8 +86,8 @@ namespace MAD
 
         private void BTN_Login_Entrar_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            bool autentication = login.SelectUser(TXTB_Login_Email.Text, TXTB_Login_Pass.Text);
+            //LoginServices login = new LoginServices();
+            //bool autentication = login.autenticacion(TXTB_Login_Email.Text, TXTB_Login_Pass.Text);
             //if (autentication)
             //{
             //    FORM_Home _formhome = new FORM_Home();

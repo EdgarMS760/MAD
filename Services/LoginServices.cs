@@ -31,6 +31,15 @@ namespace MAD.Services
                 command.Parameters.AddWithValue("@Contrasena", pass);
 
                 bool autenticado = (bool)command.ExecuteScalar();
+
+                if (autenticado)
+                {
+                    SesionUsuario.CorreoElectronico = email;
+                    SesionUsuario.Contrasena = pass;
+                    Usuarios ObtenerInfo = new Usuarios();
+                    ObtenerInfo.ObtenerInfoPersonal(SesionUsuario.CorreoElectronico);
+                }
+                connection.Close();
                 return autenticado;
 
             }

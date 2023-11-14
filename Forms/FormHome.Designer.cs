@@ -31,9 +31,15 @@
             Label label1;
             panel1_Home = new Panel();
             RICHTXTB_Home_Content = new RichTextBox();
-            panel2 = new Panel();
             flowPanel_Home_content = new FlowLayoutPanel();
             panel_Home_search = new Panel();
+            label7 = new Label();
+            panel_Home_Search_Consulta = new Panel();
+            CB_Home_Search_Versiculo = new ComboBox();
+            label6 = new Label();
+            CB_Home_Search_Capitulo = new ComboBox();
+            label5 = new Label();
+            LINKLBL_Home_AdvSearch = new LinkLabel();
             CB_Home_Version = new ComboBox();
             LBL_Home_Search_Version = new Label();
             label4 = new Label();
@@ -62,6 +68,7 @@
             label1 = new Label();
             panel1_Home.SuspendLayout();
             panel_Home_search.SuspendLayout();
+            panel_Home_Search_Consulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PIC_Home_Search).BeginInit();
             panel1.SuspendLayout();
             panel5.SuspendLayout();
@@ -82,7 +89,7 @@
             label1.CausesValidation = false;
             label1.FlatStyle = FlatStyle.Popup;
             label1.ForeColor = SystemColors.ControlDarkDark;
-            label1.Location = new Point(53, 56);
+            label1.Location = new Point(53, 72);
             label1.Name = "label1";
             label1.Size = new Size(327, 15);
             label1.TabIndex = 1;
@@ -91,12 +98,11 @@
             // panel1_Home
             // 
             panel1_Home.Controls.Add(RICHTXTB_Home_Content);
-            panel1_Home.Controls.Add(panel2);
             panel1_Home.Controls.Add(flowPanel_Home_content);
             panel1_Home.Controls.Add(panel_Home_search);
             panel1_Home.Location = new Point(194, 0);
             panel1_Home.Name = "panel1_Home";
-            panel1_Home.Size = new Size(1450, 952);
+            panel1_Home.Size = new Size(1450, 1004);
             panel1_Home.TabIndex = 0;
             // 
             // RICHTXTB_Home_Content
@@ -104,31 +110,26 @@
             RICHTXTB_Home_Content.BackColor = SystemColors.Control;
             RICHTXTB_Home_Content.Dock = DockStyle.Right;
             RICHTXTB_Home_Content.Font = new Font("Times New Roman", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            RICHTXTB_Home_Content.Location = new Point(749, 102);
+            RICHTXTB_Home_Content.Location = new Point(749, 134);
             RICHTXTB_Home_Content.Name = "RICHTXTB_Home_Content";
             RICHTXTB_Home_Content.ReadOnly = true;
-            RICHTXTB_Home_Content.Size = new Size(701, 816);
+            RICHTXTB_Home_Content.Size = new Size(701, 870);
             RICHTXTB_Home_Content.TabIndex = 3;
             RICHTXTB_Home_Content.Text = "";
-            // 
-            // panel2
-            // 
-            panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(0, 918);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1450, 34);
-            panel2.TabIndex = 2;
             // 
             // flowPanel_Home_content
             // 
             flowPanel_Home_content.AutoScroll = true;
-            flowPanel_Home_content.Location = new Point(0, 102);
+            flowPanel_Home_content.Location = new Point(0, 134);
             flowPanel_Home_content.Name = "flowPanel_Home_content";
-            flowPanel_Home_content.Size = new Size(743, 816);
+            flowPanel_Home_content.Size = new Size(743, 867);
             flowPanel_Home_content.TabIndex = 1;
             // 
             // panel_Home_search
             // 
+            panel_Home_search.Controls.Add(label7);
+            panel_Home_search.Controls.Add(panel_Home_Search_Consulta);
+            panel_Home_search.Controls.Add(LINKLBL_Home_AdvSearch);
             panel_Home_search.Controls.Add(CB_Home_Version);
             panel_Home_search.Controls.Add(LBL_Home_Search_Version);
             panel_Home_search.Controls.Add(label4);
@@ -143,8 +144,80 @@
             panel_Home_search.Dock = DockStyle.Top;
             panel_Home_search.Location = new Point(0, 0);
             panel_Home_search.Name = "panel_Home_search";
-            panel_Home_search.Size = new Size(1450, 102);
+            panel_Home_search.Size = new Size(1450, 134);
             panel_Home_search.TabIndex = 0;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(53, 2);
+            label7.Name = "label7";
+            label7.Size = new Size(124, 30);
+            label7.TabIndex = 14;
+            label7.Text = "BUSQUEDA:";
+            // 
+            // panel_Home_Search_Consulta
+            // 
+            panel_Home_Search_Consulta.Controls.Add(CB_Home_Search_Versiculo);
+            panel_Home_Search_Consulta.Controls.Add(label6);
+            panel_Home_Search_Consulta.Controls.Add(CB_Home_Search_Capitulo);
+            panel_Home_Search_Consulta.Controls.Add(label5);
+            panel_Home_Search_Consulta.Location = new Point(711, 82);
+            panel_Home_Search_Consulta.Name = "panel_Home_Search_Consulta";
+            panel_Home_Search_Consulta.Size = new Size(622, 46);
+            panel_Home_Search_Consulta.TabIndex = 13;
+            // 
+            // CB_Home_Search_Versiculo
+            // 
+            CB_Home_Search_Versiculo.BackColor = Color.Snow;
+            CB_Home_Search_Versiculo.DropDownStyle = ComboBoxStyle.DropDownList;
+            CB_Home_Search_Versiculo.FormattingEnabled = true;
+            CB_Home_Search_Versiculo.Location = new Point(304, 20);
+            CB_Home_Search_Versiculo.Name = "CB_Home_Search_Versiculo";
+            CB_Home_Search_Versiculo.Size = new Size(232, 23);
+            CB_Home_Search_Versiculo.TabIndex = 15;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(392, 2);
+            label6.Name = "label6";
+            label6.Size = new Size(70, 15);
+            label6.TabIndex = 14;
+            label6.Text = "VERSICULO:";
+            // 
+            // CB_Home_Search_Capitulo
+            // 
+            CB_Home_Search_Capitulo.BackColor = Color.Snow;
+            CB_Home_Search_Capitulo.DropDownStyle = ComboBoxStyle.DropDownList;
+            CB_Home_Search_Capitulo.FormattingEnabled = true;
+            CB_Home_Search_Capitulo.Location = new Point(3, 20);
+            CB_Home_Search_Capitulo.Name = "CB_Home_Search_Capitulo";
+            CB_Home_Search_Capitulo.Size = new Size(232, 23);
+            CB_Home_Search_Capitulo.TabIndex = 13;
+            CB_Home_Search_Capitulo.SelectedIndexChanged += CB_Home_Search_Capitulo_SelectedIndexChanged;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(91, 2);
+            label5.Name = "label5";
+            label5.Size = new Size(65, 15);
+            label5.TabIndex = 12;
+            label5.Text = "CAPITULO:";
+            // 
+            // LINKLBL_Home_AdvSearch
+            // 
+            LINKLBL_Home_AdvSearch.AutoSize = true;
+            LINKLBL_Home_AdvSearch.LinkColor = Color.DimGray;
+            LINKLBL_Home_AdvSearch.Location = new Point(1339, 82);
+            LINKLBL_Home_AdvSearch.Name = "LINKLBL_Home_AdvSearch";
+            LINKLBL_Home_AdvSearch.Size = new Size(111, 15);
+            LINKLBL_Home_AdvSearch.TabIndex = 12;
+            LINKLBL_Home_AdvSearch.TabStop = true;
+            LINKLBL_Home_AdvSearch.Text = "Busqueda avanzada";
+            LINKLBL_Home_AdvSearch.LinkClicked += LINKLBL_Home_AdvSearch_LinkClicked;
             // 
             // CB_Home_Version
             // 
@@ -192,6 +265,7 @@
             CB_Home_Book.Name = "CB_Home_Book";
             CB_Home_Book.Size = new Size(232, 23);
             CB_Home_Book.TabIndex = 7;
+            CB_Home_Book.SelectedIndexChanged += CB_Home_Book_SelectedIndexChanged;
             // 
             // CB_Home_Testament
             // 
@@ -241,12 +315,11 @@
             TXTB_Home_Search.BorderStyle = BorderStyle.None;
             TXTB_Home_Search.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             TXTB_Home_Search.ForeColor = Color.DimGray;
-            TXTB_Home_Search.Location = new Point(53, 23);
+            TXTB_Home_Search.Location = new Point(53, 35);
             TXTB_Home_Search.Multiline = true;
             TXTB_Home_Search.Name = "TXTB_Home_Search";
             TXTB_Home_Search.Size = new Size(323, 42);
             TXTB_Home_Search.TabIndex = 2;
-            TXTB_Home_Search.Text = "SEARCH";
             TXTB_Home_Search.TextChanged += TXTB_Home_Search_TextChanged;
             TXTB_Home_Search.Enter += TXTB_Home_Search_Enter;
             TXTB_Home_Search.Leave += TXTB_Home_Search_Leave;
@@ -262,7 +335,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(186, 952);
+            panel1.Size = new Size(186, 1041);
             panel1.TabIndex = 1;
             panel1.Paint += panel1_Paint;
             // 
@@ -271,7 +344,7 @@
             panel5.Controls.Add(PIC_Home_Config);
             panel5.Controls.Add(BTN_Home_Config);
             panel5.Dock = DockStyle.Bottom;
-            panel5.Location = new Point(0, 898);
+            panel5.Location = new Point(0, 987);
             panel5.Name = "panel5";
             panel5.Size = new Size(186, 54);
             panel5.TabIndex = 6;
@@ -436,7 +509,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1644, 952);
+            ClientSize = new Size(1644, 1041);
             Controls.Add(panel1);
             Controls.Add(panel1_Home);
             FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -447,6 +520,8 @@
             panel1_Home.ResumeLayout(false);
             panel_Home_search.ResumeLayout(false);
             panel_Home_search.PerformLayout();
+            panel_Home_Search_Consulta.ResumeLayout(false);
+            panel_Home_Search_Consulta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PIC_Home_Search).EndInit();
             panel1.ResumeLayout(false);
             panel5.ResumeLayout(false);
@@ -467,7 +542,6 @@
         private Panel panel1;
         private FlowLayoutPanel flowPanel_Home_content;
         private Panel panel_Home_search;
-        private Panel panel2;
         private TextBox TXTB_Home_Search;
         private PictureBox PIC_Home_Search;
         private ComboBox CB_Home_Lang;
@@ -493,5 +567,12 @@
         private PictureBox pictureBox2;
         private ComboBox CB_Home_Version;
         private Label LBL_Home_Search_Version;
+        private LinkLabel LINKLBL_Home_AdvSearch;
+        private Panel panel_Home_Search_Consulta;
+        private ComboBox CB_Home_Search_Versiculo;
+        private Label label6;
+        private ComboBox CB_Home_Search_Capitulo;
+        private Label label5;
+        private Label label7;
     }
 }

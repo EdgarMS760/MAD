@@ -11,11 +11,13 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MAD
 {
     public partial class FORM_Home : Form
     {
+        private bool consulta = false;
         public FORM_Home()
         {
             InitializeComponent();
@@ -74,20 +76,20 @@ namespace MAD
 
         private void TXTB_Home_Search_Enter(object sender, EventArgs e)
         {
-            if (TXTB_Home_Search.Text == "SEARCH")
-            {
-                TXTB_Home_Search.Text = "";
-                TXTB_Home_Search.ForeColor = Color.Black;
-            }
+            //if (TXTB_Home_Search.Text == "SEARCH")
+            //{
+            //    TXTB_Home_Search.Text = "";
+            //    TXTB_Home_Search.ForeColor = Color.Black;
+            //}
         }
 
         private void TXTB_Home_Search_Leave(object sender, EventArgs e)
         {
-            if (TXTB_Home_Search.Text == "")
-            {
-                TXTB_Home_Search.Text = "SEARCH";
-                TXTB_Home_Search.ForeColor = Color.DimGray;
-            }
+            //if (TXTB_Home_Search.Text == "")
+            //{
+            //    TXTB_Home_Search.Text = "SEARCH";
+            //    TXTB_Home_Search.ForeColor = Color.DimGray;
+            //}
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -98,6 +100,7 @@ namespace MAD
         private void MenuCustom()
         {
             panel_favs_home.Visible = false;
+            panel_Home_Search_Consulta.Visible = false;
         }
         private void HideFavsOptions()
         {
@@ -144,10 +147,39 @@ namespace MAD
 
         private void PIC_Home_Search_Click(object sender, EventArgs e)
         {
-            HomeServices home = new HomeServices();
-            var ids = idsCombo();
-            var info = home.BuscarVersiculos(TXTB_Home_Search.Text, ids[0], ids[1] > 0 ? ids[1] : null, ids[2] > 0 ? ids[2] : null);
-            populateItems(info);
+            if (TXTB_Home_Search.TextLength < 3 && !consulta)
+            {
+
+                MessageBox.Show("la busqueda debe tener minimo 3 palabras");
+            }
+            else if(CB_Home_Book.Text =="" && consulta)
+            {
+                MessageBox.Show("seleccione un libro");
+            }
+            else
+            {
+                HomeServices home = new HomeServices();
+                var ids = idsCombo();
+                string numcap = CB_Home_Search_Capitulo.Text;
+                string numvers = CB_Home_Search_Versiculo.Text;
+                string? nombreLibro = CB_Home_Book.Text;
+                int parsedNumCap, parsedNumVers;
+
+                bool capParse = int.TryParse(numcap, out parsedNumCap);
+                bool versParse = int.TryParse(numvers, out parsedNumVers);
+
+                List<VersiculoDto> info = home.BuscarVersiculos(TXTB_Home_Search.Text, ids[0], ids[1] > 0 ? ids[1] : null, ids[2] > 0 ? ids[2] : null, capParse ? parsedNumCap : null, versParse ? parsedNumVers : null);
+                if (info.Count>0)
+                {
+                home.GuardarConsulta(TXTB_Home_Search.Text, nombreLibro, capParse ? parsedNumCap : null, versParse ? parsedNumVers : null, "admin@mail.com");
+                populateItems(info);
+                }
+                else
+                {
+                    MessageBox.Show("no se encontraron resultados");
+                }
+             
+            }
         }
 
         private void CB_Home_Lang_SelectedIndexChanged(object sender, EventArgs e)
@@ -214,10 +246,6 @@ namespace MAD
                     CB_Home_Book.SelectedIndex = 0;
                 }
             }
-            else
-            {
-
-            }
         }
         private List<int> idsCombo()
         {
@@ -265,7 +293,7 @@ namespace MAD
             }
             List<LibroDto> libros = home.ObtenerLibros(idIdioma);
             string libroselec = CB_Home_Book.Text;
-            int idlibro = 0; // Supongamos que 0 es un valor por defecto o un valor inválido
+            int idlibro = 0;
 
 
             foreach (LibroDto libro in libros)
@@ -321,6 +349,80 @@ namespace MAD
                 RICHTXTB_Home_Content.AppendText("No hay versículos para mostrar.");
             }
 
+        }
+
+        private void LINKLBL_Home_AdvSearch_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (panel_Home_Search_Consulta.Visible)
+            {
+                consulta = false;
+                //TXTB_Home_Search.Enabled = true;
+                panel_Home_Search_Consulta.Visible = false;
+            }
+            else
+            {
+                TXTB_Home_Search.Text = "";
+                CB_Home_Book.SelectedIndex = 0;
+                consulta = true;
+                CB_Home_Search_Capitulo.Items.Clear();
+                //TXTB_Home_Search.Enabled = false;
+                panel_Home_Search_Consulta.Visible = true;
+            }
+
+        }
+
+        private void CB_Home_Book_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (consulta)
+            {
+                if (CB_Home_Book.SelectedItem != "")
+                {
+                    CB_Home_Search_Capitulo.Items.Clear();
+                    HomeServices home = new HomeServices();
+                    string libro = CB_Home_Book.Text;
+
+                    List<int> caps = home.ObtenerNumeroCapPorLibro(libro);
+
+                    foreach (int numCap in caps)
+                    {
+                        CB_Home_Search_Capitulo.Items.Add(numCap);
+                    }
+
+                    if (CB_Home_Search_Capitulo.Items.Count > 0)
+                    {
+                        CB_Home_Search_Capitulo.SelectedIndex = 0;
+                    }
+
+                }
+            }
+        }
+
+        private void CB_Home_Search_Capitulo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (consulta)
+            {
+                if (CB_Home_Search_Capitulo.SelectedItem != "")
+                {
+                    CB_Home_Search_Versiculo.Items.Clear();
+                    HomeServices home = new HomeServices();
+                    CB_Home_Search_Versiculo.Items.Add("");
+                    int cap = int.Parse(CB_Home_Search_Capitulo.Text);
+
+                    List<int> vers = home.ObtenerNumeroVersPorCapitulo(cap);
+
+                    foreach (int numvers in vers)
+                    {
+                        CB_Home_Search_Versiculo.Items.Add(numvers);
+                    }
+
+                    if (CB_Home_Search_Versiculo.Items.Count > 0)
+                    {
+                        CB_Home_Search_Versiculo.SelectedIndex = 0;
+                    }
+
+                }
+            }
         }
     }
 }

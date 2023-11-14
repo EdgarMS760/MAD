@@ -34,14 +34,16 @@
             panel_select = new Panel();
             LBL_UserControl_Title_Book = new Label();
             panel_ResultBible_title = new Panel();
+            PIC_ResultBible_Star = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)PIC_UserControl_icon).BeginInit();
             panel_ResultBible_title.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PIC_ResultBible_Star).BeginInit();
             SuspendLayout();
             // 
             // PIC_UserControl_icon
             // 
             PIC_UserControl_icon.Image = Properties.Resources.bookIcon;
-            PIC_UserControl_icon.Location = new Point(13, 37);
+            PIC_UserControl_icon.Location = new Point(0, 50);
             PIC_UserControl_icon.Name = "PIC_UserControl_icon";
             PIC_UserControl_icon.Size = new Size(114, 98);
             PIC_UserControl_icon.SizeMode = PictureBoxSizeMode.Zoom;
@@ -68,7 +70,7 @@
             // 
             LBL_UserControl_Content.Location = new Point(133, 37);
             LBL_UserControl_Content.Name = "LBL_UserControl_Content";
-            LBL_UserControl_Content.Size = new Size(546, 127);
+            LBL_UserControl_Content.Size = new Size(516, 127);
             LBL_UserControl_Content.TabIndex = 2;
             LBL_UserControl_Content.Text = "content";
             LBL_UserControl_Content.Click += LBL_UserControl_Content_Click;
@@ -105,10 +107,22 @@
             panel_ResultBible_title.TabIndex = 5;
             panel_ResultBible_title.Click += panel_ResultBible_title_Click;
             // 
+            // PIC_ResultBible_Star
+            // 
+            PIC_ResultBible_Star.Image = Properties.Resources.STAR;
+            PIC_ResultBible_Star.Location = new Point(652, 70);
+            PIC_ResultBible_Star.Name = "PIC_ResultBible_Star";
+            PIC_ResultBible_Star.Size = new Size(51, 69);
+            PIC_ResultBible_Star.SizeMode = PictureBoxSizeMode.Zoom;
+            PIC_ResultBible_Star.TabIndex = 6;
+            PIC_ResultBible_Star.TabStop = false;
+            PIC_ResultBible_Star.Click += PIC_ResultBible_Star_Click;
+            // 
             // ResultsBible
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(PIC_ResultBible_Star);
             Controls.Add(panel_select);
             Controls.Add(LBL_UserControl_Content);
             Controls.Add(PIC_UserControl_icon);
@@ -122,6 +136,7 @@
             ((System.ComponentModel.ISupportInitialize)PIC_UserControl_icon).EndInit();
             panel_ResultBible_title.ResumeLayout(false);
             panel_ResultBible_title.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PIC_ResultBible_Star).EndInit();
             ResumeLayout(false);
         }
 
@@ -133,5 +148,6 @@
         private Panel panel_select;
         private Label LBL_UserControl_Title_Book;
         private Panel panel_ResultBible_title;
+        private PictureBox PIC_ResultBible_Star;
     }
 }

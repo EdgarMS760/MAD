@@ -110,5 +110,10 @@ namespace MAD
         {
             clickaux();
         }
+
+        private void PIC_ResultBible_Star_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

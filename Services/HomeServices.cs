@@ -96,7 +96,7 @@ namespace MAD.Services
         public List<VersionDto> ObtenerVersion(int id_idioma)
         {
             List<VersionDto> versiones = new List<VersionDto>();
-           
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = new SqlCommand("ObtenerVersionesPorIdioma", connection))
@@ -132,7 +132,7 @@ namespace MAD.Services
         public List<TestamentoDto> ObtenerTestamento(int id_idioma)
         {
             List<TestamentoDto> testamentos = new List<TestamentoDto>();
-       
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = new SqlCommand("ObtenerTestamentosPorIdioma", connection))
@@ -201,12 +201,76 @@ namespace MAD.Services
 
             return libros;
         }
-        public List<VersiculoDto> BuscarVersiculos(string palabrasClave, int? idVersion, int? idTestamento, int? idLibro)
+        public List<int> ObtenerNumeroCapPorLibro(string nombreLibro)
+        {
+            List<int> caps = new List<int>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("ObtenerNumeroCapPorLibro", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    try
+                    {
+                        command.Parameters.AddWithValue("@NombreLibro", nombreLibro);
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            caps.Add((byte)reader["NumeroCap"]);
+                        }
+                        connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        connection.Close();
+                        MessageBox.Show("Error al obtener los capitulos: " + ex.Message);
+                    }
+                }
+            }
+
+            return caps;
+        }
+        public List<int> ObtenerNumeroVersPorCapitulo(int numcap)
+        {
+            List<int> vers = new List<int>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("ObtenerNumeroVersPorCapitulo", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    try
+                    {
+                        command.Parameters.AddWithValue("@NumeroCap", numcap);
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            vers.Add((byte)reader["NumeroVers"]);
+                        }
+                        connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        connection.Close();
+                        MessageBox.Show("Error al obtener los versiculos: " + ex.Message);
+                    }
+                }
+            }
+
+            return vers;
+        }
+        public List<VersiculoDto> BuscarVersiculos(string palabrasClave, int? idVersion, int? idTestamento, int? idLibro, int? numeroCap, int? numeroVers)
         {
             List<VersiculoDto> versiculos = new List<VersiculoDto>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+                connection.Open();
+                int? numCap = 0;
                 using (SqlCommand command = new SqlCommand("ExecuteBuscarVersiculos", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
@@ -214,7 +278,9 @@ namespace MAD.Services
                     command.Parameters.AddWithValue("@ID_version", idVersion ?? (object)DBNull.Value);
                     command.Parameters.AddWithValue("@Id_Testamento", idTestamento ?? (object)DBNull.Value);
                     command.Parameters.AddWithValue("@Id_libro", idLibro ?? (object)DBNull.Value);
-                    connection.Open();
+                    command.Parameters.AddWithValue("@NumeroCap", numeroCap ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@NumeroVers", numeroVers ?? (object)DBNull.Value);
+                    
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -228,12 +294,38 @@ namespace MAD.Services
                             };
                             versiculos.Add(versiculo);
                         }
-                        connection.Close();
+                        if (versiculos.Count > 0)
+                        {
+                            numCap = versiculos[0].numeroCap;
+                        }
+
                     }
                 }
+               
+               connection.Close();
             }
-            
+
             return versiculos;
+        }
+        public void GuardarConsulta(string palabrasClave, string nombreLibro, int? numeroCap, int? numeroVers, string email)
+        {
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("GuardarConsulta", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@PalabrasClave", palabrasClave);
+                    command.Parameters.AddWithValue("@Capitulo ", numeroCap ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@Libro ", nombreLibro ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@Versiculos ", numeroVers ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@CorreoElectronico", email ?? (object)DBNull.Value);
+                    int rowsAffected = command.ExecuteNonQuery();
+                }
+
+                connection.Close();
+            }
         }
 
         public List<FullChapterDto> fullChapter(string nombreLibro, int numCap)
@@ -247,7 +339,7 @@ namespace MAD.Services
                     command.CommandType = CommandType.StoredProcedure;
                     try
                     {
-                        
+
                         command.Parameters.AddWithValue("@NombreLibro", nombreLibro);
                         command.Parameters.AddWithValue("@NumeroCap", numCap);
 
@@ -258,7 +350,7 @@ namespace MAD.Services
                         {
                             FullChapterDto chapterDto = new FullChapterDto
                             {
-                                numeroCap=numCap,
+                                numeroCap = numCap,
                                 nombreLibro = reader["NombreLibro"].ToString(),
                                 numeroVers = (byte)reader["NumeroVers"],
                                 texto = reader["Texto"].ToString()

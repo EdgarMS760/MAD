@@ -132,7 +132,6 @@
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Form_CrearUsuario";
             Text = "Crear Usuario";
-            Load += Form_CrearUsuario_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

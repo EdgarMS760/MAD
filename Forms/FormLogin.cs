@@ -87,21 +87,20 @@ namespace MAD
         private void BTN_Login_Entrar_Click(object sender, EventArgs e)
         {
             Login login = new Login();
-            bool autentication = login.autenticacion(TXTB_Login_Email.Text, TXTB_Login_Pass.Text);
-            if (autentication)
-            {
-                FORM_Home _formhome = new FORM_Home();
-                _formhome.Show();
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("correo electronico o contrasena incorrecta", "Error de autenticacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            bool autentication = login.SelectUser(TXTB_Login_Email.Text, TXTB_Login_Pass.Text);
+            //if (autentication)
+            //{
+            //    FORM_Home _formhome = new FORM_Home();
+            //    _formhome.Show();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("correo electronico o contrasena incorrecta", "Error de autenticacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            }
+            //}
 
-            //FORM_Home _formhome = new FORM_Home();
-            //_formhome.Show();
+            FORM_Home _formhome = new FORM_Home();
+            _formhome.Show();
         }
 
         private void FORM_Login_Load(object sender, EventArgs e)

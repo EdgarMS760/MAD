@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,26 +19,33 @@ namespace MAD.Services
                 connectionString = Program.Configuration.GetConnectionString("DefaultConnection");            
             }
         }
-
-        public bool SelectUser(string email, string pass)
+        public bool autenticacion(string email, string pass)
         {
             if (connectionString == null) { return false; }
-            using (SqlConnection sqlConnection = new SqlConnection(connectionString)) 
-            { 
-                sqlConnection.Open();
-                string query = "SELECT COUNT(*) FROM Contrasena WHERE CorreoElectronico = @email AND ContrasenaActual = @pass";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
 
-                using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
+                SqlCommand command = new SqlCommand("SELECT dbo.AutenticarUsuario(@Correo, @Contrasena)", connection);
+                command.Parameters.AddWithValue("@Correo", email);
+                command.Parameters.AddWithValue("@Contrasena", pass);
+
+                bool autenticado = (bool)command.ExecuteScalar();
+
+                if (autenticado)
                 {
-                    sqlCommand.Parameters.AddWithValue("@email", email);
-                    sqlCommand.Parameters.AddWithValue("@pass", pass);
-
-                    int count = (int)sqlCommand.ExecuteScalar();
-                    sqlConnection.Close();
-                    // Si count es mayor que 0, significa que se encontró un usuario con las credenciales proporcionadas
-                    return count > 0;
+                    SesionUsuario.CorreoElectronico = email;
+                    SesionUsuario.Contrasena = pass;
+                    Usuarios ObtenerInfo = new Usuarios();
+                    ObtenerInfo.ObtenerInfoPersonal(SesionUsuario.CorreoElectronico);
                 }
+
+                connection.Close();
+                return autenticado;
+
             }
+
         }
+
     }
 }

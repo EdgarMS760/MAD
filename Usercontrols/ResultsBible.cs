@@ -14,6 +14,7 @@ namespace MAD
     public partial class ResultsBible : UserControl
     {
         private FORM_Home _formHome;
+        private HomeServices _home = HomeServices.GetInstance();
         public ResultsBible(FORM_Home formHome)
         {
 
@@ -94,9 +95,7 @@ namespace MAD
             string book = LBL_UserControl_Title_Book.Text;
             string[] partsCV = chapterVersicle.Split(':');
             int chapter = int.Parse(partsCV[0]);
-
-            HomeServices home = new HomeServices();
-            var fullChapter = home.fullChapter(book, chapter);
+            var fullChapter = _home.fullChapter(book, chapter);
 
             _formHome.buildChapter(fullChapter);
         }
@@ -113,7 +112,22 @@ namespace MAD
 
         private void PIC_ResultBible_Star_Click(object sender, EventArgs e)
         {
+            string chapterVersicle = LBL_UserControl_Title.Text;
+            string book = LBL_UserControl_Title_Book.Text;
+            string[] partsCV = chapterVersicle.Split(':');
+            int chapter = int.Parse(partsCV[0]);
+            int versiculo = int.Parse(partsCV[1]);
+            _home.GuardarFav(book, chapter, versiculo, "admin@mail.com");
+        }
 
+        private void PIC_ResultBible_Star_MouseEnter(object sender, EventArgs e)
+        {
+            PIC_ResultBible_Star.BackColor = Color.DimGray;
+        }
+
+        private void PIC_ResultBible_Star_MouseLeave(object sender, EventArgs e)
+        {
+            PIC_ResultBible_Star.BackColor = Color.Transparent;
         }
     }
 }

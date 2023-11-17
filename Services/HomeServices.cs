@@ -14,13 +14,23 @@ namespace MAD.Services
 {
     public class HomeServices
     {
+        private static HomeServices instance;
+
         private string? connectionString;
-        public HomeServices()
+        private HomeServices()
         {
             if (Program.Configuration != null)
             {
                 connectionString = Program.Configuration.GetConnectionString("DefaultConnection");
             }
+        }
+        public static HomeServices GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new HomeServices();
+            }
+            return instance;
         }
         public List<IdiomaDto> ObtenerIdiomas()
         {
@@ -327,7 +337,40 @@ namespace MAD.Services
                 connection.Close();
             }
         }
+        public void GuardarFav(string nombreLibro, int? numeroCap, int? numeroVers, string email)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("GuardarFav", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@NumeroCap ", numeroCap);
+                    command.Parameters.AddWithValue("@NombreLibro ", nombreLibro);
+                    command.Parameters.AddWithValue("@NumeroVers ", numeroVers);
+                    command.Parameters.AddWithValue("@CorreoElectronico", email);
 
+                    SqlParameter resultado = new SqlParameter("@Resultado", SqlDbType.Int);
+                    resultado.Direction = ParameterDirection.Output;
+                    command.Parameters.Add(resultado);
+                    command.ExecuteNonQuery();
+
+                    int repetido = (int)resultado.Value;
+
+                    if (repetido == 1)
+                    {
+                        MessageBox.Show("se añadio a favoritos");
+                    }
+                    else
+                    {
+                        MessageBox.Show("ya se añadio a favoritos anteriormente");
+                    }
+                }
+
+                connection.Close();
+                
+            }
+        }
         public List<FullChapterDto> fullChapter(string nombreLibro, int numCap)
         {
             List<FullChapterDto> chapter = new List<FullChapterDto>();

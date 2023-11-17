@@ -17,6 +17,7 @@ namespace MAD
 {
     public partial class FORM_Home : Form
     {
+        private HomeServices _home= HomeServices.GetInstance();
         private bool consulta = false;
         public FORM_Home()
         {
@@ -34,7 +35,7 @@ namespace MAD
             //populateItems();
         }
 
-        private void populateItems(List<VersiculoDto> versiculoDtos)
+        private void llenarResultBible(List<VersiculoDto> versiculoDtos)
         {
             flowPanel_Home_content.Controls.Clear();
 
@@ -55,8 +56,7 @@ namespace MAD
         private void CargarIdiomas()
         {
             CB_Home_Lang.Items.Clear();
-            HomeServices home = new HomeServices();
-            List<IdiomaDto> idiomas = home.ObtenerIdiomas();
+            List<IdiomaDto> idiomas = _home.ObtenerIdiomas();
 
             CB_Home_Lang.DisplayMember = "Nombre";
             CB_Home_Lang.ValueMember = "Id";
@@ -158,7 +158,6 @@ namespace MAD
             }
             else
             {
-                HomeServices home = new HomeServices();
                 var ids = idsCombo();
                 string numcap = CB_Home_Search_Capitulo.Text;
                 string numvers = CB_Home_Search_Versiculo.Text;
@@ -168,11 +167,11 @@ namespace MAD
                 bool capParse = int.TryParse(numcap, out parsedNumCap);
                 bool versParse = int.TryParse(numvers, out parsedNumVers);
 
-                List<VersiculoDto> info = home.BuscarVersiculos(TXTB_Home_Search.Text, ids[0], ids[1] > 0 ? ids[1] : null, ids[2] > 0 ? ids[2] : null, capParse ? parsedNumCap : null, versParse ? parsedNumVers : null);
+                List<VersiculoDto> info = _home.BuscarVersiculos(TXTB_Home_Search.Text, ids[0], ids[1] > 0 ? ids[1] : null, ids[2] > 0 ? ids[2] : null, capParse ? parsedNumCap : null, versParse ? parsedNumVers : null);
                 if (info.Count>0)
                 {
-                home.GuardarConsulta(TXTB_Home_Search.Text, nombreLibro, capParse ? parsedNumCap : null, versParse ? parsedNumVers : null, "admin@mail.com");
-                populateItems(info);
+                _home.GuardarConsulta(TXTB_Home_Search.Text, nombreLibro, capParse ? parsedNumCap : null, versParse ? parsedNumVers : null, "admin@mail.com");
+                llenarResultBible(info);
                 }
                 else
                 {
@@ -191,11 +190,11 @@ namespace MAD
             CB_Home_Testament.Items.Add("");
             if (CB_Home_Lang.SelectedItem != null)
             {
-                HomeServices home = new HomeServices();
+             
 
                 IdiomaDto idiomaSeleccionado = (IdiomaDto)CB_Home_Lang.SelectedItem;
                 int idSeleccionado = idiomaSeleccionado.id_Idioma;
-                var libros = home.ObtenerLibros(idSeleccionado);
+                var libros = _home.ObtenerLibros(idSeleccionado);
                 CB_Home_Book.DisplayMember = "Nombre";
 
                 CB_Home_Book.Items.AddRange(libros.ToArray());
@@ -205,7 +204,7 @@ namespace MAD
                     CB_Home_Book.SelectedIndex = 0;
                 }
 
-                var versiones = home.ObtenerVersion(idSeleccionado);
+                var versiones = _home.ObtenerVersion(idSeleccionado);
                 CB_Home_Version.DisplayMember = "Nombre";
                 CB_Home_Version.Items.AddRange(versiones.ToArray());
 
@@ -214,7 +213,7 @@ namespace MAD
                     CB_Home_Version.SelectedIndex = 0;
                 }
 
-                var testamentos = home.ObtenerTestamento(idSeleccionado);
+                var testamentos = _home.ObtenerTestamento(idSeleccionado);
                 CB_Home_Testament.DisplayMember = "Nombre";
                 CB_Home_Testament.Items.AddRange(testamentos.ToArray());
                 if (CB_Home_Testament.Items.Count > 0)
@@ -232,11 +231,11 @@ namespace MAD
             {
                 CB_Home_Book.Items.Clear();
                 CB_Home_Book.Items.Add("");
-                HomeServices home = new HomeServices();
+                
 
                 TestamentoDto testamento = (TestamentoDto)CB_Home_Testament.SelectedItem;
                 int idTestmento = testamento.id_Testamento;
-                var libros = home.ObtenerLibroPorTestamento(idTestmento);
+                var libros = _home.ObtenerLibroPorTestamento(idTestmento);
                 CB_Home_Book.DisplayMember = "Nombre";
 
                 CB_Home_Book.Items.AddRange(libros.ToArray());
@@ -250,8 +249,7 @@ namespace MAD
         private List<int> idsCombo()
         {
             List<int> ids = new List<int>();
-            HomeServices home = new HomeServices();
-            List<IdiomaDto> idiomas = home.ObtenerIdiomas();
+            List<IdiomaDto> idiomas = _home.ObtenerIdiomas();
             string nombreIdiomaSeleccionado = CB_Home_Lang.Text;
             int idIdioma = 0;
 
@@ -264,7 +262,7 @@ namespace MAD
                     break;
                 }
             }
-            List<VersionDto> versiones = home.ObtenerVersion(idIdioma);
+            List<VersionDto> versiones = _home.ObtenerVersion(idIdioma);
             string versionselec = CB_Home_Version.Text;
             int idversion = 0;
 
@@ -278,7 +276,7 @@ namespace MAD
                 }
             }
 
-            List<TestamentoDto> testamentos = home.ObtenerTestamento(idIdioma);
+            List<TestamentoDto> testamentos = _home.ObtenerTestamento(idIdioma);
             string testamentoselec = CB_Home_Testament.Text;
             int idtestamento = 0;
 
@@ -291,7 +289,7 @@ namespace MAD
                     break;
                 }
             }
-            List<LibroDto> libros = home.ObtenerLibros(idIdioma);
+            List<LibroDto> libros = _home.ObtenerLibros(idIdioma);
             string libroselec = CB_Home_Book.Text;
             int idlibro = 0;
 
@@ -378,10 +376,10 @@ namespace MAD
                 if (CB_Home_Book.SelectedItem != "")
                 {
                     CB_Home_Search_Capitulo.Items.Clear();
-                    HomeServices home = new HomeServices();
+
                     string libro = CB_Home_Book.Text;
 
-                    List<int> caps = home.ObtenerNumeroCapPorLibro(libro);
+                    List<int> caps = _home.ObtenerNumeroCapPorLibro(libro);
 
                     foreach (int numCap in caps)
                     {
@@ -405,11 +403,11 @@ namespace MAD
                 if (CB_Home_Search_Capitulo.SelectedItem != "")
                 {
                     CB_Home_Search_Versiculo.Items.Clear();
-                    HomeServices home = new HomeServices();
+    
                     CB_Home_Search_Versiculo.Items.Add("");
                     int cap = int.Parse(CB_Home_Search_Capitulo.Text);
 
-                    List<int> vers = home.ObtenerNumeroVersPorCapitulo(cap);
+                    List<int> vers = _home.ObtenerNumeroVersPorCapitulo(cap);
 
                     foreach (int numvers in vers)
                     {

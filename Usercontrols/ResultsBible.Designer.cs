@@ -68,6 +68,7 @@
             // 
             // LBL_UserControl_Content
             // 
+            LBL_UserControl_Content.Cursor = Cursors.Help;
             LBL_UserControl_Content.Location = new Point(133, 37);
             LBL_UserControl_Content.Name = "LBL_UserControl_Content";
             LBL_UserControl_Content.Size = new Size(516, 127);
@@ -109,14 +110,18 @@
             // 
             // PIC_ResultBible_Star
             // 
+            PIC_ResultBible_Star.BackColor = Color.Transparent;
+            PIC_ResultBible_Star.Cursor = Cursors.Hand;
             PIC_ResultBible_Star.Image = Properties.Resources.STAR;
-            PIC_ResultBible_Star.Location = new Point(652, 70);
+            PIC_ResultBible_Star.Location = new Point(652, 40);
             PIC_ResultBible_Star.Name = "PIC_ResultBible_Star";
-            PIC_ResultBible_Star.Size = new Size(51, 69);
+            PIC_ResultBible_Star.Size = new Size(51, 57);
             PIC_ResultBible_Star.SizeMode = PictureBoxSizeMode.Zoom;
             PIC_ResultBible_Star.TabIndex = 6;
             PIC_ResultBible_Star.TabStop = false;
             PIC_ResultBible_Star.Click += PIC_ResultBible_Star_Click;
+            PIC_ResultBible_Star.MouseEnter += PIC_ResultBible_Star_MouseEnter;
+            PIC_ResultBible_Star.MouseLeave += PIC_ResultBible_Star_MouseLeave;
             // 
             // ResultsBible
             // 
@@ -127,6 +132,7 @@
             Controls.Add(LBL_UserControl_Content);
             Controls.Add(PIC_UserControl_icon);
             Controls.Add(panel_ResultBible_title);
+            Cursor = Cursors.Help;
             Name = "ResultsBible";
             Size = new Size(706, 178);
             Load += ResultsBible_Load;

@@ -14,13 +14,23 @@ namespace MAD.Services
 {
     public class HomeServices
     {
+        private static HomeServices instance;
+
         private string? connectionString;
-        public HomeServices()
+        private HomeServices()
         {
             if (Program.Configuration != null)
             {
                 connectionString = Program.Configuration.GetConnectionString("DefaultConnection");
             }
+        }
+        public static HomeServices GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new HomeServices();
+            }
+            return instance;
         }
         public List<IdiomaDto> ObtenerIdiomas()
         {
@@ -327,7 +337,26 @@ namespace MAD.Services
                 connection.Close();
             }
         }
+        public void GuardarFav(string nombreLibro, int? numeroCap, int? numeroVers, string email)
+        {
 
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("GuardarFav", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@NumeroCap ", numeroCap ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@NombreLibro ", nombreLibro ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@NumeroVers ", numeroVers ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@CorreoElectronico", email ?? (object)DBNull.Value);
+                    int rowsAffected = command.ExecuteNonQuery();
+                }
+
+                connection.Close();
+                MessageBox.Show("se añadio a favoritos");
+            }
+        }
         public List<FullChapterDto> fullChapter(string nombreLibro, int numCap)
         {
             List<FullChapterDto> chapter = new List<FullChapterDto>();

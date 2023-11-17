@@ -339,22 +339,36 @@ namespace MAD.Services
         }
         public void GuardarFav(string nombreLibro, int? numeroCap, int? numeroVers, string email)
         {
-
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 using (SqlCommand command = new SqlCommand("GuardarFav", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@NumeroCap ", numeroCap ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@NombreLibro ", nombreLibro ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@NumeroVers ", numeroVers ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@CorreoElectronico", email ?? (object)DBNull.Value);
-                    int rowsAffected = command.ExecuteNonQuery();
+                    command.Parameters.AddWithValue("@NumeroCap ", numeroCap);
+                    command.Parameters.AddWithValue("@NombreLibro ", nombreLibro);
+                    command.Parameters.AddWithValue("@NumeroVers ", numeroVers);
+                    command.Parameters.AddWithValue("@CorreoElectronico", email);
+
+                    SqlParameter resultado = new SqlParameter("@Resultado", SqlDbType.Int);
+                    resultado.Direction = ParameterDirection.Output;
+                    command.Parameters.Add(resultado);
+                    command.ExecuteNonQuery();
+
+                    int repetido = (int)resultado.Value;
+
+                    if (repetido == 1)
+                    {
+                        MessageBox.Show("se añadio a favoritos");
+                    }
+                    else
+                    {
+                        MessageBox.Show("ya se añadio a favoritos anteriormente");
+                    }
                 }
 
                 connection.Close();
-                MessageBox.Show("se añadio a favoritos");
+                
             }
         }
         public List<FullChapterDto> fullChapter(string nombreLibro, int numCap)

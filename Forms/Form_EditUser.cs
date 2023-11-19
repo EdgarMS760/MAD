@@ -37,6 +37,18 @@ namespace MAD
                 {
                     RB_EditUser_Female.Checked = true;
                 }
+                // Mostrar el Tipo
+                CHEKB_EditUser_Tipo.Checked = SesionUsuario.Tipo;
+
+                // Mostrar el Estatus
+                if (SesionUsuario.Estatus == "ACTIVO")
+                {
+                    RB_EditUser_Activo.Checked = true;
+                }
+                else if (SesionUsuario.Estatus == "INACTIVO")
+                {
+                    RB_EditUser_Inactivo.Checked = true;
+                }
             }
             else
             {

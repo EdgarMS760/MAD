@@ -16,6 +16,8 @@ namespace MAD.Services
         public static string NombreCom { get; set; }  
         public static char Genero { get; set; }  
         public static DateTime FechaNac { get; set; }  
+        public static bool Tipo { get; set; }  
+        public static string Estatus { get; set; }  
         // Agrega otras propiedades según sea necesario
     }
 }

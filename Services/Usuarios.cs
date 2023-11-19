@@ -109,6 +109,31 @@ namespace MAD.Services
                 }
             }
         }
+        public void ObtenerTipoYEstado(string correoElectronico)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlCommand sqlCommand = new SqlCommand("ObtenerTipoYEstado", connection))
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                    // Parámetros de entrada
+                    sqlCommand.Parameters.AddWithValue("@CorreoElectronico", SesionUsuario.CorreoElectronico);
+
+                    // Parámetros de salida
+                    sqlCommand.Parameters.Add("@Tipo", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                    sqlCommand.Parameters.Add("@Estatus", SqlDbType.Char, 15).Direction = ParameterDirection.Output;
+
+                    sqlCommand.ExecuteNonQuery();
+
+                    // Verificar si los valores son DBNull antes de asignarlos a las propiedades de SesionUsuario
+                    SesionUsuario.Tipo = (sqlCommand.Parameters["@Tipo"].Value != DBNull.Value) ? Convert.ToBoolean(sqlCommand.Parameters["@Tipo"].Value) : default(bool);
+                    SesionUsuario.Estatus = (sqlCommand.Parameters["@Estatus"].Value != DBNull.Value)? sqlCommand.Parameters["@Estatus"].Value.ToString().Trim() : null;
+                }
+            }
+        }
         public void CambiarContrasena(string CorreoUsuario, string ContrasenaActual, string NuevaContrasena)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))

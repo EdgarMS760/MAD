@@ -37,6 +37,7 @@ namespace MAD
         {
 
         }
+
         private void BTN_CambiarPass_Guardar_Click(object sender, EventArgs e)
         {
             string contrasenaActual = LBL_CambiarContra_MostrarContra.Text;
@@ -45,7 +46,7 @@ namespace MAD
             if (ValidarContrasena(contrasenaNueva))
             {
                 Usuarios CambioContra = new Usuarios();
-                CambioContra.CambiarContrasena(SesionUsuario.CorreoElectronico, contrasenaActual,contrasenaNueva);
+                CambioContra.CambiarContrasena(SesionUsuario.CorreoElectronico, contrasenaActual, contrasenaNueva);
 
                 // Limpiar la TextBox
                 TXTB_CambiarPass_Pass.Text = string.Empty;
@@ -53,25 +54,33 @@ namespace MAD
                 // Ejecutar MostrarContrasena
                 MostrarContrasena();
             }
-            else
-            {
-                MessageBox.Show("La contraseña no cumple con los requisitos mínimos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
         private bool ValidarContrasena(string contrasena)
         {
             // Validar que la contraseña cumpla con los requisitos
             if (contrasena.Length < 6 || contrasena.Length > 15)
+            {
+                MessageBox.Show("La contraseña debe tener entre 6 y 15 caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
 
             if (!contrasena.Any(char.IsUpper))
+            {
+                MessageBox.Show("La contraseña debe contener al menos una letra mayúscula.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
 
             if (!contrasena.Any(char.IsDigit))
+            {
+                MessageBox.Show("La contraseña debe contener al menos un número.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
 
             if (!contrasena.Any(c => !char.IsLetterOrDigit(c)))
+            {
+                MessageBox.Show("La contraseña debe contener al menos un carácter especial.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
 
             return true;
         }

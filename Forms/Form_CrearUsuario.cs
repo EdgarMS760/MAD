@@ -34,8 +34,7 @@ namespace MAD.Forms
             // Validar la contraseña
             if (!ValidarContrasena(contrasena))
             {
-                MessageBox.Show("La contraseña no cumple con los requisitos. Minimo 6 caracteres, una mayuscula, un numero y un caracter especial", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+               return;
             }
 
             // Si las validaciones son exitosas, llamar a la función AltaUsuario para dar de alta al usuario
@@ -55,18 +54,38 @@ namespace MAD.Forms
 
         private bool ValidarContrasena(string contrasena)
         {
-            // La contraseña debe tener al menos 6 caracteres, una mayúscula, un número y un carácter especial
-            return contrasena.Length >= 6 &&
-                   contrasena.Any(char.IsUpper) &&
-                   contrasena.Any(char.IsDigit) &&
-                   contrasena.Any(c => !char.IsLetterOrDigit(c));
+            // Validar que la contraseña cumpla con los requisitos
+            if (contrasena.Length < 6 || contrasena.Length > 15)
+            {
+                MessageBox.Show("La contraseña debe tener entre 6 y 15 caracteres.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!contrasena.Any(char.IsUpper))
+            {
+                MessageBox.Show("La contraseña debe contener al menos una letra mayúscula.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!contrasena.Any(char.IsDigit))
+            {
+                MessageBox.Show("La contraseña debe contener al menos un número.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!contrasena.Any(c => !char.IsLetterOrDigit(c)))
+            {
+                MessageBox.Show("La contraseña debe contener al menos un carácter especial.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
         }
 
         private void TXTB_CreateUser_Email_TextChanged(object sender, EventArgs e)
         {
 
         }
-
         private void Form_CrearUsuario_Load(object sender, EventArgs e)
         {
 

@@ -109,6 +109,13 @@ namespace MAD
         }
         private void BTN_Historial_BorrarUno_Click(object sender, EventArgs e)
         {
+            // Verificar si hay datos en el DataGridView
+            if (DGV_Historial_MostrarHistorial.Rows.Count == 0)
+            {
+                MessageBox.Show("No hay datos en el historial para borrar.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return; // Salir del método si no hay datos
+            }
+
             try
             {
                 // Obtener la fecha y hora seleccionada en la segunda columna

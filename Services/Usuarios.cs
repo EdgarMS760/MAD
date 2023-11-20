@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace MAD.Services
 {
@@ -224,6 +225,79 @@ namespace MAD.Services
 
                     MessageBox.Show("Usuario dado de baja con éxito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+        }
+        public bool BuscarUsuario(string? email)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                    connection.Open();
+
+                    SqlCommand command = new SqlCommand("SELECT CorreoElectronico,Estado,AdminOrNot FROM dbo.BuscarUsuario(@correoElectronico)", connection);
+                    command.Parameters.AddWithValue("@CorreoElectronico", email);
+
+                using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                {
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+
+                    if (dataTable.Rows.Count > 0)
+                    {
+                        // Usuario encontrado
+                        DataRow row = dataTable.Rows[0];
+                        gestionUsuariosDto.email = row["CorreoElectronico"].ToString();
+                        gestionUsuariosDto.estado = row["Estado"].ToString().Trim();
+                        gestionUsuariosDto.adminOrNot = (bool)row["AdminOrNot"];
+                        connection.Close();
+                        return true;
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("no hay ningun usuario con ese correo electronico");
+                        connection.Close();
+                        return false;
+                    }
+                }
+                   
+
+                
+            }
+        }
+
+        public void addTemporalPass(string temporalPass, string email)
+        {
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("addPassTemporal", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@temporalPass", temporalPass);
+                    command.Parameters.AddWithValue("@CorreoElectronico", email ?? (object)DBNull.Value);
+                    command.ExecuteNonQuery();
+                }
+
+                connection.Close();
+            }
+        }
+        public void updAdmin(string email, byte accion)
+        {
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("updAdmin", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@accion", accion);
+                    command.Parameters.AddWithValue("@CorreoElectronico", email ?? (object)DBNull.Value);
+                    command.ExecuteNonQuery();
+                }
+
+                connection.Close();
             }
         }
 

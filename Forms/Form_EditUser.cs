@@ -13,7 +13,7 @@ namespace MAD
 {
     public partial class Form_EditUser : Form
     {
-        Usuarios _UsuarioSrvs= Usuarios.GetInstance();
+        Usuarios _UsuarioSrvs = Usuarios.GetInstance();
         public Form_EditUser()
         {
             InitializeComponent();
@@ -111,7 +111,6 @@ namespace MAD
         }
         private bool ValidarFechaNacimiento(DateTime fechaNacimiento)
         {
-            // La fecha de nacimiento no puede ser mayor al día de hoy ni menor a 1990
             DateTime fechaHoy = DateTime.Today;
             DateTime fechaLimiteInferior = new DateTime(1900, 1, 1);
 
@@ -158,6 +157,11 @@ namespace MAD
             {
                 form.Close();
             }
+        }
+
+        private void CHEKB_EditUser_Tipo_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

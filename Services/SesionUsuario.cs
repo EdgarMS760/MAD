@@ -19,4 +19,11 @@ namespace MAD.Services
         public static bool Tipo { get; set; }  
         public static string Estatus { get; set; }  
     }
+
+    public static class gestionUsuariosDto
+    {
+        public static string email { get; set; }
+        public static bool adminOrNot { get; set; }
+        public static string estado { get; set; }
+    }
 }

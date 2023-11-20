@@ -1,4 +1,5 @@
 ﻿using MAD.Dtos;
+using MAD.Forms;
 using MAD.Properties;
 using MAD.Services;
 using System;
@@ -101,6 +102,10 @@ namespace MAD
         {
             panel_favs_home.Visible = false;
             panel_Home_Search_Consulta.Visible = false;
+            if (!SesionUsuario.Tipo)
+            {
+                panel_Home_GestUsers.Visible = false;
+            }
         }
         private void HideFavsOptions()
         {
@@ -170,7 +175,7 @@ namespace MAD
                 List<VersiculoDto> info = _home.BuscarVersiculos(TXTB_Home_Search.Text, ids[0], ids[1] > 0 ? ids[1] : null, ids[2] > 0 ? ids[2] : null, capParse ? parsedNumCap : null, versParse ? parsedNumVers : null);
                 if (info.Count > 0)
                 {
-                    _home.GuardarConsulta(TXTB_Home_Search.Text, nombreLibro, capParse ? parsedNumCap : null, versParse ? parsedNumVers : null, "admin@mail.com");
+                    _home.GuardarConsulta(TXTB_Home_Search.Text, nombreLibro, capParse ? parsedNumCap : null, versParse ? parsedNumVers : null, SesionUsuario.CorreoElectronico);
                     llenarResultBible(info);
                 }
                 else
@@ -421,6 +426,12 @@ namespace MAD
 
                 }
             }
+        }
+
+        private void BTN_Home_gestionarUSers_Click(object sender, EventArgs e)
+        {
+            Form_GestionUsuarios form_GestionUsuarios=new Form_GestionUsuarios();
+            form_GestionUsuarios.ShowDialog();
         }
     }
 }

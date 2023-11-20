@@ -16,5 +16,10 @@ namespace MAD.Forms
         {
             InitializeComponent();
         }
+
+        private void BTN_GestionUsuarios_Editar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

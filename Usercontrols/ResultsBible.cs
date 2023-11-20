@@ -117,7 +117,7 @@ namespace MAD
             string[] partsCV = chapterVersicle.Split(':');
             int chapter = int.Parse(partsCV[0]);
             int versiculo = int.Parse(partsCV[1]);
-            _home.GuardarFav(book, chapter, versiculo, "admin@mail.com");
+            _home.GuardarFav(book, chapter, versiculo, SesionUsuario.CorreoElectronico);
         }
 
         private void PIC_ResultBible_Star_MouseEnter(object sender, EventArgs e)

@@ -18,6 +18,5 @@ namespace MAD.Services
         public static DateTime FechaNac { get; set; }  
         public static bool Tipo { get; set; }  
         public static string Estatus { get; set; }  
-        // Agrega otras propiedades según sea necesario
     }
 }

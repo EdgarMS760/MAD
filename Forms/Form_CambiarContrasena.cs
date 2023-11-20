@@ -13,6 +13,8 @@ namespace MAD
 {
     public partial class Form_CambiarContrasena : Form
     {
+        private Usuarios _UsuarioSrvs = Usuarios.GetInstance();
+
         public Form_CambiarContrasena()
         {
             InitializeComponent();
@@ -45,8 +47,7 @@ namespace MAD
 
             if (ValidarContrasena(contrasenaNueva))
             {
-                Usuarios CambioContra = new Usuarios();
-                CambioContra.CambiarContrasena(SesionUsuario.CorreoElectronico, contrasenaActual, contrasenaNueva);
+                _UsuarioSrvs.CambiarContrasena(SesionUsuario.CorreoElectronico, contrasenaActual, contrasenaNueva);
 
                 // Limpiar la TextBox
                 TXTB_CambiarPass_Pass.Text = string.Empty;

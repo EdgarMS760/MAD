@@ -13,6 +13,7 @@ namespace MAD.Forms
 {
     public partial class Form_CrearUsuario : Form
     {
+        private Usuarios _UsuarioSrvs = Usuarios.GetInstance();
         public Form_CrearUsuario()
         {
             InitializeComponent();
@@ -38,8 +39,8 @@ namespace MAD.Forms
             }
 
             // Si las validaciones son exitosas, llamar a la función AltaUsuario para dar de alta al usuario
-            Usuarios usuarios = new Usuarios();
-            usuarios.AltaUsuario(correoElectronico, contrasena);
+
+            _UsuarioSrvs.AltaUsuario(correoElectronico, contrasena);
 
             // Limpiar los controles después de dar de alta al usuario
             TXTB_CreateUser_Email.Text = string.Empty;

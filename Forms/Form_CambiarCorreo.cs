@@ -13,6 +13,8 @@ namespace MAD
 {
     public partial class Form_CambiarCorreo : Form
     {
+        private Usuarios _UsuarioSrvs = Usuarios.GetInstance();
+
         public Form_CambiarCorreo()
         {
             InitializeComponent();
@@ -55,8 +57,7 @@ namespace MAD
                 return;
             }
 
-            Usuarios CambioCorreo = new Usuarios();
-            CambioCorreo.CambiarCorreoElectronico(CorreoActual, CorreoNuevo);
+            _UsuarioSrvs.CambiarCorreoElectronico(CorreoActual, CorreoNuevo);
 
             // Limpiar el TextBox
             TXTB_CambiarCorreo_CorreoNew.Text = string.Empty;

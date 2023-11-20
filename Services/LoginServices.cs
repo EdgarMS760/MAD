@@ -11,6 +11,8 @@ namespace MAD.Services
     public class LoginServices
     {
         private static LoginServices instance;
+        private Usuarios _UsuarioSrvs = Usuarios.GetInstance();
+
 
         public static LoginServices GetInstance()
         {
@@ -47,9 +49,8 @@ namespace MAD.Services
                 {
                     SesionUsuario.CorreoElectronico = email;
                     SesionUsuario.Contrasena = pass;
-                    Usuarios ObtenerInfo = new Usuarios();
-                    ObtenerInfo.ObtenerInfoPersonal(SesionUsuario.CorreoElectronico);
-                    ObtenerInfo.ObtenerTipoYEstado(SesionUsuario.CorreoElectronico);
+                    _UsuarioSrvs.ObtenerInfoPersonal(SesionUsuario.CorreoElectronico);
+                    _UsuarioSrvs.ObtenerTipoYEstado(SesionUsuario.CorreoElectronico);
                 }
                 connection.Close();
                 return autenticado;

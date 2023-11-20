@@ -11,6 +11,16 @@ namespace MAD.Services
 {
     public class Usuarios
     {
+        private static Usuarios instance;
+        public static Usuarios GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new Usuarios();
+            }
+            return instance;
+        }
+
         private string? connectionString;
         public Usuarios()
         {

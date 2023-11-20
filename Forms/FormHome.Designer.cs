@@ -116,6 +116,7 @@
             RICHTXTB_Home_Content.Size = new Size(701, 870);
             RICHTXTB_Home_Content.TabIndex = 3;
             RICHTXTB_Home_Content.Text = "";
+            RICHTXTB_Home_Content.TextChanged += RICHTXTB_Home_Content_TextChanged;
             // 
             // flowPanel_Home_content
             // 
@@ -124,6 +125,7 @@
             flowPanel_Home_content.Name = "flowPanel_Home_content";
             flowPanel_Home_content.Size = new Size(743, 867);
             flowPanel_Home_content.TabIndex = 1;
+            flowPanel_Home_content.Paint += flowPanel_Home_content_Paint;
             // 
             // panel_Home_search
             // 

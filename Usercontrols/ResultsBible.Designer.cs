@@ -107,6 +107,7 @@
             panel_ResultBible_title.Size = new Size(706, 34);
             panel_ResultBible_title.TabIndex = 5;
             panel_ResultBible_title.Click += panel_ResultBible_title_Click;
+            panel_ResultBible_title.Paint += panel_ResultBible_title_Paint;
             // 
             // PIC_ResultBible_Star
             // 

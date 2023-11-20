@@ -33,7 +33,7 @@
             LBL_GestionUsuarios_MostrarCorreo = new Label();
             CHEKB_GestionUsuarios_Tipo = new CheckBox();
             BTN_GestionUsuarios_Guardar = new Button();
-            BTN_GestionUsuarios_Editar = new Button();
+            BTN_GestionUsuarios_Buscar = new Button();
             RB_GestionUsuarios_Inactivo = new RadioButton();
             RB_GestionUsuarios_Activo = new RadioButton();
             label7 = new Label();
@@ -70,6 +70,7 @@
             BTN_GestionUsuarios_Baja.TabIndex = 48;
             BTN_GestionUsuarios_Baja.Text = "BAJA";
             BTN_GestionUsuarios_Baja.UseVisualStyleBackColor = false;
+            BTN_GestionUsuarios_Baja.Click += BTN_GestionUsuarios_Baja_Click;
             // 
             // LBL_GestionUsuarios_MostrarCorreo
             // 
@@ -85,7 +86,6 @@
             // CHEKB_GestionUsuarios_Tipo
             // 
             CHEKB_GestionUsuarios_Tipo.AutoSize = true;
-            CHEKB_GestionUsuarios_Tipo.Enabled = false;
             CHEKB_GestionUsuarios_Tipo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             CHEKB_GestionUsuarios_Tipo.ForeColor = Color.DimGray;
             CHEKB_GestionUsuarios_Tipo.Location = new Point(289, 357);
@@ -94,6 +94,8 @@
             CHEKB_GestionUsuarios_Tipo.TabIndex = 40;
             CHEKB_GestionUsuarios_Tipo.Text = "Administrador";
             CHEKB_GestionUsuarios_Tipo.UseVisualStyleBackColor = true;
+            CHEKB_GestionUsuarios_Tipo.CheckedChanged += CHEKB_GestionUsuarios_Tipo_CheckedChanged;
+            CHEKB_GestionUsuarios_Tipo.Click += CHEKB_GestionUsuarios_Tipo_Click;
             // 
             // BTN_GestionUsuarios_Guardar
             // 
@@ -110,20 +112,20 @@
             BTN_GestionUsuarios_Guardar.Text = "Guardar";
             BTN_GestionUsuarios_Guardar.UseVisualStyleBackColor = false;
             // 
-            // BTN_GestionUsuarios_Editar
+            // BTN_GestionUsuarios_Buscar
             // 
-            BTN_GestionUsuarios_Editar.BackColor = Color.NavajoWhite;
-            BTN_GestionUsuarios_Editar.FlatAppearance.BorderColor = Color.NavajoWhite;
-            BTN_GestionUsuarios_Editar.FlatStyle = FlatStyle.Flat;
-            BTN_GestionUsuarios_Editar.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            BTN_GestionUsuarios_Editar.ForeColor = Color.DimGray;
-            BTN_GestionUsuarios_Editar.Location = new Point(385, 146);
-            BTN_GestionUsuarios_Editar.Name = "BTN_GestionUsuarios_Editar";
-            BTN_GestionUsuarios_Editar.Size = new Size(108, 33);
-            BTN_GestionUsuarios_Editar.TabIndex = 36;
-            BTN_GestionUsuarios_Editar.Text = "Buscar";
-            BTN_GestionUsuarios_Editar.UseVisualStyleBackColor = false;
-            BTN_GestionUsuarios_Editar.Click += BTN_GestionUsuarios_Editar_Click;
+            BTN_GestionUsuarios_Buscar.BackColor = Color.NavajoWhite;
+            BTN_GestionUsuarios_Buscar.FlatAppearance.BorderColor = Color.NavajoWhite;
+            BTN_GestionUsuarios_Buscar.FlatStyle = FlatStyle.Flat;
+            BTN_GestionUsuarios_Buscar.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            BTN_GestionUsuarios_Buscar.ForeColor = Color.DimGray;
+            BTN_GestionUsuarios_Buscar.Location = new Point(385, 146);
+            BTN_GestionUsuarios_Buscar.Name = "BTN_GestionUsuarios_Buscar";
+            BTN_GestionUsuarios_Buscar.Size = new Size(108, 33);
+            BTN_GestionUsuarios_Buscar.TabIndex = 36;
+            BTN_GestionUsuarios_Buscar.Text = "Buscar";
+            BTN_GestionUsuarios_Buscar.UseVisualStyleBackColor = false;
+            BTN_GestionUsuarios_Buscar.Click += BTN_GestionUsuarios_Buscar_Click;
             // 
             // RB_GestionUsuarios_Inactivo
             // 
@@ -235,7 +237,7 @@
             Controls.Add(LBL_GestionUsuarios_MostrarCorreo);
             Controls.Add(CHEKB_GestionUsuarios_Tipo);
             Controls.Add(BTN_GestionUsuarios_Guardar);
-            Controls.Add(BTN_GestionUsuarios_Editar);
+            Controls.Add(BTN_GestionUsuarios_Buscar);
             Controls.Add(RB_GestionUsuarios_Inactivo);
             Controls.Add(RB_GestionUsuarios_Activo);
             Controls.Add(label7);
@@ -257,7 +259,7 @@
         private Label LBL_GestionUsuarios_MostrarCorreo;
         private CheckBox CHEKB_GestionUsuarios_Tipo;
         private Button BTN_GestionUsuarios_Guardar;
-        private Button BTN_GestionUsuarios_Editar;
+        private Button BTN_GestionUsuarios_Buscar;
         private RadioButton RB_GestionUsuarios_Inactivo;
         private RadioButton RB_GestionUsuarios_Activo;
         private Label label7;

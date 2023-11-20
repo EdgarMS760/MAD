@@ -237,6 +237,7 @@
             CHEKB_EditUser_Tipo.TabIndex = 16;
             CHEKB_EditUser_Tipo.Text = "Administrador";
             CHEKB_EditUser_Tipo.UseVisualStyleBackColor = true;
+            CHEKB_EditUser_Tipo.CheckedChanged += CHEKB_EditUser_Tipo_CheckedChanged;
             // 
             // label8
             // 

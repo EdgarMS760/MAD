@@ -1,4 +1,4 @@
-CREATE PROCEDURE ObtenerInfoPersonal
+ALTER PROCEDURE ObtenerInfoPersonal
     @CorreoElectronico VARCHAR(50),
     @NombreCompleto VARCHAR(50) OUTPUT,
     @Genero CHAR(1) OUTPUT,
@@ -12,3 +12,5 @@ BEGIN
     FROM InfoPersonal
     WHERE CorreoElectronico = @CorreoElectronico;
 END;
+
+

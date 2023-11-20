@@ -80,9 +80,10 @@ namespace MAD
 
             // Configura la apariencia y comportamiento de las columnas según tus necesidades
             DGV_Historial_MostrarHistorial.Columns["Palabras"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            DGV_Historial_MostrarHistorial.Columns["FechaYHora"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm:ss";
-            DGV_Historial_MostrarHistorial.Columns["Libro"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            DGV_Historial_MostrarHistorial.Columns["Capitulo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            DGV_Historial_MostrarHistorial.Columns["FechaYHora"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; // Cambiado a Fill
+            DGV_Historial_MostrarHistorial.Columns["FechaYHora"].DefaultCellStyle.Format = "dd-MMM-yyyy HH:mm:ss"; // Formato de fecha y hora
+            DGV_Historial_MostrarHistorial.Columns["Libro"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            DGV_Historial_MostrarHistorial.Columns["Capitulo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             DGV_Historial_MostrarHistorial.Columns["Versiculo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
             // Configura el DataGridView para que no genere automáticamente las columnas
@@ -101,6 +102,9 @@ namespace MAD
 
             // Oculta la columna de encabezados de fila
             DGV_Historial_MostrarHistorial.RowHeadersVisible = false;
+
+            // Oculta el encabezado de columna
+            DGV_Historial_MostrarHistorial.ColumnHeadersVisible = false;
 
             // Deshabilita la capacidad de cambiar el tamaño de las columnas y filas// Deshabilita la capacidad de cambiar el tamaño de las columnas y filas
             DGV_Historial_MostrarHistorial.AllowUserToResizeColumns = false;

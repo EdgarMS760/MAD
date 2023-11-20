@@ -51,6 +51,9 @@
             CB_Home_Lang = new ComboBox();
             TXTB_Home_Search = new TextBox();
             panel1 = new Panel();
+            panel_Home_GestUsers = new Panel();
+            pictureBox1 = new PictureBox();
+            BTN_Home_gestionarUSers = new Button();
             panel5 = new Panel();
             PIC_Home_Config = new PictureBox();
             BTN_Home_Config = new Button();
@@ -71,6 +74,8 @@
             panel_Home_Search_Consulta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PIC_Home_Search).BeginInit();
             panel1.SuspendLayout();
+            panel_Home_GestUsers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PIC_Home_Config).BeginInit();
             panel4.SuspendLayout();
@@ -327,6 +332,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Wheat;
+            panel1.Controls.Add(panel_Home_GestUsers);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel_favs_home);
@@ -338,6 +344,43 @@
             panel1.Size = new Size(186, 1041);
             panel1.TabIndex = 1;
             panel1.Paint += panel1_Paint;
+            // 
+            // panel_Home_GestUsers
+            // 
+            panel_Home_GestUsers.Controls.Add(pictureBox1);
+            panel_Home_GestUsers.Controls.Add(BTN_Home_gestionarUSers);
+            panel_Home_GestUsers.Dock = DockStyle.Bottom;
+            panel_Home_GestUsers.Location = new Point(0, 933);
+            panel_Home_GestUsers.Name = "panel_Home_GestUsers";
+            panel_Home_GestUsers.Size = new Size(186, 54);
+            panel_Home_GestUsers.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Dock = DockStyle.Left;
+            pictureBox1.Image = Properties.Resources.USERCONFIG;
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(51, 54);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
+            // 
+            // BTN_Home_gestionarUSers
+            // 
+            BTN_Home_gestionarUSers.BackColor = Color.Wheat;
+            BTN_Home_gestionarUSers.Dock = DockStyle.Right;
+            BTN_Home_gestionarUSers.FlatAppearance.BorderColor = Color.Black;
+            BTN_Home_gestionarUSers.FlatAppearance.BorderSize = 0;
+            BTN_Home_gestionarUSers.FlatStyle = FlatStyle.Flat;
+            BTN_Home_gestionarUSers.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            BTN_Home_gestionarUSers.Location = new Point(42, 0);
+            BTN_Home_gestionarUSers.Name = "BTN_Home_gestionarUSers";
+            BTN_Home_gestionarUSers.Size = new Size(144, 54);
+            BTN_Home_gestionarUSers.TabIndex = 4;
+            BTN_Home_gestionarUSers.Text = "Gestionar Usuarios";
+            BTN_Home_gestionarUSers.UseVisualStyleBackColor = false;
+            BTN_Home_gestionarUSers.Click += BTN_Home_gestionarUSers_Click;
             // 
             // panel5
             // 
@@ -524,6 +567,8 @@
             panel_Home_Search_Consulta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PIC_Home_Search).EndInit();
             panel1.ResumeLayout(false);
+            panel_Home_GestUsers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)PIC_Home_Config).EndInit();
             panel4.ResumeLayout(false);
@@ -574,5 +619,8 @@
         private ComboBox CB_Home_Search_Capitulo;
         private Label label5;
         private Label label7;
+        private Panel panel_Home_GestUsers;
+        private PictureBox pictureBox1;
+        private Button BTN_Home_gestionarUSers;
     }
 }

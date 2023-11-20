@@ -13,6 +13,8 @@ namespace MAD
 {
     public partial class Form_CambiarContrasena : Form
     {
+        private Usuarios _UsuarioSrvs = Usuarios.GetInstance();
+
         public Form_CambiarContrasena()
         {
             InitializeComponent();
@@ -45,8 +47,7 @@ namespace MAD
 
             if (ValidarContrasena(contrasenaNueva))
             {
-                Usuarios CambioContra = new Usuarios();
-                CambioContra.CambiarContrasena(SesionUsuario.CorreoElectronico, contrasenaActual, contrasenaNueva);
+                _UsuarioSrvs.CambiarContrasena(SesionUsuario.CorreoElectronico, contrasenaActual, contrasenaNueva);
 
                 // Limpiar la TextBox
                 TXTB_CambiarPass_Pass.Text = string.Empty;
@@ -57,7 +58,6 @@ namespace MAD
         }
         private bool ValidarContrasena(string contrasena)
         {
-            // Validar que la contraseña cumpla con los requisitos
             if (contrasena.Length < 6 || contrasena.Length > 15)
             {
                 MessageBox.Show("La contraseña debe tener entre 6 y 15 caracteres.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -13,6 +13,7 @@ namespace MAD
 {
     public partial class Form_EditUser : Form
     {
+        Usuarios _UsuarioSrvs= Usuarios.GetInstance();
         public Form_EditUser()
         {
             InitializeComponent();
@@ -37,10 +38,8 @@ namespace MAD
                 {
                     RB_EditUser_Female.Checked = true;
                 }
-                // Mostrar el Tipo
                 CHEKB_EditUser_Tipo.Checked = SesionUsuario.Tipo;
 
-                // Mostrar el Estatus
                 if (SesionUsuario.Estatus == "ACTIVO")
                 {
                     RB_EditUser_Activo.Checked = true;
@@ -52,7 +51,6 @@ namespace MAD
             }
             else
             {
-                // Si no hay información de usuario, deja el TextBox en blanco
                 LBL_EditUser_MostrarCorreo.Text = string.Empty;
             }
         }
@@ -80,7 +78,6 @@ namespace MAD
         private void BTN_EditUser_Guardar_Click(object sender, EventArgs e)
         {
             char genero = ' ';
-            //Obtener los datos 
             string NombreCom = TXTB_EditUser_Name.Text;
             DateTime FechaNaci = DTP_EditUser_BirthDate.Value;
             if (RB_EditUser_Male.Checked)
@@ -99,11 +96,8 @@ namespace MAD
                 return;
             }
 
-            //Llamar funcion
-            Usuarios InfoPersonal = new Usuarios();
-            InfoPersonal.ActualizaInfoPersonal(SesionUsuario.CorreoElectronico, genero, NombreCom, FechaNaci);
+            _UsuarioSrvs.ActualizaInfoPersonal(SesionUsuario.CorreoElectronico, genero, NombreCom, FechaNaci);
 
-            //Limpiar controles
             TXTB_EditUser_Name.Enabled = false;
             DTP_EditUser_BirthDate.Enabled = false;
             RB_EditUser_Male.Enabled = false;
@@ -149,8 +143,7 @@ namespace MAD
             if (result == DialogResult.Yes)
             {
                 // Si el usuario confirma, realiza la baja
-                Usuarios Baja = new Usuarios();
-                Baja.BajaUsuario(SesionUsuario.CorreoElectronico);
+                _UsuarioSrvs.BajaUsuario(SesionUsuario.CorreoElectronico);
 
                 // Cierra todas las ventanas
                 //CloseAllWindows();

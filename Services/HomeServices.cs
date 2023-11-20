@@ -35,7 +35,6 @@ namespace MAD.Services
         public List<IdiomaDto> ObtenerIdiomas()
         {
             List<IdiomaDto> idiomas = new List<IdiomaDto>();
-            // Consulta SQL para obtener los idiomas
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

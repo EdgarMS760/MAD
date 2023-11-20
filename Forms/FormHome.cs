@@ -1,4 +1,5 @@
 ﻿using MAD.Dtos;
+using MAD.Forms;
 using MAD.Properties;
 using MAD.Services;
 using System;
@@ -17,7 +18,7 @@ namespace MAD
 {
     public partial class FORM_Home : Form
     {
-        private HomeServices _home= HomeServices.GetInstance();
+        private HomeServices _home = HomeServices.GetInstance();
         private bool consulta = false;
         public FORM_Home()
         {
@@ -101,6 +102,10 @@ namespace MAD
         {
             panel_favs_home.Visible = false;
             panel_Home_Search_Consulta.Visible = false;
+            if (!SesionUsuario.Tipo)
+            {
+                panel_Home_GestUsers.Visible = false;
+            }
         }
         private void HideFavsOptions()
         {
@@ -152,7 +157,7 @@ namespace MAD
 
                 MessageBox.Show("la busqueda debe tener minimo 3 palabras");
             }
-            else if(CB_Home_Book.Text =="" && consulta)
+            else if (CB_Home_Book.Text == "" && consulta)
             {
                 MessageBox.Show("seleccione un libro");
             }
@@ -168,16 +173,16 @@ namespace MAD
                 bool versParse = int.TryParse(numvers, out parsedNumVers);
 
                 List<VersiculoDto> info = _home.BuscarVersiculos(TXTB_Home_Search.Text, ids[0], ids[1] > 0 ? ids[1] : null, ids[2] > 0 ? ids[2] : null, capParse ? parsedNumCap : null, versParse ? parsedNumVers : null);
-                if (info.Count>0)
+                if (info.Count > 0)
                 {
-                _home.GuardarConsulta(TXTB_Home_Search.Text, nombreLibro, capParse ? parsedNumCap : null, versParse ? parsedNumVers : null, "admin@mail.com");
-                llenarResultBible(info);
+                    _home.GuardarConsulta(TXTB_Home_Search.Text, nombreLibro, capParse ? parsedNumCap : null, versParse ? parsedNumVers : null, SesionUsuario.CorreoElectronico);
+                    llenarResultBible(info);
                 }
                 else
                 {
                     MessageBox.Show("no se encontraron resultados");
                 }
-             
+
             }
         }
 
@@ -190,7 +195,7 @@ namespace MAD
             CB_Home_Testament.Items.Add("");
             if (CB_Home_Lang.SelectedItem != null)
             {
-             
+
 
                 IdiomaDto idiomaSeleccionado = (IdiomaDto)CB_Home_Lang.SelectedItem;
                 int idSeleccionado = idiomaSeleccionado.id_Idioma;
@@ -231,7 +236,7 @@ namespace MAD
             {
                 CB_Home_Book.Items.Clear();
                 CB_Home_Book.Items.Add("");
-                
+
 
                 TestamentoDto testamento = (TestamentoDto)CB_Home_Testament.SelectedItem;
                 int idTestmento = testamento.id_Testamento;
@@ -403,7 +408,7 @@ namespace MAD
                 if (CB_Home_Search_Capitulo.SelectedItem != "")
                 {
                     CB_Home_Search_Versiculo.Items.Clear();
-    
+
                     CB_Home_Search_Versiculo.Items.Add("");
                     int cap = int.Parse(CB_Home_Search_Capitulo.Text);
 
@@ -421,6 +426,12 @@ namespace MAD
 
                 }
             }
+        }
+
+        private void BTN_Home_gestionarUSers_Click(object sender, EventArgs e)
+        {
+            Form_GestionUsuarios form_GestionUsuarios=new Form_GestionUsuarios();
+            form_GestionUsuarios.ShowDialog();
         }
     }
 }

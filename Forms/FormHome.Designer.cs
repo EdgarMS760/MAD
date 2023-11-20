@@ -65,6 +65,9 @@
             BTN_Home_Favs = new Button();
             panel_home_logo = new Panel();
             pictureBox2 = new PictureBox();
+            panel_Home_GestUsers = new Panel();
+            pictureBox1 = new PictureBox();
+            BTN_Home_gestionarUSers = new Button();
             label1 = new Label();
             panel1_Home.SuspendLayout();
             panel_Home_search.SuspendLayout();
@@ -80,6 +83,8 @@
             ((System.ComponentModel.ISupportInitialize)PIC_Home_Star).BeginInit();
             panel_home_logo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel_Home_GestUsers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -327,6 +332,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Wheat;
+            panel1.Controls.Add(panel_Home_GestUsers);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel_favs_home);
@@ -505,6 +511,42 @@
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
             // 
+            // panel_Home_GestUsers
+            // 
+            panel_Home_GestUsers.Controls.Add(pictureBox1);
+            panel_Home_GestUsers.Controls.Add(BTN_Home_gestionarUSers);
+            panel_Home_GestUsers.Dock = DockStyle.Bottom;
+            panel_Home_GestUsers.Location = new Point(0, 933);
+            panel_Home_GestUsers.Name = "panel_Home_GestUsers";
+            panel_Home_GestUsers.Size = new Size(186, 54);
+            panel_Home_GestUsers.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Dock = DockStyle.Left;
+            pictureBox1.Image = Properties.Resources.USERCONFIG;
+            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(51, 54);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 5;
+            pictureBox1.TabStop = false;
+            // 
+            // BTN_Home_gestionarUSers
+            // 
+            BTN_Home_gestionarUSers.BackColor = Color.Wheat;
+            BTN_Home_gestionarUSers.Dock = DockStyle.Right;
+            BTN_Home_gestionarUSers.FlatAppearance.BorderColor = Color.Black;
+            BTN_Home_gestionarUSers.FlatAppearance.BorderSize = 0;
+            BTN_Home_gestionarUSers.FlatStyle = FlatStyle.Flat;
+            BTN_Home_gestionarUSers.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            BTN_Home_gestionarUSers.Location = new Point(48, 0);
+            BTN_Home_gestionarUSers.Name = "BTN_Home_gestionarUSers";
+            BTN_Home_gestionarUSers.Size = new Size(138, 54);
+            BTN_Home_gestionarUSers.TabIndex = 4;
+            BTN_Home_gestionarUSers.Text = "Gestionar Usuarios";
+            BTN_Home_gestionarUSers.UseVisualStyleBackColor = false;
+            // 
             // FORM_Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -533,6 +575,8 @@
             ((System.ComponentModel.ISupportInitialize)PIC_Home_Star).EndInit();
             panel_home_logo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panel_Home_GestUsers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -574,5 +618,8 @@
         private ComboBox CB_Home_Search_Capitulo;
         private Label label5;
         private Label label7;
+        private Panel panel_Home_GestUsers;
+        private PictureBox pictureBox1;
+        private Button BTN_Home_gestionarUSers;
     }
 }

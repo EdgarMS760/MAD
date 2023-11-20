@@ -10,6 +10,17 @@ namespace MAD.Services
 {
     public class LoginServices
     {
+        private static LoginServices instance;
+
+        public static LoginServices GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new LoginServices();
+            }
+            return instance;
+        }
+
         private string? connectionString;
         public LoginServices()
         { 

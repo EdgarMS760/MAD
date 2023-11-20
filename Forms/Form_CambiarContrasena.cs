@@ -60,7 +60,6 @@ namespace MAD
         }
         private bool ValidarContrasena(string contrasena)
         {
-            // Validar que la contraseña cumpla con los requisitos
             if (contrasena.Length < 6 || contrasena.Length > 15)
                 return false;
 

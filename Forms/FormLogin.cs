@@ -5,7 +5,7 @@ namespace MAD
 {
     public partial class FORM_Login : Form
     {
-
+        private LoginServices _loginSrvs = LoginServices.GetInstance();
         public FORM_Login()
         {
             InitializeComponent();
@@ -86,21 +86,21 @@ namespace MAD
 
         private void BTN_Login_Entrar_Click(object sender, EventArgs e)
         {
-            //LoginServices login = new LoginServices();
-            //bool autentication = login.autenticacion(TXTB_Login_Email.Text, TXTB_Login_Pass.Text);
-            //if (autentication)
-            //{
-            //    FORM_Home _formhome = new FORM_Home();
-            //    _formhome.Show();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("correo electronico o contrasena incorrecta", "Error de autenticacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+           
+            bool autentication = _loginSrvs.autenticacion(TXTB_Login_Email.Text, TXTB_Login_Pass.Text);
+            if (autentication)
+            {
+                FORM_Home _formhome = new FORM_Home();
+                _formhome.Show();
+            }
+            else
+            {
+                MessageBox.Show("correo electronico o contrasena incorrecta", "Error de autenticacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            //}
+            }
 
-            FORM_Home _formhome = new FORM_Home();
-            _formhome.Show();
+            //FORM_Home _formhome = new FORM_Home();
+            //_formhome.Show();
         }
 
         private void FORM_Login_Load(object sender, EventArgs e)

@@ -241,19 +241,20 @@ namespace MAD.Services
 
             return caps;
         }
-        public List<int> ObtenerNumeroVersPorCapitulo(int numcap)
+        public List<int> ObtenerNumeroVersPorCapitulo(int numcap, string nombreLibro)
         {
             List<int> vers = new List<int>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+                connection.Open();
                 using (SqlCommand command = new SqlCommand("ObtenerNumeroVersPorCapitulo", connection))
                 {
                     command.CommandType = CommandType.StoredProcedure;
                     try
                     {
                         command.Parameters.AddWithValue("@NumeroCap", numcap);
-                        connection.Open();
+                        command.Parameters.AddWithValue("@NombreLibro", nombreLibro);
                         SqlDataReader reader = command.ExecuteReader();
 
                         while (reader.Read())
@@ -289,7 +290,7 @@ namespace MAD.Services
                     command.Parameters.AddWithValue("@Id_libro", idLibro ?? (object)DBNull.Value);
                     command.Parameters.AddWithValue("@NumeroCap", numeroCap ?? (object)DBNull.Value);
                     command.Parameters.AddWithValue("@NumeroVers", numeroVers ?? (object)DBNull.Value);
-                    
+
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -310,8 +311,8 @@ namespace MAD.Services
 
                     }
                 }
-               
-               connection.Close();
+
+                connection.Close();
             }
 
             return versiculos;
@@ -367,7 +368,7 @@ namespace MAD.Services
                 }
 
                 connection.Close();
-                
+
             }
         }
         public List<FullChapterDto> fullChapter(string nombreLibro, int numCap)

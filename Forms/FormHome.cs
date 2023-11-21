@@ -368,6 +368,7 @@ namespace MAD
                 CB_Home_Book.SelectedIndex = 0;
                 consulta = true;
                 CB_Home_Search_Capitulo.Items.Clear();
+                CB_Home_Search_Versiculo.Items.Clear();
                 //TXTB_Home_Search.Enabled = false;
                 panel_Home_Search_Consulta.Visible = true;
             }
@@ -404,15 +405,16 @@ namespace MAD
         {
 
             if (consulta)
-            {
+            {  
+               
                 if (CB_Home_Search_Capitulo.SelectedItem != "")
                 {
+                  
                     CB_Home_Search_Versiculo.Items.Clear();
-
                     CB_Home_Search_Versiculo.Items.Add("");
                     int cap = int.Parse(CB_Home_Search_Capitulo.Text);
 
-                    List<int> vers = _home.ObtenerNumeroVersPorCapitulo(cap);
+                    List<int> vers = _home.ObtenerNumeroVersPorCapitulo(cap, CB_Home_Book.Text);
 
                     foreach (int numvers in vers)
                     {

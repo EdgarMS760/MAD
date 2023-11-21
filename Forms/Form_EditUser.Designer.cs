@@ -52,7 +52,9 @@
             LBL_EditUser_MostrarContraseña = new Label();
             BTN_EditUser_Baja = new Button();
             label9 = new Label();
+            panel2 = new Panel();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -148,7 +150,7 @@
             RB_EditUser_Activo.Enabled = false;
             RB_EditUser_Activo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             RB_EditUser_Activo.ForeColor = Color.DimGray;
-            RB_EditUser_Activo.Location = new Point(308, 432);
+            RB_EditUser_Activo.Location = new Point(3, 12);
             RB_EditUser_Activo.Name = "RB_EditUser_Activo";
             RB_EditUser_Activo.Size = new Size(71, 25);
             RB_EditUser_Activo.TabIndex = 7;
@@ -162,7 +164,7 @@
             RB_EditUser_Inactivo.Enabled = false;
             RB_EditUser_Inactivo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             RB_EditUser_Inactivo.ForeColor = Color.DimGray;
-            RB_EditUser_Inactivo.Location = new Point(385, 433);
+            RB_EditUser_Inactivo.Location = new Point(80, 13);
             RB_EditUser_Inactivo.Name = "RB_EditUser_Inactivo";
             RB_EditUser_Inactivo.Size = new Size(82, 25);
             RB_EditUser_Inactivo.TabIndex = 8;
@@ -356,12 +358,22 @@
             label9.TabIndex = 26;
             label9.Text = "DAR DE BAJA LA CUENTA";
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(RB_EditUser_Activo);
+            panel2.Controls.Add(RB_EditUser_Inactivo);
+            panel2.Location = new Point(308, 417);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(200, 49);
+            panel2.TabIndex = 27;
+            // 
             // Form_EditUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Beige;
             ClientSize = new Size(765, 687);
+            Controls.Add(panel2);
             Controls.Add(label9);
             Controls.Add(BTN_EditUser_Baja);
             Controls.Add(LBL_EditUser_MostrarContraseña);
@@ -376,8 +388,6 @@
             Controls.Add(BTN_EditUser_Guardar);
             Controls.Add(TXTB_EditUser_Name);
             Controls.Add(BTN_EditUser_Editar);
-            Controls.Add(RB_EditUser_Inactivo);
-            Controls.Add(RB_EditUser_Activo);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -391,6 +401,8 @@
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -421,5 +433,6 @@
         private Label LBL_EditUser_MostrarContraseña;
         private Button BTN_EditUser_Baja;
         private Label label9;
+        private Panel panel2;
     }
 }

@@ -71,7 +71,6 @@ namespace MAD
             DTP_EditUser_BirthDate.Enabled = true;
             RB_EditUser_Male.Enabled = true;
             RB_EditUser_Female.Enabled = true;
-            CHEKB_EditUser_Tipo.Enabled = true;
             BTN_EditUser_Guardar.Enabled = true;
         }
 

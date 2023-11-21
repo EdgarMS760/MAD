@@ -49,8 +49,7 @@ namespace MAD.Services
                 {
                     SesionUsuario.CorreoElectronico = email;
                     SesionUsuario.Contrasena = pass;
-                    _UsuarioSrvs.ObtenerInfoPersonal(SesionUsuario.CorreoElectronico);
-                    _UsuarioSrvs.ObtenerTipoYEstado(SesionUsuario.CorreoElectronico);
+                    _UsuarioSrvs.ObtenerInfoUsuario(SesionUsuario.CorreoElectronico);
                 }
                 connection.Close();
                 return autenticado;

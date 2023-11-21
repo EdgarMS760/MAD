@@ -93,13 +93,13 @@ namespace MAD.Services
                 }
             }
         }
-        public void ObtenerInfoPersonal(string correoElectronico)
+        public void ObtenerInfoUsuario(string correoElectronico)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
 
-                using (SqlCommand sqlCommand = new SqlCommand("ObtenerInfoPersonal", connection))
+                using (SqlCommand sqlCommand = new SqlCommand("ObtenerInfoUsuario", connection))
                 {
                     sqlCommand.CommandType = CommandType.StoredProcedure;
 
@@ -110,38 +110,17 @@ namespace MAD.Services
                     sqlCommand.Parameters.Add("@NombreCompleto", SqlDbType.VarChar, 50).Direction = ParameterDirection.Output;
                     sqlCommand.Parameters.Add("@Genero", SqlDbType.Char, 1).Direction = ParameterDirection.Output;
                     sqlCommand.Parameters.Add("@FechaNacimiento", SqlDbType.Date).Direction = ParameterDirection.Output;
-
-                    sqlCommand.ExecuteNonQuery();
-
-                    // Verificar si los valores son DBNull antes de asignarlos a las propiedades de SesionUsuario
-                    SesionUsuario.NombreCom = (sqlCommand.Parameters["@NombreCompleto"].Value != DBNull.Value) ? sqlCommand.Parameters["@NombreCompleto"].Value.ToString() : null;
-                    SesionUsuario.Genero = (sqlCommand.Parameters["@Genero"].Value != DBNull.Value) ? Convert.ToChar(sqlCommand.Parameters["@Genero"].Value) : default(char); 
-                    SesionUsuario.FechaNac = (sqlCommand.Parameters["@FechaNacimiento"].Value != DBNull.Value) ? (DateTime)sqlCommand.Parameters["@FechaNacimiento"].Value : DateTime.Now;
-                }
-            }
-        }
-        public void ObtenerTipoYEstado(string correoElectronico)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                using (SqlCommand sqlCommand = new SqlCommand("ObtenerTipoYEstado", connection))
-                {
-                    sqlCommand.CommandType = CommandType.StoredProcedure;
-
-                    // Parámetros de entrada
-                    sqlCommand.Parameters.AddWithValue("@CorreoElectronico", SesionUsuario.CorreoElectronico);
-
-                    // Parámetros de salida
                     sqlCommand.Parameters.Add("@Tipo", SqlDbType.Bit).Direction = ParameterDirection.Output;
                     sqlCommand.Parameters.Add("@Estatus", SqlDbType.Char, 15).Direction = ParameterDirection.Output;
 
                     sqlCommand.ExecuteNonQuery();
 
                     // Verificar si los valores son DBNull antes de asignarlos a las propiedades de SesionUsuario
+                    SesionUsuario.NombreCom = (sqlCommand.Parameters["@NombreCompleto"].Value != DBNull.Value) ? sqlCommand.Parameters["@NombreCompleto"].Value.ToString() : null;
+                    SesionUsuario.Genero = (sqlCommand.Parameters["@Genero"].Value != DBNull.Value) ? Convert.ToChar(sqlCommand.Parameters["@Genero"].Value) : default(char);
+                    SesionUsuario.FechaNac = (sqlCommand.Parameters["@FechaNacimiento"].Value != DBNull.Value) ? (DateTime)sqlCommand.Parameters["@FechaNacimiento"].Value : DateTime.Now;
                     SesionUsuario.Tipo = (sqlCommand.Parameters["@Tipo"].Value != DBNull.Value) ? Convert.ToBoolean(sqlCommand.Parameters["@Tipo"].Value) : default(bool);
-                    SesionUsuario.Estatus = (sqlCommand.Parameters["@Estatus"].Value != DBNull.Value)? sqlCommand.Parameters["@Estatus"].Value.ToString().Trim() : null;
+                    SesionUsuario.Estatus = (sqlCommand.Parameters["@Estatus"].Value != DBNull.Value) ? sqlCommand.Parameters["@Estatus"].Value.ToString().Trim() : null;
                 }
             }
         }

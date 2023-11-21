@@ -1,4 +1,4 @@
-CREATE PROCEDURE ObtenerFavoritos
+ALTER PROCEDURE ObtenerFavoritos
     @CorreoElectronico NVARCHAR(255)
 AS
 BEGIN

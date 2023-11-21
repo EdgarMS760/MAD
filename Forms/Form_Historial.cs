@@ -81,7 +81,7 @@ namespace MAD
             // Configura la apariencia y comportamiento de las columnas según tus necesidades
             DGV_Historial_MostrarHistorial.Columns["Palabras"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             DGV_Historial_MostrarHistorial.Columns["FechaYHora"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; // Cambiado a Fill
-            DGV_Historial_MostrarHistorial.Columns["FechaYHora"].DefaultCellStyle.Format = "dd-MMM-yyyy HH:mm:ss"; // Formato de fecha y hora
+            DGV_Historial_MostrarHistorial.Columns["FechaYHora"].DefaultCellStyle.Format = "dd/MMM/yyyy HH:mm:ss"; // Formato de fecha y hora
             DGV_Historial_MostrarHistorial.Columns["Libro"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             DGV_Historial_MostrarHistorial.Columns["Capitulo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             DGV_Historial_MostrarHistorial.Columns["Versiculo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;

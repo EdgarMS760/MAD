@@ -86,17 +86,42 @@ namespace MAD
 
         private void BTN_Login_Entrar_Click(object sender, EventArgs e)
         {
-           
-            int autentication = _loginSrvs.autenticacion(TXTB_Login_Email.Text, TXTB_Login_Pass.Text);
-
-            if (autentication==1)
+            string email = TXTB_Login_Email.Text;
+            string pass = TXTB_Login_Pass.Text;
+            string estado = _loginSrvs.validacionEstado(email);
+            if (estado == "INACTIVO")
             {
-                FORM_Home _formhome = new FORM_Home();
-                _formhome.Show();
-            }
+                if (pass.Length < 1 || pass == "PASSWORD")
+                {
+                    MessageBox.Show("EL USUARIO ESTA INACTIVO UTILICE SU CONTRASEÑA TEMPORAL PARA CONTINUAR, SI NO LA TIENE CONTACTE AL ADMINISTRADOR", "Error de autenticacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
 
-            //FORM_Home _formhome = new FORM_Home();
-            //_formhome.Show();
+                    int autentication = _loginSrvs.autenticacionPassTemporal(email, pass);
+
+                    if (autentication == 1)
+                    {
+                        _loginSrvs.loginPassTemporal(email, pass);
+                        FORM_Home _formhome = new FORM_Home();
+                        _formhome.Show();
+                    }
+                }
+                return;
+            }
+            else
+            {
+                int autentication = _loginSrvs.autenticacion(email, pass);
+
+                if (autentication == 1)
+                {
+                    FORM_Home _formhome = new FORM_Home();
+                    _formhome.Show();
+                }
+
+                //FORM_Home _formhome = new FORM_Home();
+                //_formhome.Show();
+            }
         }
 
         private void FORM_Login_Load(object sender, EventArgs e)

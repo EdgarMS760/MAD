@@ -43,6 +43,8 @@
             label1 = new Label();
             TXTB_GestionUsuarios_Buscar = new TextBox();
             label3 = new Label();
+            label4 = new Label();
+            BTN_GestionUsuarios_Inactivos = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -225,11 +227,39 @@
             label3.TabIndex = 51;
             label3.Text = "Ingrese correo electronico";
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = Color.Gray;
+            label4.Location = new Point(0, 530);
+            label4.Name = "label4";
+            label4.Size = new Size(206, 25);
+            label4.TabIndex = 53;
+            label4.Text = "USUARIOS INACTIVOS";
+            // 
+            // BTN_GestionUsuarios_Inactivos
+            // 
+            BTN_GestionUsuarios_Inactivos.BackColor = Color.NavajoWhite;
+            BTN_GestionUsuarios_Inactivos.FlatAppearance.BorderColor = Color.NavajoWhite;
+            BTN_GestionUsuarios_Inactivos.FlatStyle = FlatStyle.Flat;
+            BTN_GestionUsuarios_Inactivos.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            BTN_GestionUsuarios_Inactivos.ForeColor = Color.DimGray;
+            BTN_GestionUsuarios_Inactivos.Location = new Point(51, 558);
+            BTN_GestionUsuarios_Inactivos.Name = "BTN_GestionUsuarios_Inactivos";
+            BTN_GestionUsuarios_Inactivos.Size = new Size(108, 33);
+            BTN_GestionUsuarios_Inactivos.TabIndex = 52;
+            BTN_GestionUsuarios_Inactivos.Text = "VER";
+            BTN_GestionUsuarios_Inactivos.UseVisualStyleBackColor = false;
+            BTN_GestionUsuarios_Inactivos.Click += BTN_GestionUsuarios_Inactivos_Click;
+            // 
             // Form_GestionUsuarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(699, 621);
+            Controls.Add(label4);
+            Controls.Add(BTN_GestionUsuarios_Inactivos);
             Controls.Add(label3);
             Controls.Add(TXTB_GestionUsuarios_Buscar);
             Controls.Add(label9);
@@ -269,5 +299,7 @@
         private Label label1;
         private TextBox TXTB_GestionUsuarios_Buscar;
         private Label label3;
+        private Label label4;
+        private Button BTN_GestionUsuarios_Inactivos;
     }
 }

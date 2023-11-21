@@ -31,7 +31,8 @@ namespace MAD.Forms
             else
             {
                 if (_UsuarioSrvs.BuscarUsuario(email))
-                { LBL_GestionUsuarios_MostrarCorreo.Text = gestionUsuariosDto.email;
+                {
+                    LBL_GestionUsuarios_MostrarCorreo.Text = gestionUsuariosDto.email;
                     if (gestionUsuariosDto.estado == "ACTIVO")
                     {
                         RB_GestionUsuarios_Activo.Checked = true;
@@ -40,7 +41,7 @@ namespace MAD.Forms
                     else
 
                     {
-                       
+
                         DialogResult result = MessageBox.Show("Este usuario esta inactivo ¿desea generar contraseña una temporal?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
@@ -123,7 +124,7 @@ namespace MAD.Forms
 
         private void CHEKB_GestionUsuarios_Tipo_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void CHEKB_GestionUsuarios_Tipo_Click(object sender, EventArgs e)
@@ -154,6 +155,13 @@ namespace MAD.Forms
                     gestionUsuariosDto.adminOrNot = false;
                 }
             }
+        }
+
+        private void BTN_GestionUsuarios_Inactivos_Click(object sender, EventArgs e)
+        {
+            Form_ViewInactivos viewInactivos= new Form_ViewInactivos();
+            viewInactivos.ShowDialog();
+
         }
     }
 }

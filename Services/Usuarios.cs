@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace MAD.Services
@@ -212,10 +213,10 @@ namespace MAD.Services
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
 
-                    connection.Open();
+                connection.Open();
 
-                    SqlCommand command = new SqlCommand("SELECT CorreoElectronico,Estado,AdminOrNot FROM dbo.BuscarUsuario(@correoElectronico)", connection);
-                    command.Parameters.AddWithValue("@CorreoElectronico", email);
+                SqlCommand command = new SqlCommand("SELECT CorreoElectronico,Estado,AdminOrNot FROM dbo.BuscarUsuario(@correoElectronico)", connection);
+                command.Parameters.AddWithValue("@CorreoElectronico", email);
 
                 using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                 {
@@ -240,9 +241,9 @@ namespace MAD.Services
                         return false;
                     }
                 }
-                   
 
-                
+
+
             }
         }
 
@@ -281,6 +282,40 @@ namespace MAD.Services
             }
         }
 
+        public List<inactivosDto> viewInactivos()
+        {
+            List<inactivosDto> usuariosInactivos = new List<inactivosDto>();
+            using (SqlConnection conexion = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    using (SqlCommand comando = new SqlCommand("ObtenerUsuariosInactivos", conexion))
+                    {
+                        comando.CommandType = CommandType.StoredProcedure;
+                        conexion.Open();
+                        using (SqlDataReader lector = comando.ExecuteReader())
+                        {
+
+                            while (lector.Read())
+                            {
+                                inactivosDto usuario = new inactivosDto
+                                {
+                                    EMAIL = lector["CorreoElectronico"].ToString(),
+                                    ESTADO = lector["Estado"].ToString().Trim()
+                                };
+                                usuariosInactivos.Add(usuario);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al obtener usuarios inactivos: " + ex.Message);
+                }
+
+            }
+            return usuariosInactivos;
+        }
         public void DesactivarUsuario(string correoElectronico)
         {
             // Lógica para desactivar al usuario
@@ -360,6 +395,7 @@ namespace MAD.Services
                     sqlCommand.ExecuteNonQuery();
                 }
             }
+
         }
     }
 }

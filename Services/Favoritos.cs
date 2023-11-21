@@ -14,6 +14,16 @@ namespace MAD.Services
 {
     public class Favoritos
     {
+        private static Favoritos instance;
+        public static Favoritos GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new Favoritos();
+            }
+            return instance;
+        }
+
         private string? connectionString;
         public Favoritos()
         {

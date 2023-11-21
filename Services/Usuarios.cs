@@ -30,6 +30,7 @@ namespace MAD.Services
                 connectionString = Program.Configuration.GetConnectionString("DefaultConnection");
             }
         }
+
         public void AltaUsuario(string correoElectronico, string contrasena)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))

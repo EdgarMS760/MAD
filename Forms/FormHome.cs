@@ -14,6 +14,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using iText.Kernel.Font;
 
 namespace MAD
 {
@@ -353,7 +358,7 @@ namespace MAD
                 Font chapterFont = new Font(RICHTXTB_Home_Content.Font.FontFamily, 32, FontStyle.Bold);
                 RICHTXTB_Home_Content.SelectionFont = boldFont;
                 RICHTXTB_Home_Content.SelectionFont = chapterFont;
-                RICHTXTB_Home_Content.AppendText("\t\t\t\t\t"+fullChapterDtos[0].nombreLibro + Environment.NewLine + fullChapterDtos[0].numeroCap.ToString() + Environment.NewLine);
+                RICHTXTB_Home_Content.AppendText("\t\t\t\t\t" + fullChapterDtos[0].nombreLibro + Environment.NewLine + fullChapterDtos[0].numeroCap.ToString() + Environment.NewLine);
                 RICHTXTB_Home_Content.SelectionFont = RICHTXTB_Home_Content.Font;
                 foreach (var versiculo in fullChapterDtos)
                 {
@@ -424,11 +429,11 @@ namespace MAD
         {
 
             if (consulta)
-            {  
-               
+            {
+
                 if (CB_Home_Search_Capitulo.SelectedItem != "")
                 {
-                  
+
                     CB_Home_Search_Versiculo.Items.Clear();
                     CB_Home_Search_Versiculo.Items.Add("");
                     int cap = int.Parse(CB_Home_Search_Capitulo.Text);
@@ -451,8 +456,107 @@ namespace MAD
 
         private void BTN_Home_gestionarUSers_Click(object sender, EventArgs e)
         {
-            Form_GestionUsuarios form_GestionUsuarios=new Form_GestionUsuarios();
+            Form_GestionUsuarios form_GestionUsuarios = new Form_GestionUsuarios();
             form_GestionUsuarios.ShowDialog();
+        }
+
+        private void BTN_Home_PDF_Click(object sender, EventArgs e)
+        {
+            if (RICHTXTB_Home_Content.Text.Length > 5)
+            {
+
+
+                try
+                {
+                    using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                    {
+
+                        saveFileDialog.Filter = "Archivos PDF (*.pdf)|*.pdf";
+                        saveFileDialog.Title = "Guardar archivo PDF";
+                        saveFileDialog.FileName = FileNameAux().Trim();
+
+
+                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+
+                            using (MemoryStream ms = new MemoryStream())
+                            {
+                                using (var writer = new PdfWriter(ms))
+                                {
+
+                                    using (var pdf = new PdfDocument(writer))
+                                    {
+
+                                        var document = new Document(pdf);
+
+
+                                        string[] lineas = RICHTXTB_Home_Content.Lines;
+
+
+                                        document.Add(new Paragraph(lineas[0])
+                                            .SetTextAlignment(TextAlignment.CENTER)
+                                            .SetFontSize(32)
+                                            .SetBold());
+
+
+                                        document.Add(new Paragraph(lineas[1])
+                                            .SetFontSize(24)
+                                            .SetBold());
+
+
+                                        for (int i = 2; i < lineas.Length; i++)
+                                        {
+                                            string linea = lineas[i];
+
+
+                                            bool quitarNegrita = !string.IsNullOrEmpty(linea) && linea.StartsWith(" ");
+
+
+                                            Paragraph paragraph = new Paragraph(linea);
+
+
+                                            if (quitarNegrita)
+                                            {
+                                                paragraph.SetBold();
+                                            }
+
+
+                                            document.Add(paragraph);
+                                        }
+                                    }
+                                }
+
+
+                                File.WriteAllBytes(saveFileDialog.FileName, ms.ToArray());
+                            }
+
+                            MessageBox.Show("Documento PDF creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error alk convertir a PDF: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("seleccione un capitulo ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private string FileNameAux()
+        {
+            string[] lineas = RICHTXTB_Home_Content.Lines;
+
+
+            if (lineas.Length >= 2)
+            {
+                return $"{lineas[0]}_{lineas[1]}.pdf";
+            }
+            else
+            {
+                return "capitulo.pdf";
+            }
         }
     }
 }

@@ -68,6 +68,7 @@
             BTN_Home_Favs = new Button();
             panel_home_logo = new Panel();
             pictureBox2 = new PictureBox();
+            BTN_Home_PDF = new Button();
             label1 = new Label();
             panel1_Home.SuspendLayout();
             panel_Home_search.SuspendLayout();
@@ -548,11 +549,22 @@
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
             // 
+            // BTN_Home_PDF
+            // 
+            BTN_Home_PDF.Location = new Point(1454, 1010);
+            BTN_Home_PDF.Name = "BTN_Home_PDF";
+            BTN_Home_PDF.Size = new Size(185, 23);
+            BTN_Home_PDF.TabIndex = 2;
+            BTN_Home_PDF.Text = "Descargar Capitulo Como PDF";
+            BTN_Home_PDF.UseVisualStyleBackColor = true;
+            BTN_Home_PDF.Click += BTN_Home_PDF_Click;
+            // 
             // FORM_Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1644, 1041);
+            Controls.Add(BTN_Home_PDF);
             Controls.Add(panel1);
             Controls.Add(panel1_Home);
             FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -622,5 +634,6 @@
         private Panel panel_Home_GestUsers;
         private PictureBox pictureBox1;
         private Button BTN_Home_gestionarUSers;
+        private Button BTN_Home_PDF;
     }
 }

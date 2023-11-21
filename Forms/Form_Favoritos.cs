@@ -57,8 +57,6 @@ namespace MAD
                 int? versiculo = userControl.VersiculoFav;
 
                 favoritosService.EliminarFavorito(SesionUsuario.CorreoElectronico, libro, capitulo, versiculo);
-
-                // Elimina el UserControl del FlowLayoutPanel
                 FlowPanel_Favs_Favoritos.Controls.Remove(userControl);
             }
         }

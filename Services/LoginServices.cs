@@ -25,16 +25,16 @@ namespace MAD.Services
 
         private string? connectionString;
         public LoginServices()
-        { 
-            if(Program.Configuration != null) 
+        {
+            if (Program.Configuration != null)
             {
-                connectionString = Program.Configuration.GetConnectionString("DefaultConnection");            
+                connectionString = Program.Configuration.GetConnectionString("DefaultConnection");
             }
         }
 
-        public bool autenticacion(string email, string pass)
+        public int autenticacion(string email, string pass)
         {
-            if (connectionString == null) { return false; }
+            if (connectionString == null) { return 4; }
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -43,14 +43,31 @@ namespace MAD.Services
                 command.Parameters.AddWithValue("@Correo", email);
                 command.Parameters.AddWithValue("@Contrasena", pass);
 
-                bool autenticado = (bool)command.ExecuteScalar();
+                int autenticado = (int)command.ExecuteScalar();
 
-                if (autenticado)
+                switch (autenticado)
                 {
-                    SesionUsuario.CorreoElectronico = email;
-                    SesionUsuario.Contrasena = pass;
-                    _UsuarioSrvs.ObtenerInfoUsuario(SesionUsuario.CorreoElectronico);
+                    case 1:
+                        {
+                            SesionUsuario.CorreoElectronico = email;
+                            SesionUsuario.Contrasena = pass;
+                            _UsuarioSrvs.ObtenerInfoUsuario(SesionUsuario.CorreoElectronico);
+                        }
+                        break;
+                    case 2:
+                        {
+                            MessageBox.Show("contraseña incorrecta", "Error de autenticacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        break;
+                        case 3:
+                        {
+                            MessageBox.Show("correo electronico incorrecto", "Error de autenticacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        break;
+                    default:
+                        break;
                 }
+             
                 connection.Close();
                 return autenticado;
 

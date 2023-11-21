@@ -31,7 +31,7 @@ namespace MAD.Forms
             else
             {
                 if (_UsuarioSrvs.BuscarUsuario(email))
-                {
+                { LBL_GestionUsuarios_MostrarCorreo.Text = gestionUsuariosDto.email;
                     if (gestionUsuariosDto.estado == "ACTIVO")
                     {
                         RB_GestionUsuarios_Activo.Checked = true;
@@ -40,7 +40,7 @@ namespace MAD.Forms
                     else
 
                     {
-                        LBL_GestionUsuarios_MostrarCorreo.Text = gestionUsuariosDto.email;
+                       
                         DialogResult result = MessageBox.Show("Este usuario esta inactivo ¿desea generar contraseña una temporal?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {

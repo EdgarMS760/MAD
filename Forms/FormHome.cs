@@ -358,7 +358,7 @@ namespace MAD
                 Font chapterFont = new Font(RICHTXTB_Home_Content.Font.FontFamily, 32, FontStyle.Bold);
                 RICHTXTB_Home_Content.SelectionFont = boldFont;
                 RICHTXTB_Home_Content.SelectionFont = chapterFont;
-                RICHTXTB_Home_Content.AppendText("\t\t\t\t\t" + fullChapterDtos[0].nombreLibro + Environment.NewLine + fullChapterDtos[0].numeroCap.ToString() + Environment.NewLine);
+                RICHTXTB_Home_Content.AppendText(fullChapterDtos[0].nombreLibro + Environment.NewLine + fullChapterDtos[0].numeroCap.ToString() + Environment.NewLine);
                 RICHTXTB_Home_Content.SelectionFont = RICHTXTB_Home_Content.Font;
                 foreach (var versiculo in fullChapterDtos)
                 {
@@ -557,6 +557,11 @@ namespace MAD
             {
                 return "capitulo.pdf";
             }
+        }
+
+        private void RICHTXTB_Home_Content_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

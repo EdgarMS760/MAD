@@ -14,7 +14,7 @@ namespace MAD
 {
     public partial class Favs_User_Versicle : UserControl
     {
-        private Favoritos favoritosService; // Asegúrate de tener esta variable de instancia
+        private Favoritos favoritosService;
         public string LibroFav
         {
             get { return LBL_UCFAVS_LibroFav.Text; }
@@ -41,19 +41,16 @@ namespace MAD
 
             if (result == DialogResult.Yes)
             {
-                // Obtén la información del favorito
+
                 string libro = LBL_UCFAVS_LibroFav.Text;
                 int? capitulo = LBL_UCFAVS_CapituloFav.Text == "" ? (int?)null : int.Parse(LBL_UCFAVS_CapituloFav.Text);
                 int? versiculo = LBL_UCFAVS_VersiculoFav.Text == "" ? (int?)null : int.Parse(LBL_UCFAVS_VersiculoFav.Text);
 
 
-                // Lanza el evento para notificar al formulario
                 OnFavoritoEliminado(EventArgs.Empty);
-
-                // Resto del código para eliminar el favorito...
             }
         }
-        // Método para lanzar el evento FavoritoEliminado
+
         protected virtual void OnFavoritoEliminado(EventArgs e)
         {
             FavoritoEliminado?.Invoke(this, e);
@@ -61,21 +58,28 @@ namespace MAD
 
         public void MostrarFavorito(ObtenerFavoritos favorito)
         {
-            // Limpiar el contenido existente (si lo hay)
+
             LimpiarContenido();
 
-            // Mostrar la información del favorito en los Label
             LBL_UCFAVS_LibroFav.Text = favorito.Libro;
             LBL_UCFAVS_CapituloFav.Text = favorito.Capitulo?.ToString() ?? "";
             LBL_UCFAVS_VersiculoFav.Text = favorito.Versiculo?.ToString() ?? "";
         }
         private void LimpiarContenido()
         {
-            // Limpiar el contenido de los Label
             LBL_UCFAVS_LibroFav.Text = string.Empty;
             LBL_UCFAVS_CapituloFav.Text = string.Empty;
             LBL_UCFAVS_VersiculoFav.Text = string.Empty;
         }
 
+        private void Favs_User_Versicle_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LBL_UCFAVS_LibroFav_MouseEnter(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Silver;
+        }
     }
 }

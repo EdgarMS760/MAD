@@ -46,6 +46,7 @@
             LBL_UCFAVS_LibroFav.Size = new Size(127, 40);
             LBL_UCFAVS_LibroFav.TabIndex = 0;
             LBL_UCFAVS_LibroFav.Text = "BOOK";
+            LBL_UCFAVS_LibroFav.MouseEnter += LBL_UCFAVS_LibroFav_MouseEnter;
             // 
             // pictureBox1
             // 
@@ -104,6 +105,7 @@
             Controls.Add(LBL_UCFAVS_LibroFav);
             Name = "Favs_User_Versicle";
             Size = new Size(659, 110);
+            Load += Favs_User_Versicle_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

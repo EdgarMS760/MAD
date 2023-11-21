@@ -52,14 +52,23 @@ namespace MAD.Services
                             SesionUsuario.CorreoElectronico = email;
                             SesionUsuario.Contrasena = pass;
                             _UsuarioSrvs.ObtenerInfoUsuario(SesionUsuario.CorreoElectronico);
+                            _UsuarioSrvs.ReiniciarIntentosFallidos(email);
                         }
                         break;
                     case 2:
                         {
                             MessageBox.Show("contraseña incorrecta", "Error de autenticacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            // Incrementar el contador de intentos fallidos
+                            _UsuarioSrvs.IncrementarIntentosFallidos(email);
+                            int intentosFallidos = _UsuarioSrvs.ObtenerIntentosFallidos(email);
+                            if (intentosFallidos >= 3)
+                            {
+                                // Desactivar al usuario después de tres intentos fallidos
+                                _UsuarioSrvs.DesactivarUsuario(email);
+                            }
                         }
                         break;
-                        case 3:
+                    case 3:
                         {
                             MessageBox.Show("correo electronico incorrecto", "Error de autenticacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }

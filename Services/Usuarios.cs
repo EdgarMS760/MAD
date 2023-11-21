@@ -31,6 +31,7 @@ namespace MAD.Services
                 connectionString = Program.Configuration.GetConnectionString("DefaultConnection");
             }
         }
+
         public void AltaUsuario(string correoElectronico, string contrasena)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
@@ -314,6 +315,87 @@ namespace MAD.Services
 
             }
             return usuariosInactivos;
+        }
+        public void DesactivarUsuario(string correoElectronico)
+        {
+            // Lógica para desactivar al usuario
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+
+                using (SqlCommand sqlCommand = new SqlCommand("sp_DesactivarUsuario", sqlConnection))
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                    sqlCommand.Parameters.AddWithValue("@Correo", correoElectronico);
+
+                    sqlCommand.ExecuteNonQuery();
+
+                    MessageBox.Show("Usuario desactivado", "Desactivación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+        public void IncrementarIntentosFallidos(string correoElectronico)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+
+                using (SqlCommand sqlCommand = new SqlCommand("sp_IncrementarIntentosFallidos", sqlConnection))
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                    sqlCommand.Parameters.AddWithValue("@Correo", correoElectronico);
+
+                    sqlCommand.ExecuteNonQuery();
+                }
+            }
+        }
+        public int ObtenerIntentosFallidos(string correoElectronico)
+        {
+            int intentosFallidos = 0;
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+
+                using (SqlCommand sqlCommand = new SqlCommand("sp_ObtenerIntentosFallidos", sqlConnection))
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                    sqlCommand.Parameters.AddWithValue("@Correo", correoElectronico);
+
+                    // Parámetro de salida
+                    SqlParameter outputParameter = new SqlParameter("@IntentosFallidos", SqlDbType.Int);
+                    outputParameter.Direction = ParameterDirection.Output;
+                    sqlCommand.Parameters.Add(outputParameter);
+
+                    sqlCommand.ExecuteNonQuery();
+
+                    // Obtener el valor del parámetro de salida
+                    intentosFallidos = Convert.ToInt32(outputParameter.Value);
+                }
+            }
+
+            return intentosFallidos;
+        }
+        public void ReiniciarIntentosFallidos(string correoElectronico)
+        {
+            // Lógica para reiniciar el contador de intentos fallidos
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+
+                using (SqlCommand sqlCommand = new SqlCommand("sp_ReiniciarIntentosFallidos", sqlConnection))
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                    sqlCommand.Parameters.AddWithValue("@Correo", correoElectronico);
+
+                    sqlCommand.ExecuteNonQuery();
+                }
+            }
+
         }
     }
 }

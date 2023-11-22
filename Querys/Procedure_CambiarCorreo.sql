@@ -21,6 +21,19 @@ BEGIN
     SET CorreoElectronico = @NuevoCorreo
     WHERE CorreoElectronico = @CorreoActual;
 
+	--Actualizar tablas de Favoritos, consultas e Historial
+    UPDATE Favorito
+    SET CorreoElectronico = @NuevoCorreo
+    WHERE CorreoElectronico = @CorreoActual;
+	
+    UPDATE Consulta
+    SET CorreoElectronico = @NuevoCorreo
+    WHERE CorreoElectronico = @CorreoActual;
+
+    UPDATE Historial
+    SET CorreoElectronico = @NuevoCorreo
+    WHERE CorreoElectronico = @CorreoActual;
+
     -- Habilitar restricciones de clave foránea
     ALTER TABLE InfoPersonal WITH CHECK CHECK CONSTRAINT ALL;
     ALTER TABLE Contrasena WITH CHECK CHECK CONSTRAINT ALL;

@@ -24,6 +24,7 @@ namespace MAD.Services
                 connectionString = Program.Configuration.GetConnectionString("DefaultConnection");
             }
         }
+        public static bool IgnoreMessageBoxLogic { get; set; } = false;
         public static HomeServices GetInstance()
         {
             if (instance == null)

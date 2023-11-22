@@ -124,13 +124,13 @@ namespace MAD
         private void BTN_EditUser_CambiarContra_Click(object sender, EventArgs e)
         {
             Form_CambiarContrasena _formCamContra = new Form_CambiarContrasena();
-            _formCamContra.Show();
+            _formCamContra.ShowDialog();
         }
 
         private void BTN_EditUser_CambiarCorreo_Click(object sender, EventArgs e)
         {
             Form_CambiarCorreo _formCamCorreo = new Form_CambiarCorreo();
-            _formCamCorreo.Show();
+            _formCamCorreo.ShowDialog();
         }
 
         private void BTN_EditUser_Baja_Click(object sender, EventArgs e)
@@ -142,19 +142,25 @@ namespace MAD
             {
                 // Si el usuario confirma, realiza la baja
                 _UsuarioSrvs.BajaUsuario(SesionUsuario.CorreoElectronico);
+                // En alguna parte de tu código
+                HomeServices.IgnoreMessageBoxLogic = true;
+                CloseAllOpenForms(); // Método para cerrar todas las formas
+                HomeServices.IgnoreMessageBoxLogic = false; // Restablecer para futuros cierres
 
-                // Cierra todas las ventanas
-                //CloseAllWindows();
+
+                // Abre una nueva instancia del formulario de inicio de sesión
+                FORM_Login formLogin = new FORM_Login();
+                formLogin.Show();
             }
             // Si el usuario elige "No", no se realiza ninguna acción
         }
 
-        private void CloseAllWindows()
+        private void CloseAllOpenForms()
         {
-            // Cierra todas las ventanas abiertas
-            foreach (Form form in Application.OpenForms)
+            // Cierra todas las ventanas abiertas excepto la principal (Application.OpenForms[0])
+            for (int i = Application.OpenForms.Count - 1; i >= 1; i--)
             {
-                form.Close();
+                Application.OpenForms[i].Close();
             }
         }
 

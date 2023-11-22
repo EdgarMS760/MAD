@@ -179,7 +179,7 @@
             BTN_EditUser_Editar.FlatStyle = FlatStyle.Flat;
             BTN_EditUser_Editar.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             BTN_EditUser_Editar.ForeColor = Color.DimGray;
-            BTN_EditUser_Editar.Location = new Point(319, 145);
+            BTN_EditUser_Editar.Location = new Point(340, 143);
             BTN_EditUser_Editar.Name = "BTN_EditUser_Editar";
             BTN_EditUser_Editar.Size = new Size(108, 33);
             BTN_EditUser_Editar.TabIndex = 9;
@@ -193,7 +193,7 @@
             TXTB_EditUser_Name.Enabled = false;
             TXTB_EditUser_Name.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             TXTB_EditUser_Name.ForeColor = Color.DimGray;
-            TXTB_EditUser_Name.Location = new Point(308, 216);
+            TXTB_EditUser_Name.Location = new Point(329, 214);
             TXTB_EditUser_Name.Name = "TXTB_EditUser_Name";
             TXTB_EditUser_Name.Size = new Size(242, 33);
             TXTB_EditUser_Name.TabIndex = 10;
@@ -222,7 +222,7 @@
             DTP_EditUser_BirthDate.CalendarTrailingForeColor = Color.DimGray;
             DTP_EditUser_BirthDate.Enabled = false;
             DTP_EditUser_BirthDate.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            DTP_EditUser_BirthDate.Location = new Point(308, 255);
+            DTP_EditUser_BirthDate.Location = new Point(329, 253);
             DTP_EditUser_BirthDate.Name = "DTP_EditUser_BirthDate";
             DTP_EditUser_BirthDate.Size = new Size(242, 33);
             DTP_EditUser_BirthDate.TabIndex = 15;
@@ -233,7 +233,7 @@
             CHEKB_EditUser_Tipo.Enabled = false;
             CHEKB_EditUser_Tipo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             CHEKB_EditUser_Tipo.ForeColor = Color.DimGray;
-            CHEKB_EditUser_Tipo.Location = new Point(308, 471);
+            CHEKB_EditUser_Tipo.Location = new Point(329, 469);
             CHEKB_EditUser_Tipo.Name = "CHEKB_EditUser_Tipo";
             CHEKB_EditUser_Tipo.Size = new Size(129, 25);
             CHEKB_EditUser_Tipo.TabIndex = 16;
@@ -258,7 +258,7 @@
             RB_EditUser_Female.Enabled = false;
             RB_EditUser_Female.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             RB_EditUser_Female.ForeColor = Color.DimGray;
-            RB_EditUser_Female.Location = new Point(413, 307);
+            RB_EditUser_Female.Location = new Point(434, 305);
             RB_EditUser_Female.Name = "RB_EditUser_Female";
             RB_EditUser_Female.Size = new Size(97, 25);
             RB_EditUser_Female.TabIndex = 20;
@@ -272,7 +272,7 @@
             RB_EditUser_Male.Enabled = false;
             RB_EditUser_Male.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             RB_EditUser_Male.ForeColor = Color.DimGray;
-            RB_EditUser_Male.Location = new Point(308, 307);
+            RB_EditUser_Male.Location = new Point(329, 305);
             RB_EditUser_Male.Name = "RB_EditUser_Male";
             RB_EditUser_Male.Size = new Size(99, 25);
             RB_EditUser_Male.TabIndex = 19;
@@ -287,7 +287,7 @@
             BTN_EditUser_CambiarContra.FlatStyle = FlatStyle.Flat;
             BTN_EditUser_CambiarContra.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             BTN_EditUser_CambiarContra.ForeColor = Color.DimGray;
-            BTN_EditUser_CambiarContra.Location = new Point(556, 381);
+            BTN_EditUser_CambiarContra.Location = new Point(577, 379);
             BTN_EditUser_CambiarContra.Name = "BTN_EditUser_CambiarContra";
             BTN_EditUser_CambiarContra.Size = new Size(99, 33);
             BTN_EditUser_CambiarContra.TabIndex = 21;
@@ -302,7 +302,7 @@
             BTN_EditUser_CambiarCorreo.FlatStyle = FlatStyle.Flat;
             BTN_EditUser_CambiarCorreo.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             BTN_EditUser_CambiarCorreo.ForeColor = Color.DimGray;
-            BTN_EditUser_CambiarCorreo.Location = new Point(556, 341);
+            BTN_EditUser_CambiarCorreo.Location = new Point(577, 339);
             BTN_EditUser_CambiarCorreo.Name = "BTN_EditUser_CambiarCorreo";
             BTN_EditUser_CambiarCorreo.Size = new Size(99, 33);
             BTN_EditUser_CambiarCorreo.TabIndex = 22;
@@ -315,7 +315,7 @@
             LBL_EditUser_MostrarCorreo.AutoSize = true;
             LBL_EditUser_MostrarCorreo.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             LBL_EditUser_MostrarCorreo.ForeColor = Color.Gray;
-            LBL_EditUser_MostrarCorreo.Location = new Point(308, 350);
+            LBL_EditUser_MostrarCorreo.Location = new Point(329, 348);
             LBL_EditUser_MostrarCorreo.Name = "LBL_EditUser_MostrarCorreo";
             LBL_EditUser_MostrarCorreo.Size = new Size(70, 25);
             LBL_EditUser_MostrarCorreo.TabIndex = 23;
@@ -326,7 +326,7 @@
             LBL_EditUser_MostrarContraseña.AutoSize = true;
             LBL_EditUser_MostrarContraseña.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             LBL_EditUser_MostrarContraseña.ForeColor = Color.Gray;
-            LBL_EditUser_MostrarContraseña.Location = new Point(308, 389);
+            LBL_EditUser_MostrarContraseña.Location = new Point(329, 387);
             LBL_EditUser_MostrarContraseña.Name = "LBL_EditUser_MostrarContraseña";
             LBL_EditUser_MostrarContraseña.Size = new Size(109, 25);
             LBL_EditUser_MostrarContraseña.TabIndex = 24;
@@ -362,7 +362,7 @@
             // 
             panel2.Controls.Add(RB_EditUser_Activo);
             panel2.Controls.Add(RB_EditUser_Inactivo);
-            panel2.Location = new Point(308, 417);
+            panel2.Location = new Point(329, 415);
             panel2.Name = "panel2";
             panel2.Size = new Size(200, 49);
             panel2.TabIndex = 27;

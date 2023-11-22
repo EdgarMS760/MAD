@@ -159,8 +159,13 @@ namespace MAD.Forms
 
         private void BTN_GestionUsuarios_Inactivos_Click(object sender, EventArgs e)
         {
-            Form_ViewInactivos viewInactivos= new Form_ViewInactivos();
+            Form_ViewInactivos viewInactivos = new Form_ViewInactivos();
             viewInactivos.ShowDialog();
+
+        }
+
+        private void Form_GestionUsuarios_Load(object sender, EventArgs e)
+        {
 
         }
     }

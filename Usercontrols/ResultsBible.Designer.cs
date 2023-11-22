@@ -71,7 +71,7 @@
             LBL_UserControl_Content.Cursor = Cursors.Help;
             LBL_UserControl_Content.Location = new Point(133, 37);
             LBL_UserControl_Content.Name = "LBL_UserControl_Content";
-            LBL_UserControl_Content.Size = new Size(516, 127);
+            LBL_UserControl_Content.Size = new Size(418, 127);
             LBL_UserControl_Content.TabIndex = 2;
             LBL_UserControl_Content.Text = "content";
             LBL_UserControl_Content.Click += LBL_UserControl_Content_Click;
@@ -104,7 +104,7 @@
             panel_ResultBible_title.Dock = DockStyle.Top;
             panel_ResultBible_title.Location = new Point(0, 0);
             panel_ResultBible_title.Name = "panel_ResultBible_title";
-            panel_ResultBible_title.Size = new Size(706, 34);
+            panel_ResultBible_title.Size = new Size(622, 34);
             panel_ResultBible_title.TabIndex = 5;
             panel_ResultBible_title.Click += panel_ResultBible_title_Click;
             panel_ResultBible_title.Paint += panel_ResultBible_title_Paint;
@@ -114,7 +114,7 @@
             PIC_ResultBible_Star.BackColor = Color.Transparent;
             PIC_ResultBible_Star.Cursor = Cursors.Hand;
             PIC_ResultBible_Star.Image = Properties.Resources.STAR;
-            PIC_ResultBible_Star.Location = new Point(652, 40);
+            PIC_ResultBible_Star.Location = new Point(557, 50);
             PIC_ResultBible_Star.Name = "PIC_ResultBible_Star";
             PIC_ResultBible_Star.Size = new Size(51, 57);
             PIC_ResultBible_Star.SizeMode = PictureBoxSizeMode.Zoom;
@@ -135,7 +135,7 @@
             Controls.Add(panel_ResultBible_title);
             Cursor = Cursors.Help;
             Name = "ResultsBible";
-            Size = new Size(706, 178);
+            Size = new Size(622, 178);
             Load += ResultsBible_Load;
             Click += ResultsBible_Click;
             MouseEnter += ResultsBible_MouseEnter;

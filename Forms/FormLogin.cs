@@ -106,6 +106,8 @@ namespace MAD
                     if (autentication == 1)
                     {
                         _loginSrvs.loginPassTemporal(email, pass);
+                        Form_CambiarContrasena _formCamContra = new Form_CambiarContrasena();
+                        _formCamContra.Show();
                         FORM_Home _formhome = new FORM_Home();
                         _formhome.Show();
                         this.Hide();
@@ -120,6 +122,7 @@ namespace MAD
                 if (autentication == 1)
                 {
                     FORM_Home _formhome = new FORM_Home();
+                    
                     _formhome.Show();
                     this.Hide();
                 }

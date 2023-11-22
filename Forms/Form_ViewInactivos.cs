@@ -69,6 +69,8 @@ namespace MAD.Forms
             }
             catch (Exception ex)
             {
+                MessageBox.Show("no hay usuarios inactivos", "ATENCION",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
                 MessageBox.Show($"Error en MostrarInactivos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

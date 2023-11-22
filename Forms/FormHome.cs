@@ -14,6 +14,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using iText.Kernel.Font;
 
 namespace MAD
 {
@@ -35,7 +40,7 @@ namespace MAD
         public extern static void SendMessage(IntPtr hwnd, int wmsg, int wparam, int lparam);
         private void FORM_Home_Load(object sender, EventArgs e)
         {
-            //populateItems();
+
         }
 
         private void llenarResultBible(List<VersiculoDto> versiculoDtos)
@@ -352,7 +357,7 @@ namespace MAD
                 Font chapterFont = new Font(RICHTXTB_Home_Content.Font.FontFamily, 32, FontStyle.Bold);
                 RICHTXTB_Home_Content.SelectionFont = boldFont;
                 RICHTXTB_Home_Content.SelectionFont = chapterFont;
-                RICHTXTB_Home_Content.AppendText("\t\t\t\t\t"+fullChapterDtos[0].nombreLibro + Environment.NewLine + fullChapterDtos[0].numeroCap.ToString() + Environment.NewLine);
+                RICHTXTB_Home_Content.AppendText(fullChapterDtos[0].nombreLibro + Environment.NewLine + fullChapterDtos[0].numeroCap.ToString() + Environment.NewLine);
                 RICHTXTB_Home_Content.SelectionFont = RICHTXTB_Home_Content.Font;
                 foreach (var versiculo in fullChapterDtos)
                 {
@@ -423,11 +428,11 @@ namespace MAD
         {
 
             if (consulta)
-            {  
-               
+            {
+
                 if (CB_Home_Search_Capitulo.SelectedItem != "")
                 {
-                  
+
                     CB_Home_Search_Versiculo.Items.Clear();
                     CB_Home_Search_Versiculo.Items.Add("");
                     int cap = int.Parse(CB_Home_Search_Capitulo.Text);
@@ -450,11 +455,9 @@ namespace MAD
 
         private void BTN_Home_gestionarUSers_Click(object sender, EventArgs e)
         {
-            Form_GestionUsuarios form_GestionUsuarios=new Form_GestionUsuarios();
+            Form_GestionUsuarios form_GestionUsuarios = new Form_GestionUsuarios();
             form_GestionUsuarios.ShowDialog();
         }
-<<<<<<< Updated upstream
-=======
 
         private void BTN_Home_PDF_Click(object sender, EventArgs e)
         {
@@ -554,7 +557,10 @@ namespace MAD
                 return "capitulo.pdf";
             }
         }
+        private void RICHTXTB_Home_Content_TextChanged(object sender, EventArgs e)
+        {
 
+        }
         private bool closingHandled = false;
         private void FORM_Home_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -588,6 +594,5 @@ namespace MAD
                 }
             }
         }
->>>>>>> Stashed changes
     }
 }

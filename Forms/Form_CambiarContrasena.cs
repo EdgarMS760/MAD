@@ -48,7 +48,6 @@ namespace MAD
             if (ValidarContrasena(contrasenaNueva))
             {
                 _UsuarioSrvs.CambiarContrasena(SesionUsuario.CorreoElectronico, contrasenaActual, contrasenaNueva);
-
                 // Limpiar la TextBox
                 TXTB_CambiarPass_Pass.Text = string.Empty;
 

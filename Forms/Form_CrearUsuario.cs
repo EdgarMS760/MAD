@@ -45,6 +45,7 @@ namespace MAD.Forms
             // Limpiar los controles después de dar de alta al usuario
             TXTB_CreateUser_Email.Text = string.Empty;
             TXTB_CreateUser_Pass.Text = string.Empty;
+            this.Close();
         }
 
         private bool ValidarCorreoElectronico(string correo)
@@ -52,7 +53,6 @@ namespace MAD.Forms
             // Puedes implementar una validación más compleja si lo necesitas
             return !string.IsNullOrEmpty(correo) && correo.Contains("@") && correo.Contains(".");
         }
-
         private bool ValidarContrasena(string contrasena)
         {
             // Validar que la contraseña cumpla con los requisitos
@@ -82,7 +82,6 @@ namespace MAD.Forms
 
             return true;
         }
-
         private void TXTB_CreateUser_Email_TextChanged(object sender, EventArgs e)
         {
 

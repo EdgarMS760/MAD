@@ -58,7 +58,6 @@ namespace MAD
             }
 
             _UsuarioSrvs.CambiarCorreoElectronico(CorreoActual, CorreoNuevo);
-
             // Limpiar el TextBox
             TXTB_CambiarCorreo_CorreoNew.Text = string.Empty;
 

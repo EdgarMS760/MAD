@@ -181,10 +181,10 @@
             LINKLBL_Login_ForgotPass.LinkColor = Color.DimGray;
             LINKLBL_Login_ForgotPass.Location = new Point(504, 327);
             LINKLBL_Login_ForgotPass.Name = "LINKLBL_Login_ForgotPass";
-            LINKLBL_Login_ForgotPass.Size = new Size(120, 15);
+            LINKLBL_Login_ForgotPass.Size = new Size(106, 15);
             LINKLBL_Login_ForgotPass.TabIndex = 0;
             LINKLBL_Login_ForgotPass.TabStop = true;
-            LINKLBL_Login_ForgotPass.Text = "FORGOT PASSWORD?";
+            LINKLBL_Login_ForgotPass.Text = "CREATE ACCOUNT";
             LINKLBL_Login_ForgotPass.LinkClicked += LINKLBL_Login_ForgotPass_LinkClicked;
             // 
             // FORM_Login

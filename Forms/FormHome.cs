@@ -32,7 +32,7 @@ namespace MAD
             InitializeComponent();
             MenuCustom();
             CargarIdiomas();
-
+            this.FormClosing += FORM_Home_FormClosing;
         }
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -165,7 +165,7 @@ namespace MAD
         {
             HideFavsOptions();
             Form_Favoritos _formEFav = new Form_Favoritos();
-            _formEFav.Show();
+            _formEFav.ShowDialog();
         }
 
         private void FORM_Home_MouseDown(object sender, MouseEventArgs e)
@@ -178,12 +178,11 @@ namespace MAD
         {
             if (TXTB_Home_Search.TextLength < 3 && !consulta)
             {
-
-                MessageBox.Show("la busqueda debe tener minimo 3 palabras");
+                MessageBox.Show("La búsqueda por palabra debe tener mínimo 3 letras", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (CB_Home_Book.Text == "" && consulta)
             {
-                MessageBox.Show("seleccione un libro");
+                MessageBox.Show("Seleccione un libro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -204,7 +203,7 @@ namespace MAD
                 }
                 else
                 {
-                    MessageBox.Show("no se encontraron resultados");
+                    MessageBox.Show("No se encontraron resultados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
@@ -339,13 +338,13 @@ namespace MAD
         private void BTN_Home_History_Click(object sender, EventArgs e)
         {
             Form_Historial _formHisto = new Form_Historial();
-            _formHisto.Show();
+            _formHisto.ShowDialog();
         }
 
         private void BTN_Home_Config_Click(object sender, EventArgs e)
         {
             Form_EditUser _formEdUser = new Form_EditUser();
-            _formEdUser.Show();
+            _formEdUser.ShowDialog();
         }
 
         public void buildChapter(List<FullChapterDto> fullChapterDtos)
@@ -459,6 +458,11 @@ namespace MAD
             Form_GestionUsuarios form_GestionUsuarios = new Form_GestionUsuarios();
             form_GestionUsuarios.ShowDialog();
         }
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> CHUCHOFAVS
 
         private void BTN_Home_PDF_Click(object sender, EventArgs e)
         {
@@ -559,9 +563,46 @@ namespace MAD
             }
         }
 
+<<<<<<< HEAD
         private void RICHTXTB_Home_Content_TextChanged(object sender, EventArgs e)
         {
 
         }
+=======
+        private bool closingHandled = false;
+        private void FORM_Home_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!closingHandled)
+            {
+                closingHandled = true;
+
+                if (!HomeServices.IgnoreMessageBoxLogic)
+                {
+                    DialogResult result = MessageBox.Show("¿Desea cerrar la aplicación? En caso de ser NO solo se cerrara la sesion", "Salir", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        // Cerrar la aplicación
+                        Application.Exit();
+                    }
+                    else if (result == DialogResult.No)
+                    {
+                        // Cerrar sesión y mostrar la ventana de inicio de sesión
+                        this.Hide();  // Oculta la ventana actual (FORM_Home)
+                        FORM_Login formLogin = new FORM_Login();
+                        formLogin.Show();  // Muestra la ventana de inicio de sesión
+                        this.Close();  // Cierra la ventana actual (FORM_Home)
+                    }
+                    else if (result == DialogResult.Cancel)
+                    {
+                        // Si el usuario elige Cancelar, no hacemos nada
+                        e.Cancel = true; // Esto evita que el formulario se cierre
+                        closingHandled = false; // Restablecemos el indicador de manejo para futuros cierres
+                    }
+                }
+            }
+        }
+>>>>>>> Stashed changes
+>>>>>>> CHUCHOFAVS
     }
 }

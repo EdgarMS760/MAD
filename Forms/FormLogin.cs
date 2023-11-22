@@ -91,6 +91,9 @@ namespace MAD
             string estado = _loginSrvs.validacionEstado(email);
             if (estado == "INACTIVO")
             {
+                FORM_Home _formhome = new FORM_Home();
+                _formhome.Show();
+
                 if (pass.Length < 1 || pass == "PASSWORD")
                 {
                     MessageBox.Show("EL USUARIO ESTA INACTIVO UTILICE SU CONTRASEÑA TEMPORAL PARA CONTINUAR, SI NO LA TIENE CONTACTE AL ADMINISTRADOR", "Error de autenticacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -105,23 +108,26 @@ namespace MAD
                         _loginSrvs.loginPassTemporal(email, pass);
                         FORM_Home _formhome = new FORM_Home();
                         _formhome.Show();
+                        this.Hide();
                     }
                 }
                 return;
+
             }
             else
             {
                 int autentication = _loginSrvs.autenticacion(email, pass);
-
                 if (autentication == 1)
                 {
                     FORM_Home _formhome = new FORM_Home();
                     _formhome.Show();
+                    this.Hide();
                 }
 
                 //FORM_Home _formhome = new FORM_Home();
                 //_formhome.Show();
             }
+
         }
 
         private void FORM_Login_Load(object sender, EventArgs e)
@@ -132,7 +138,7 @@ namespace MAD
         private void LINKLBL_Login_ForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Form_CrearUsuario _formCreateUser = new Form_CrearUsuario();
-            _formCreateUser.Show();
+            _formCreateUser.ShowDialog();
         }
     }
 }

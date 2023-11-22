@@ -129,5 +129,10 @@ namespace MAD
         {
             PIC_ResultBible_Star.BackColor = Color.Transparent;
         }
+
+        private void panel_ResultBible_title_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

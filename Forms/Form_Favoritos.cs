@@ -44,7 +44,6 @@ namespace MAD
                 userControl.MostrarFavorito(favorito);
                 FlowPanel_Favs_Favoritos.Controls.Add(userControl);
 
-                // Suscribe al evento FavoritoEliminado
                 userControl.FavoritoEliminado += UserControl_FavoritoEliminado;
             }
         }
@@ -52,12 +51,11 @@ namespace MAD
         {
             if (sender is Favs_User_Versicle userControl)
             {
-                // Obtén la información del favorito desde el UserControl
+           
                 string libro = userControl.LibroFav;
                 int? capitulo = userControl.CapituloFav;
                 int? versiculo = userControl.VersiculoFav;
 
-                // Llama al método para eliminar el favorito en la base de datos
                 favoritosService.EliminarFavorito(SesionUsuario.CorreoElectronico, libro, capitulo, versiculo);
 
                 // Elimina el UserControl del FlowLayoutPanel

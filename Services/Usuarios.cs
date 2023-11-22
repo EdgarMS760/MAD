@@ -365,14 +365,13 @@ namespace MAD.Services
 
                     sqlCommand.Parameters.AddWithValue("@Correo", correoElectronico);
 
-                    // Parámetro de salida
                     SqlParameter outputParameter = new SqlParameter("@IntentosFallidos", SqlDbType.Int);
                     outputParameter.Direction = ParameterDirection.Output;
                     sqlCommand.Parameters.Add(outputParameter);
 
                     sqlCommand.ExecuteNonQuery();
 
-                    // Obtener el valor del parámetro de salida
+
                     intentosFallidos = Convert.ToInt32(outputParameter.Value);
                 }
             }
@@ -381,7 +380,7 @@ namespace MAD.Services
         }
         public void ReiniciarIntentosFallidos(string correoElectronico)
         {
-            // Lógica para reiniciar el contador de intentos fallidos
+    
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
                 sqlConnection.Open();

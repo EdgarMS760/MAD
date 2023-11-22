@@ -2,6 +2,7 @@
 using MAD.Forms;
 using MAD.Properties;
 using MAD.Services;
+using MAD.Usercontrols;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace MAD
     public partial class FORM_Home : Form
     {
         private HomeServices _home = HomeServices.GetInstance();
+        private Favoritos _favs = Favoritos.GetInstance();
         private bool consulta = false;
         public FORM_Home()
         {
@@ -135,8 +137,25 @@ namespace MAD
         private void BTN_Home_Favs_verFavs_Click(object sender, EventArgs e)
         {
             HideFavsOptions();
+            List<ObtenerFavoritos> favoritos = _favs.ObtenerFavs(SesionUsuario.CorreoElectronico);
+            llenarFavs(favoritos);
         }
+        private void llenarFavs(List<ObtenerFavoritos> favoritos)
+        {
+            flowPanel_Home_content.Controls.Clear();
 
+            foreach (var fav in favoritos)
+            {
+                ViewFavs viewFavs = new ViewFavs(this)
+                {
+                    Title = $"{fav.Capitulo}:{fav.Versiculo}",
+                    TitleBook = $"{fav.Libro}",
+                };
+
+                flowPanel_Home_content.Controls.Add(viewFavs);
+            }
+
+        }
         private void BTN_Home_Favs_EditFavs_Click(object sender, EventArgs e)
         {
             HideFavsOptions();
@@ -333,7 +352,7 @@ namespace MAD
                 Font chapterFont = new Font(RICHTXTB_Home_Content.Font.FontFamily, 32, FontStyle.Bold);
                 RICHTXTB_Home_Content.SelectionFont = boldFont;
                 RICHTXTB_Home_Content.SelectionFont = chapterFont;
-                RICHTXTB_Home_Content.AppendText(fullChapterDtos[0].numeroCap.ToString() + Environment.NewLine);
+                RICHTXTB_Home_Content.AppendText("\t\t\t\t\t"+fullChapterDtos[0].nombreLibro + Environment.NewLine + fullChapterDtos[0].numeroCap.ToString() + Environment.NewLine);
                 RICHTXTB_Home_Content.SelectionFont = RICHTXTB_Home_Content.Font;
                 foreach (var versiculo in fullChapterDtos)
                 {

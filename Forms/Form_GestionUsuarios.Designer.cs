@@ -53,7 +53,7 @@
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label9.ForeColor = Color.Gray;
-            label9.Location = new Point(350, 558);
+            label9.Location = new Point(300, 558);
             label9.Name = "label9";
             label9.Size = new Size(235, 25);
             label9.TabIndex = 49;
@@ -79,7 +79,7 @@
             LBL_GestionUsuarios_MostrarCorreo.AutoSize = true;
             LBL_GestionUsuarios_MostrarCorreo.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             LBL_GestionUsuarios_MostrarCorreo.ForeColor = Color.Gray;
-            LBL_GestionUsuarios_MostrarCorreo.Location = new Point(289, 273);
+            LBL_GestionUsuarios_MostrarCorreo.Location = new Point(299, 273);
             LBL_GestionUsuarios_MostrarCorreo.Name = "LBL_GestionUsuarios_MostrarCorreo";
             LBL_GestionUsuarios_MostrarCorreo.Size = new Size(70, 25);
             LBL_GestionUsuarios_MostrarCorreo.TabIndex = 46;
@@ -90,7 +90,7 @@
             CHEKB_GestionUsuarios_Tipo.AutoSize = true;
             CHEKB_GestionUsuarios_Tipo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             CHEKB_GestionUsuarios_Tipo.ForeColor = Color.DimGray;
-            CHEKB_GestionUsuarios_Tipo.Location = new Point(289, 357);
+            CHEKB_GestionUsuarios_Tipo.Location = new Point(299, 357);
             CHEKB_GestionUsuarios_Tipo.Name = "CHEKB_GestionUsuarios_Tipo";
             CHEKB_GestionUsuarios_Tipo.Size = new Size(129, 25);
             CHEKB_GestionUsuarios_Tipo.TabIndex = 40;
@@ -135,7 +135,7 @@
             RB_GestionUsuarios_Inactivo.Enabled = false;
             RB_GestionUsuarios_Inactivo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             RB_GestionUsuarios_Inactivo.ForeColor = Color.DimGray;
-            RB_GestionUsuarios_Inactivo.Location = new Point(366, 319);
+            RB_GestionUsuarios_Inactivo.Location = new Point(376, 319);
             RB_GestionUsuarios_Inactivo.Name = "RB_GestionUsuarios_Inactivo";
             RB_GestionUsuarios_Inactivo.Size = new Size(82, 25);
             RB_GestionUsuarios_Inactivo.TabIndex = 35;
@@ -149,7 +149,7 @@
             RB_GestionUsuarios_Activo.Enabled = false;
             RB_GestionUsuarios_Activo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             RB_GestionUsuarios_Activo.ForeColor = Color.DimGray;
-            RB_GestionUsuarios_Activo.Location = new Point(289, 318);
+            RB_GestionUsuarios_Activo.Location = new Point(299, 318);
             RB_GestionUsuarios_Activo.Name = "RB_GestionUsuarios_Activo";
             RB_GestionUsuarios_Activo.Size = new Size(71, 25);
             RB_GestionUsuarios_Activo.TabIndex = 34;
@@ -276,6 +276,7 @@
             Controls.Add(panel1);
             Name = "Form_GestionUsuarios";
             Text = " Gestion Usuarios";
+            Load += Form_GestionUsuarios_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

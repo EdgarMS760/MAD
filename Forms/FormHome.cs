@@ -40,7 +40,7 @@ namespace MAD
         public extern static void SendMessage(IntPtr hwnd, int wmsg, int wparam, int lparam);
         private void FORM_Home_Load(object sender, EventArgs e)
         {
-            //populateItems();
+
         }
 
         private void llenarResultBible(List<VersiculoDto> versiculoDtos)

@@ -29,6 +29,7 @@ namespace MAD.Forms
             else
             {
                 MessageBox.Show("no hay usuarios inactivos", "ATENCION",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
           
         }

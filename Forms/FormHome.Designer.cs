@@ -108,7 +108,7 @@
             panel1_Home.Controls.Add(panel_Home_search);
             panel1_Home.Location = new Point(194, 0);
             panel1_Home.Name = "panel1_Home";
-            panel1_Home.Size = new Size(1326, 677);
+            panel1_Home.Size = new Size(1326, 667);
             panel1_Home.TabIndex = 0;
             // 
             // RICHTXTB_Home_Content
@@ -119,7 +119,7 @@
             RICHTXTB_Home_Content.Location = new Point(784, 110);
             RICHTXTB_Home_Content.Name = "RICHTXTB_Home_Content";
             RICHTXTB_Home_Content.ReadOnly = true;
-            RICHTXTB_Home_Content.Size = new Size(542, 567);
+            RICHTXTB_Home_Content.Size = new Size(542, 557);
             RICHTXTB_Home_Content.TabIndex = 3;
             RICHTXTB_Home_Content.Text = "";
             RICHTXTB_Home_Content.TextChanged += RICHTXTB_Home_Content_TextChanged;
@@ -129,7 +129,7 @@
             flowPanel_Home_content.AutoScroll = true;
             flowPanel_Home_content.Location = new Point(0, 116);
             flowPanel_Home_content.Name = "flowPanel_Home_content";
-            flowPanel_Home_content.Size = new Size(743, 558);
+            flowPanel_Home_content.Size = new Size(743, 548);
             flowPanel_Home_content.TabIndex = 1;
             // 
             // panel_Home_search
@@ -554,9 +554,9 @@
             // 
             // BTN_Home_PDF
             // 
-            BTN_Home_PDF.Location = new Point(1255, 708);
+            BTN_Home_PDF.Location = new Point(1326, 683);
             BTN_Home_PDF.Name = "BTN_Home_PDF";
-            BTN_Home_PDF.Size = new Size(242, 23);
+            BTN_Home_PDF.Size = new Size(185, 23);
             BTN_Home_PDF.TabIndex = 2;
             BTN_Home_PDF.Text = "Descargar Capitulo Como PDF";
             BTN_Home_PDF.UseVisualStyleBackColor = true;
@@ -567,7 +567,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1536, 731);
+            ClientSize = new Size(1541, 731);
             Controls.Add(BTN_Home_PDF);
             Controls.Add(panel1);
             Controls.Add(panel1_Home);

@@ -91,9 +91,6 @@ namespace MAD
             string estado = _loginSrvs.validacionEstado(email);
             if (estado == "INACTIVO")
             {
-                FORM_Home _formhome = new FORM_Home();
-                _formhome.Show();
-
                 if (pass.Length < 1 || pass == "PASSWORD")
                 {
                     MessageBox.Show("EL USUARIO ESTA INACTIVO UTILICE SU CONTRASEÑA TEMPORAL PARA CONTINUAR, SI NO LA TIENE CONTACTE AL ADMINISTRADOR", "Error de autenticacion", MessageBoxButtons.OK, MessageBoxIcon.Error);

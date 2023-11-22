@@ -458,7 +458,6 @@ namespace MAD
             Form_GestionUsuarios form_GestionUsuarios = new Form_GestionUsuarios();
             form_GestionUsuarios.ShowDialog();
         }
-
         private void BTN_Home_PDF_Click(object sender, EventArgs e)
         {
             if (RICHTXTB_Home_Content.Text.Length > 5)

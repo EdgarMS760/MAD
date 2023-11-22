@@ -574,6 +574,7 @@
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "FORM_Home";
             Text = "Home";
+            WindowState = FormWindowState.Maximized;
             Load += FORM_Home_Load;
             MouseDown += FORM_Home_MouseDown;
             panel1_Home.ResumeLayout(false);

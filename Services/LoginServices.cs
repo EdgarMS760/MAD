@@ -129,52 +129,7 @@ namespace MAD.Services
             }
 
         }
-      
-        public int autenticacionPassTemporal(string email, string pass)
-        {
-            if (connectionString == null) { return 4; }
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-
-                SqlCommand command = new SqlCommand("SELECT dbo.AutenticarUsuarioPassTemporal(@Correo, @Contrasena)", connection);
-                command.Parameters.AddWithValue("@Correo", email);
-                command.Parameters.AddWithValue("@Contrasena", pass);
-
-                int autenticado = (int)command.ExecuteScalar();
-
-                switch (autenticado)
-                {
-                    case 1:
-                        {
-                            MessageBox.Show("FAVOR DE CAMBIAR SU CONTRASEÑA DESDE EL PANEL DE CONFIGURACION ", "ATENCION", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                            SesionUsuario.CorreoElectronico = email;
-                            SesionUsuario.Contrasena = pass;
-                            _UsuarioSrvs.ObtenerInfoUsuario(SesionUsuario.CorreoElectronico);
-                            _UsuarioSrvs.ReiniciarIntentosFallidos(email);
-                        }
-                        break;
-                    case 2:
-                        {
-                            MessageBox.Show("Contraseña temporal incorrecta", "Error de autenticacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                        }
-                        break;
-                    case 3:
-                        {
-                            MessageBox.Show("Correo electronico incorrecto", "Error de autenticacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        break;
-                    default:
-                        break;
-                }
-
-                connection.Close();
-                return autenticado;
-
-            }
-
-        }
+     
         public string validacionEstado(string email)
         {
             string resultado = null;

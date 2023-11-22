@@ -458,12 +458,6 @@ namespace MAD
             Form_GestionUsuarios form_GestionUsuarios = new Form_GestionUsuarios();
             form_GestionUsuarios.ShowDialog();
         }
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> CHUCHOFAVS
-
         private void BTN_Home_PDF_Click(object sender, EventArgs e)
         {
             if (RICHTXTB_Home_Content.Text.Length > 5)
@@ -563,12 +557,10 @@ namespace MAD
             }
         }
 
-<<<<<<< HEAD
         private void RICHTXTB_Home_Content_TextChanged(object sender, EventArgs e)
         {
 
         }
-=======
         private bool closingHandled = false;
         private void FORM_Home_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -602,7 +594,5 @@ namespace MAD
                 }
             }
         }
->>>>>>> Stashed changes
->>>>>>> CHUCHOFAVS
     }
 }

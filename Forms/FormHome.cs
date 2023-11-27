@@ -143,7 +143,13 @@ namespace MAD
         {
             HideFavsOptions();
             List<ObtenerFavoritos> favoritos = _favs.ObtenerFavs(SesionUsuario.CorreoElectronico);
+            if (favoritos.Count() < 1)
+            {
+                MessageBox.Show("no hay favoritos");
+            }
             llenarFavs(favoritos);
+
+
         }
         private void llenarFavs(List<ObtenerFavoritos> favoritos)
         {
@@ -200,6 +206,7 @@ namespace MAD
                 {
                     _home.GuardarConsulta(TXTB_Home_Search.Text, nombreLibro, capParse ? parsedNumCap : null, versParse ? parsedNumVers : null, SesionUsuario.CorreoElectronico);
                     llenarResultBible(info);
+                    llb_txt_resultadosCount.Text= info.Count.ToString();
                 }
                 else
                 {
@@ -305,6 +312,7 @@ namespace MAD
             }
 
             List<TestamentoDto> testamentos = _home.ObtenerTestamento(idIdioma);
+            //aqui esta el pedo
             string testamentoselec = CB_Home_Testament.Text;
             int idtestamento = 0;
 
@@ -384,14 +392,16 @@ namespace MAD
                 consulta = false;
                 //TXTB_Home_Search.Enabled = true;
                 panel_Home_Search_Consulta.Visible = false;
+                CB_Home_Search_Capitulo.Items.Clear();
+                CB_Home_Search_Versiculo.Items.Clear();
             }
             else
             {
-                TXTB_Home_Search.Text = "";
                 CB_Home_Book.SelectedIndex = 0;
-                consulta = true;
-                CB_Home_Search_Capitulo.Items.Clear();
                 CB_Home_Search_Versiculo.Items.Clear();
+                CB_Home_Search_Capitulo.Items.Clear();
+                TXTB_Home_Search.Text = "";
+                consulta = true;
                 //TXTB_Home_Search.Enabled = false;
                 panel_Home_Search_Consulta.Visible = true;
             }
@@ -592,6 +602,11 @@ namespace MAD
                     }
                 }
             }
+        }
+
+        private void llb_txt_resultadosCount_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

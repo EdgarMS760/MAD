@@ -56,9 +56,9 @@ namespace MAD.Forms
         private bool ValidarContrasena(string contrasena)
         {
             // Validar que la contraseña cumpla con los requisitos
-            if (contrasena.Length < 6 || contrasena.Length > 15)
+            if (contrasena.Length < 8 || contrasena.Length > 15)
             {
-                MessageBox.Show("La contraseña debe tener entre 6 y 15 caracteres.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La contraseña debe tener entre 8 y 15 caracteres.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 

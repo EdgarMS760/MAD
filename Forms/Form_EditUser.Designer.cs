@@ -47,7 +47,6 @@
             RB_EditUser_Female = new RadioButton();
             RB_EditUser_Male = new RadioButton();
             BTN_EditUser_CambiarContra = new Button();
-            BTN_EditUser_CambiarCorreo = new Button();
             LBL_EditUser_MostrarCorreo = new Label();
             LBL_EditUser_MostrarContraseña = new Label();
             BTN_EditUser_Baja = new Button();
@@ -295,21 +294,6 @@
             BTN_EditUser_CambiarContra.UseVisualStyleBackColor = false;
             BTN_EditUser_CambiarContra.Click += BTN_EditUser_CambiarContra_Click;
             // 
-            // BTN_EditUser_CambiarCorreo
-            // 
-            BTN_EditUser_CambiarCorreo.BackColor = Color.NavajoWhite;
-            BTN_EditUser_CambiarCorreo.FlatAppearance.BorderColor = Color.NavajoWhite;
-            BTN_EditUser_CambiarCorreo.FlatStyle = FlatStyle.Flat;
-            BTN_EditUser_CambiarCorreo.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            BTN_EditUser_CambiarCorreo.ForeColor = Color.DimGray;
-            BTN_EditUser_CambiarCorreo.Location = new Point(577, 339);
-            BTN_EditUser_CambiarCorreo.Name = "BTN_EditUser_CambiarCorreo";
-            BTN_EditUser_CambiarCorreo.Size = new Size(99, 33);
-            BTN_EditUser_CambiarCorreo.TabIndex = 22;
-            BTN_EditUser_CambiarCorreo.Text = "Cambiar";
-            BTN_EditUser_CambiarCorreo.UseVisualStyleBackColor = false;
-            BTN_EditUser_CambiarCorreo.Click += BTN_EditUser_CambiarCorreo_Click;
-            // 
             // LBL_EditUser_MostrarCorreo
             // 
             LBL_EditUser_MostrarCorreo.AutoSize = true;
@@ -378,7 +362,6 @@
             Controls.Add(BTN_EditUser_Baja);
             Controls.Add(LBL_EditUser_MostrarContraseña);
             Controls.Add(LBL_EditUser_MostrarCorreo);
-            Controls.Add(BTN_EditUser_CambiarCorreo);
             Controls.Add(BTN_EditUser_CambiarContra);
             Controls.Add(RB_EditUser_Female);
             Controls.Add(RB_EditUser_Male);
@@ -428,7 +411,6 @@
         private RadioButton RB_EditUser_Female;
         private RadioButton RB_EditUser_Male;
         private Button BTN_EditUser_CambiarContra;
-        private Button BTN_EditUser_CambiarCorreo;
         private Label LBL_EditUser_MostrarCorreo;
         private Label LBL_EditUser_MostrarContraseña;
         private Button BTN_EditUser_Baja;

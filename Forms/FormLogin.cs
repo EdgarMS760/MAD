@@ -104,7 +104,7 @@ namespace MAD
                     {
                         _loginSrvs.loginPassTemporal(email, pass);
                         Form_CambiarContrasena _formCamContra = new Form_CambiarContrasena();
-                        _formCamContra.Show();
+                        _formCamContra.ShowDialog();
                         FORM_Home _formhome = new FORM_Home();
                         _formhome.Show();
                         this.Hide();

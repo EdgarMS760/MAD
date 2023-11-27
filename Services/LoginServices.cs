@@ -101,9 +101,8 @@ namespace MAD.Services
                 {
                     case 1:
                         {
-                            MessageBox.Show("FAVOR DE CAMBIAR SU CONTRASEÑA DESDE EL PANEL DE CONFIGURACION ", "ATENCION", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                             SesionUsuario.CorreoElectronico = email;
-                            SesionUsuario.Contrasena = pass;
+                            SesionUsuario.Contrasena = mostrarPass(email).Trim();
                             _UsuarioSrvs.ObtenerInfoUsuario(SesionUsuario.CorreoElectronico);
                             _UsuarioSrvs.ReiniciarIntentosFallidos(email);
                         }
@@ -167,6 +166,33 @@ namespace MAD.Services
                     sqlCommand.ExecuteNonQuery();
                 }
             }
+        }
+        public string mostrarPass(string email)
+        {
+            string pass = null; 
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+
+                using (SqlCommand sqlCommand = new SqlCommand("mostrarPass", sqlConnection))  
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@CorreoElectronico", email);
+
+                
+                    using (SqlDataReader reader = sqlCommand.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+
+                            pass = reader["ContrasenaActual"].ToString();
+                        }
+                    }
+                }
+            }
+
+            return pass;
         }
     }
 }

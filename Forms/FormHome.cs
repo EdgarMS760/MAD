@@ -391,6 +391,7 @@ namespace MAD
             {
                 consulta = false;
                 //TXTB_Home_Search.Enabled = true;
+                CB_Home_Book.SelectedIndex = 0;
                 panel_Home_Search_Consulta.Visible = false;
                 CB_Home_Search_Capitulo.Items.Clear();
                 CB_Home_Search_Versiculo.Items.Clear();

@@ -360,11 +360,11 @@ namespace MAD.Services
 
                     if (repetido == 1)
                     {
-                        MessageBox.Show("se añadio a favoritos");
+                        MessageBox.Show("Se ha añadido a favoritos exitosamente");
                     }
                     else
                     {
-                        MessageBox.Show("ya se añadio a favoritos anteriormente");
+                        MessageBox.Show("Ya se ha añadio a favoritos anteriormente");
                     }
                 }
 

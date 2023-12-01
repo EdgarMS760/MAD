@@ -145,7 +145,7 @@ namespace MAD
             List<ObtenerFavoritos> favoritos = _favs.ObtenerFavs(SesionUsuario.CorreoElectronico);
             if (favoritos.Count() < 1)
             {
-                MessageBox.Show("no hay favoritos");
+                MessageBox.Show("No hay favoritos");
             }
             llenarFavs(favoritos);
 

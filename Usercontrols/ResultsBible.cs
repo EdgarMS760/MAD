@@ -86,7 +86,27 @@ namespace MAD
 
         private void ResultsBible_Load(object sender, EventArgs e)
         {
+            string chapterVersicle = LBL_UserControl_Title.Text;
+            string book = LBL_UserControl_Title_Book.Text;
+            string[] partsCV = chapterVersicle.Split(':');
+            int chapter = int.Parse(partsCV[0]);
+            int versiculo = int.Parse(partsCV[1]);
 
+            Favoritos favoritos = Favoritos.GetInstance();
+            bool esRepetido = favoritos.VerificarFavorito(book, chapter, versiculo, SesionUsuario.CorreoElectronico);
+
+
+            // Cambiar el icono según si es favorito o no
+            if (esRepetido)
+            {
+                PIC_ResultBible_Star.Visible = false;       // Oculta el icono cuando es favorito
+                PIC_ResultBible_StarFav.Visible = true;     // Muestra el otro icono
+            }
+            else
+            {
+                PIC_ResultBible_Star.Visible = true;        // Muestra el icono cuando no es favorito
+                PIC_ResultBible_StarFav.Visible = false;    // Oculta el otro icono
+            }
         }
 
         private void clickaux()
@@ -118,21 +138,31 @@ namespace MAD
             int chapter = int.Parse(partsCV[0]);
             int versiculo = int.Parse(partsCV[1]);
             _home.GuardarFav(book, chapter, versiculo, SesionUsuario.CorreoElectronico);
+            PIC_ResultBible_Star.Visible = false;       
+            PIC_ResultBible_StarFav.Visible = true;
         }
 
         private void PIC_ResultBible_Star_MouseEnter(object sender, EventArgs e)
         {
             PIC_ResultBible_Star.BackColor = Color.DimGray;
         }
-
         private void PIC_ResultBible_Star_MouseLeave(object sender, EventArgs e)
         {
             PIC_ResultBible_Star.BackColor = Color.Transparent;
         }
-
         private void panel_ResultBible_title_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void PIC_ResultBible_StarFav_Click(object sender, EventArgs e)
+        {
+            string chapterVersicle = LBL_UserControl_Title.Text;
+            string book = LBL_UserControl_Title_Book.Text;
+            string[] partsCV = chapterVersicle.Split(':');
+            int chapter = int.Parse(partsCV[0]);
+            int versiculo = int.Parse(partsCV[1]);
+            _home.GuardarFav(book, chapter, versiculo, SesionUsuario.CorreoElectronico);
         }
     }
 }

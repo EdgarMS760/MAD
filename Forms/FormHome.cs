@@ -196,6 +196,9 @@ namespace MAD
                 string numcap = CB_Home_Search_Capitulo.Text;
                 string numvers = CB_Home_Search_Versiculo.Text;
                 string? nombreLibro = CB_Home_Book.Text;
+                string? idioma = CB_Home_Lang.Text;
+                string? testamento = CB_Home_Testament.Text;
+                string? version = CB_Home_Version.Text;
                 int parsedNumCap, parsedNumVers;
 
                 bool capParse = int.TryParse(numcap, out parsedNumCap);
@@ -204,7 +207,7 @@ namespace MAD
                 List<VersiculoDto> info = _home.BuscarVersiculos(TXTB_Home_Search.Text, ids[0], ids[1] > 0 ? ids[1] : null, ids[2] > 0 ? ids[2] : null, capParse ? parsedNumCap : null, versParse ? parsedNumVers : null);
                 if (info.Count > 0)
                 {
-                    _home.GuardarConsulta(TXTB_Home_Search.Text, nombreLibro, capParse ? parsedNumCap : null, versParse ? parsedNumVers : null, SesionUsuario.CorreoElectronico);
+                    _home.GuardarConsulta(TXTB_Home_Search.Text,idioma,version,testamento, nombreLibro, capParse ? parsedNumCap : null, versParse ? parsedNumVers : null, SesionUsuario.CorreoElectronico);
                     llenarResultBible(info);
                     llb_txt_resultadosCount.Text= info.Count.ToString();
                 }

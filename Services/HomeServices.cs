@@ -318,7 +318,7 @@ namespace MAD.Services
 
             return versiculos;
         }
-        public void GuardarConsulta(string palabrasClave, string nombreLibro, int? numeroCap, int? numeroVers, string email)
+        public void GuardarConsulta(string palabrasClave,string idioma,string version,string testamento, string nombreLibro, int? numeroCap, int? numeroVers, string email)
         {
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -331,7 +331,10 @@ namespace MAD.Services
                     command.Parameters.AddWithValue("@Capitulo ", numeroCap ?? (object)DBNull.Value);
                     command.Parameters.AddWithValue("@Libro ", nombreLibro ?? (object)DBNull.Value);
                     command.Parameters.AddWithValue("@Versiculos ", numeroVers ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@Idioma", idioma ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@testamento", testamento ?? (object)DBNull.Value);
                     command.Parameters.AddWithValue("@CorreoElectronico", email ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@Version", version ?? (object)DBNull.Value);
                     int rowsAffected = command.ExecuteNonQuery();
                 }
 

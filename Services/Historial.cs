@@ -42,11 +42,13 @@ namespace MAD.Services
                         {
                             ObtenerHistorialCompleto historialCompleto = new ObtenerHistorialCompleto();
 
-                            historialCompleto.Palabras = reader["Palabra"] == DBNull.Value ? null : reader["Palabra"].ToString();
+                            historialCompleto.Palabras = reader["palabrasClave"] == DBNull.Value ? null : reader["palabrasClave"].ToString();
                             historialCompleto.FechaYHora = reader["FechaHora"] == DBNull.Value ? DateTime.MinValue : Convert.ToDateTime(reader["FechaHora"]);
                             historialCompleto.Libro = reader["Libro"] == DBNull.Value ? null : reader["Libro"].ToString();
                             historialCompleto.Capitulo = reader["Capitulo"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["Capitulo"]);
                             historialCompleto.Versiculo = reader["Versiculos"] == DBNull.Value ? (int?)null : Convert.ToInt32(reader["Versiculos"]);
+                            historialCompleto.Version = reader["Version"] == DBNull.Value ? null : reader["Version"].ToString();
+                            historialCompleto.Idioma = reader["Idioma"] == DBNull.Value ? null : reader["Idioma"].ToString();
 
 
                             historialCompletoList.Add(historialCompleto);

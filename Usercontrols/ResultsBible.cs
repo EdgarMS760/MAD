@@ -138,7 +138,7 @@ namespace MAD
             int chapter = int.Parse(partsCV[0]);
             int versiculo = int.Parse(partsCV[1]);
             _home.GuardarFav(book, chapter, versiculo, SesionUsuario.CorreoElectronico);
-            PIC_ResultBible_Star.Visible = false;       
+            PIC_ResultBible_Star.Visible = false;
             PIC_ResultBible_StarFav.Visible = true;
         }
 

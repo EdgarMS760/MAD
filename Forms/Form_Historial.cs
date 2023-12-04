@@ -15,13 +15,13 @@ namespace MAD
 {
     public partial class Form_Historial : Form
     {
-        private Historial historialService;  // Agrega una instancia de la clase Historial
+        private Historial historialService;
         public Form_Historial()
         {
             InitializeComponent();
             ConfigurarDataGridView();
 
-            historialService = new Historial();  // Inicializa la instancia de la clase Historial
+            historialService = new Historial();
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -51,6 +51,8 @@ namespace MAD
                 DGV_Historial_MostrarHistorial.Rows.Add(
                     registro.Palabras,
                     registro.FechaYHora,
+                    registro.Idioma,
+                    registro.Version,
                     registro.Libro,
                     registro.Capitulo,
                     registro.Versiculo
@@ -74,6 +76,8 @@ namespace MAD
             // Agrega las columnas al DataGridView
             DGV_Historial_MostrarHistorial.Columns.Add("Palabras", "Palabras");
             DGV_Historial_MostrarHistorial.Columns.Add("FechaYHora", "Fecha y Hora");
+            DGV_Historial_MostrarHistorial.Columns.Add("Idioma", "Idioma");
+            DGV_Historial_MostrarHistorial.Columns.Add("Version", "Version");
             DGV_Historial_MostrarHistorial.Columns.Add("Libro", "Libro");
             DGV_Historial_MostrarHistorial.Columns.Add("Capitulo", "Capítulo");
             DGV_Historial_MostrarHistorial.Columns.Add("Versiculo", "Versículo");
@@ -82,6 +86,8 @@ namespace MAD
             DGV_Historial_MostrarHistorial.Columns["Palabras"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             DGV_Historial_MostrarHistorial.Columns["FechaYHora"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; // Cambiado a Fill
             DGV_Historial_MostrarHistorial.Columns["FechaYHora"].DefaultCellStyle.Format = "dd/MMM/yyyy HH:mm:ss"; // Formato de fecha y hora
+            DGV_Historial_MostrarHistorial.Columns["Idioma"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; // Cambiado a Fill
+            DGV_Historial_MostrarHistorial.Columns["Version"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill; // Cambiado a Fill
             DGV_Historial_MostrarHistorial.Columns["Libro"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             DGV_Historial_MostrarHistorial.Columns["Capitulo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             DGV_Historial_MostrarHistorial.Columns["Versiculo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;

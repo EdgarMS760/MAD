@@ -42,6 +42,8 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DGV_Historial_MostrarHistorial).BeginInit();
@@ -57,7 +59,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(825, 100);
+            panel1.Size = new Size(1168, 100);
             panel1.TabIndex = 0;
             // 
             // pictureBox1
@@ -93,7 +95,7 @@
             DGV_Historial_MostrarHistorial.Name = "DGV_Historial_MostrarHistorial";
             DGV_Historial_MostrarHistorial.ReadOnly = true;
             DGV_Historial_MostrarHistorial.RowTemplate.Height = 25;
-            DGV_Historial_MostrarHistorial.Size = new Size(653, 523);
+            DGV_Historial_MostrarHistorial.Size = new Size(980, 523);
             DGV_Historial_MostrarHistorial.TabIndex = 1;
             DGV_Historial_MostrarHistorial.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -104,7 +106,7 @@
             BTN_Historial_BorrarUno.FlatStyle = FlatStyle.Flat;
             BTN_Historial_BorrarUno.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             BTN_Historial_BorrarUno.ForeColor = Color.DimGray;
-            BTN_Historial_BorrarUno.Location = new Point(705, 137);
+            BTN_Historial_BorrarUno.Location = new Point(1048, 128);
             BTN_Historial_BorrarUno.Name = "BTN_Historial_BorrarUno";
             BTN_Historial_BorrarUno.Size = new Size(108, 60);
             BTN_Historial_BorrarUno.TabIndex = 10;
@@ -119,7 +121,7 @@
             BTN_Historial_BorrarTodo.FlatStyle = FlatStyle.Flat;
             BTN_Historial_BorrarTodo.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             BTN_Historial_BorrarTodo.ForeColor = Color.DimGray;
-            BTN_Historial_BorrarTodo.Location = new Point(705, 615);
+            BTN_Historial_BorrarTodo.Location = new Point(1048, 606);
             BTN_Historial_BorrarTodo.Name = "BTN_Historial_BorrarTodo";
             BTN_Historial_BorrarTodo.Size = new Size(108, 68);
             BTN_Historial_BorrarTodo.TabIndex = 11;
@@ -151,7 +153,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(226, 103);
+            label3.Location = new Point(196, 104);
             label3.Name = "label3";
             label3.Size = new Size(104, 21);
             label3.TabIndex = 13;
@@ -162,7 +164,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.DimGray;
-            label4.Location = new Point(398, 104);
+            label4.Location = new Point(710, 104);
             label4.Name = "label4";
             label4.Size = new Size(48, 21);
             label4.TabIndex = 14;
@@ -173,7 +175,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.DimGray;
-            label5.Location = new Point(486, 104);
+            label5.Location = new Point(798, 104);
             label5.Name = "label5";
             label5.Size = new Size(71, 21);
             label5.TabIndex = 15;
@@ -184,11 +186,33 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.DimGray;
-            label6.Location = new Point(608, 104);
+            label6.Location = new Point(920, 104);
             label6.Name = "label6";
             label6.Size = new Size(76, 21);
             label6.TabIndex = 16;
             label6.Text = "Versiculo";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.ForeColor = Color.DimGray;
+            label7.Location = new Point(382, 104);
+            label7.Name = "label7";
+            label7.Size = new Size(61, 21);
+            label7.TabIndex = 17;
+            label7.Text = "Idioma";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.ForeColor = Color.DimGray;
+            label8.Location = new Point(526, 104);
+            label8.Name = "label8";
+            label8.Size = new Size(64, 21);
+            label8.TabIndex = 18;
+            label8.Text = "Version";
             // 
             // Form_Historial
             // 
@@ -196,7 +220,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.Beige;
-            ClientSize = new Size(825, 695);
+            ClientSize = new Size(1168, 695);
+            Controls.Add(label8);
+            Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -235,5 +261,7 @@
         private Label label4;
         private Label label5;
         private Label label6;
+        private Label label7;
+        private Label label8;
     }
 }

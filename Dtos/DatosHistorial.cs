@@ -16,6 +16,8 @@ namespace MAD.Dtos
         public string? Libro { get; set; }
         public int? Capitulo { get; set; }
         public int? Versiculo { get; set; }
+        public string? Version { get; set; }
+        public string? Idioma { get; set; }
     }
 
 }

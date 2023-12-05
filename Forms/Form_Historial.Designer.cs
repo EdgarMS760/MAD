@@ -58,15 +58,17 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1168, 100);
+            panel1.Size = new Size(1351, 133);
             panel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(792, 3);
+            pictureBox1.Location = new Point(905, 4);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(30, 27);
+            pictureBox1.Size = new Size(34, 36);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
@@ -77,9 +79,9 @@
             label1.AutoSize = true;
             label1.Font = new Font("PMingLiU-ExtB", 36F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.DimGray;
-            label1.Location = new Point(31, 26);
+            label1.Location = new Point(35, 35);
             label1.Name = "label1";
-            label1.Size = new Size(269, 48);
+            label1.Size = new Size(332, 60);
             label1.TabIndex = 0;
             label1.Text = "HISTORIAL";
             // 
@@ -91,11 +93,13 @@
             DGV_Historial_MostrarHistorial.BorderStyle = BorderStyle.None;
             DGV_Historial_MostrarHistorial.CellBorderStyle = DataGridViewCellBorderStyle.None;
             DGV_Historial_MostrarHistorial.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGV_Historial_MostrarHistorial.Location = new Point(31, 128);
+            DGV_Historial_MostrarHistorial.Location = new Point(35, 171);
+            DGV_Historial_MostrarHistorial.Margin = new Padding(3, 4, 3, 4);
             DGV_Historial_MostrarHistorial.Name = "DGV_Historial_MostrarHistorial";
             DGV_Historial_MostrarHistorial.ReadOnly = true;
+            DGV_Historial_MostrarHistorial.RowHeadersWidth = 51;
             DGV_Historial_MostrarHistorial.RowTemplate.Height = 25;
-            DGV_Historial_MostrarHistorial.Size = new Size(980, 523);
+            DGV_Historial_MostrarHistorial.Size = new Size(1120, 697);
             DGV_Historial_MostrarHistorial.TabIndex = 1;
             DGV_Historial_MostrarHistorial.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -106,9 +110,10 @@
             BTN_Historial_BorrarUno.FlatStyle = FlatStyle.Flat;
             BTN_Historial_BorrarUno.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             BTN_Historial_BorrarUno.ForeColor = Color.DimGray;
-            BTN_Historial_BorrarUno.Location = new Point(1048, 128);
+            BTN_Historial_BorrarUno.Location = new Point(1198, 171);
+            BTN_Historial_BorrarUno.Margin = new Padding(3, 4, 3, 4);
             BTN_Historial_BorrarUno.Name = "BTN_Historial_BorrarUno";
-            BTN_Historial_BorrarUno.Size = new Size(108, 60);
+            BTN_Historial_BorrarUno.Size = new Size(141, 80);
             BTN_Historial_BorrarUno.TabIndex = 10;
             BTN_Historial_BorrarUno.Text = "Borrar Consulta";
             BTN_Historial_BorrarUno.UseVisualStyleBackColor = false;
@@ -121,9 +126,10 @@
             BTN_Historial_BorrarTodo.FlatStyle = FlatStyle.Flat;
             BTN_Historial_BorrarTodo.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             BTN_Historial_BorrarTodo.ForeColor = Color.DimGray;
-            BTN_Historial_BorrarTodo.Location = new Point(1048, 606);
+            BTN_Historial_BorrarTodo.Location = new Point(1198, 808);
+            BTN_Historial_BorrarTodo.Margin = new Padding(3, 4, 3, 4);
             BTN_Historial_BorrarTodo.Name = "BTN_Historial_BorrarTodo";
-            BTN_Historial_BorrarTodo.Size = new Size(108, 68);
+            BTN_Historial_BorrarTodo.Size = new Size(123, 91);
             BTN_Historial_BorrarTodo.TabIndex = 11;
             BTN_Historial_BorrarTodo.Text = "Borrar Historial";
             BTN_Historial_BorrarTodo.UseVisualStyleBackColor = false;
@@ -142,9 +148,9 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.DimGray;
-            label2.Location = new Point(59, 104);
+            label2.Location = new Point(67, 139);
             label2.Name = "label2";
-            label2.Size = new Size(70, 21);
+            label2.Size = new Size(86, 28);
             label2.TabIndex = 12;
             label2.Text = "Palabras";
             // 
@@ -153,9 +159,9 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.DimGray;
-            label3.Location = new Point(196, 104);
+            label3.Location = new Point(224, 139);
             label3.Name = "label3";
-            label3.Size = new Size(104, 21);
+            label3.Size = new Size(130, 28);
             label3.TabIndex = 13;
             label3.Text = "Fecha y Hora";
             // 
@@ -164,9 +170,9 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label4.ForeColor = Color.DimGray;
-            label4.Location = new Point(710, 104);
+            label4.Location = new Point(811, 139);
             label4.Name = "label4";
-            label4.Size = new Size(48, 21);
+            label4.Size = new Size(58, 28);
             label4.TabIndex = 14;
             label4.Text = "Libro";
             // 
@@ -175,9 +181,9 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.DimGray;
-            label5.Location = new Point(798, 104);
+            label5.Location = new Point(912, 139);
             label5.Name = "label5";
-            label5.Size = new Size(71, 21);
+            label5.Size = new Size(87, 28);
             label5.TabIndex = 15;
             label5.Text = "Capitulo";
             // 
@@ -186,9 +192,9 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = Color.DimGray;
-            label6.Location = new Point(920, 104);
+            label6.Location = new Point(1051, 139);
             label6.Name = "label6";
-            label6.Size = new Size(76, 21);
+            label6.Size = new Size(94, 28);
             label6.TabIndex = 16;
             label6.Text = "Versiculo";
             // 
@@ -197,9 +203,9 @@
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label7.ForeColor = Color.DimGray;
-            label7.Location = new Point(382, 104);
+            label7.Location = new Point(437, 139);
             label7.Name = "label7";
-            label7.Size = new Size(61, 21);
+            label7.Size = new Size(75, 28);
             label7.TabIndex = 17;
             label7.Text = "Idioma";
             // 
@@ -208,19 +214,19 @@
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label8.ForeColor = Color.DimGray;
-            label8.Location = new Point(526, 104);
+            label8.Location = new Point(601, 139);
             label8.Name = "label8";
-            label8.Size = new Size(64, 21);
+            label8.Size = new Size(80, 28);
             label8.TabIndex = 18;
             label8.Text = "Version";
             // 
             // Form_Historial
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.Beige;
-            ClientSize = new Size(1168, 695);
+            ClientSize = new Size(1351, 927);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -233,6 +239,7 @@
             Controls.Add(DGV_Historial_MostrarHistorial);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form_Historial";
             Text = "Historial";
             Load += Form_Historial_Load;

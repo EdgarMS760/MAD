@@ -102,7 +102,7 @@ namespace MAD.Forms
                 MessageBox.Show("este usuario ya esta inactivo");
             }
             else
-            if (email.Length > 1 && email != "CORREO")
+            if (email.Length > 1 && email.ToLower() != "correo")
             {
 
                 DialogResult result = MessageBox.Show("¿Estás seguro de dar de baja al usuario?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -118,7 +118,7 @@ namespace MAD.Forms
             }
             else
             {
-                MessageBox.Show("favor de buscar un usuario valido");
+                MessageBox.Show("favor de buscar un usuario valido", "ATENCION", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

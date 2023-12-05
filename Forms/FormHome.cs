@@ -32,6 +32,7 @@ namespace MAD
             InitializeComponent();
             MenuCustom();
             CargarIdiomas();
+            panel_ResultadosCount.Visible = false;
             this.FormClosing += FORM_Home_FormClosing;
         }
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
@@ -142,6 +143,7 @@ namespace MAD
         private void BTN_Home_Favs_verFavs_Click(object sender, EventArgs e)
         {
             HideFavsOptions();
+            panel_ResultadosCount.Visible = false;
             List<ObtenerFavoritos> favoritos = _favs.ObtenerFavs(SesionUsuario.CorreoElectronico);
             if (favoritos.Count() < 1)
             {
@@ -182,6 +184,7 @@ namespace MAD
 
         private void PIC_Home_Search_Click(object sender, EventArgs e)
         {
+
             if (TXTB_Home_Search.TextLength < 3 && !consulta)
             {
                 MessageBox.Show("La búsqueda por palabra debe tener mínimo 3 letras", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -207,12 +210,15 @@ namespace MAD
                 List<VersiculoDto> info = _home.BuscarVersiculos(TXTB_Home_Search.Text, ids[0], ids[1] > 0 ? ids[1] : null, ids[2] > 0 ? ids[2] : null, capParse ? parsedNumCap : null, versParse ? parsedNumVers : null);
                 if (info.Count > 0)
                 {
-                    _home.GuardarConsulta(TXTB_Home_Search.Text,idioma,version,testamento, nombreLibro, capParse ? parsedNumCap : null, versParse ? parsedNumVers : null, SesionUsuario.CorreoElectronico);
+                    panel_ResultadosCount.Visible = true;
+                    _home.GuardarConsulta(TXTB_Home_Search.Text, idioma, version, testamento, nombreLibro, capParse ? parsedNumCap : null, versParse ? parsedNumVers : null, SesionUsuario.CorreoElectronico);
                     llenarResultBible(info);
-                    llb_txt_resultadosCount.Text= info.Count.ToString();
+                    llb_txt_resultadosCount.Text = info.Count.ToString();
                 }
                 else
                 {
+                    panel_ResultadosCount.Visible = false;
+                    flowPanel_Home_content.Controls.Clear();
                     MessageBox.Show("No se encontraron resultados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
@@ -274,6 +280,22 @@ namespace MAD
                 TestamentoDto testamento = (TestamentoDto)CB_Home_Testament.SelectedItem;
                 int idTestmento = testamento.id_Testamento;
                 var libros = _home.ObtenerLibroPorTestamento(idTestmento);
+                CB_Home_Book.DisplayMember = "Nombre";
+
+                CB_Home_Book.Items.AddRange(libros.ToArray());
+
+                if (CB_Home_Book.Items.Count > 0)
+                {
+                    CB_Home_Book.SelectedIndex = 0;
+                }
+            }
+            else
+            {
+                CB_Home_Book.Items.Clear();
+                CB_Home_Book.Items.Add("");
+                IdiomaDto idiomaSeleccionado = (IdiomaDto)CB_Home_Lang.SelectedItem;
+                int idSeleccionado = idiomaSeleccionado.id_Idioma;
+                var libros = _home.ObtenerLibros(idSeleccionado);
                 CB_Home_Book.DisplayMember = "Nombre";
 
                 CB_Home_Book.Items.AddRange(libros.ToArray());
@@ -435,6 +457,11 @@ namespace MAD
                     }
 
                 }
+                else
+                {
+                    CB_Home_Search_Capitulo.Items.Clear();
+                    CB_Home_Search_Versiculo.Items.Clear();
+                }
             }
         }
 
@@ -463,6 +490,10 @@ namespace MAD
                         CB_Home_Search_Versiculo.SelectedIndex = 0;
                     }
 
+                }
+                else
+                {
+                    CB_Home_Search_Versiculo.Items.Clear();
                 }
             }
         }
@@ -611,6 +642,18 @@ namespace MAD
         private void llb_txt_resultadosCount_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (CB_Home_Testament.SelectedIndex == 0)
+            {
+                CB_Home_Book.SelectedIndex = 0;
+            }
+            else
+            {
+                CB_Home_Testament.SelectedIndex = 0;
+            }
         }
     }
 }

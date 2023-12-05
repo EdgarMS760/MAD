@@ -93,12 +93,6 @@ namespace MAD.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap HISTORY {
-            get {
-                object obj = ResourceManager.GetObject("HISTORY", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
         internal static System.Drawing.Bitmap Estrella {
             get {
                 object obj = ResourceManager.GetObject("Estrella", resourceCulture);
@@ -129,6 +123,16 @@ namespace MAD.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap HISTORY {
+            get {
+                object obj = ResourceManager.GetObject("HISTORY", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MAD_Logo {
             get {
                 object obj = ResourceManager.GetObject("MAD_Logo", resourceCulture);
@@ -149,6 +153,16 @@ namespace MAD.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Minimizar_gris {
+            get {
+                object obj = ResourceManager.GetObject("Minimizar gris", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap minimizeNew {
             get {
                 object obj = ResourceManager.GetObject("minimizeNew", resourceCulture);
@@ -162,6 +176,16 @@ namespace MAD.Properties {
         internal static System.Drawing.Bitmap Rounded_Rectangle_Stroked {
             get {
                 object obj = ResourceManager.GetObject("Rounded Rectangle Stroked", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Salir_gris {
+            get {
+                object obj = ResourceManager.GetObject("Salir gris", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -192,6 +216,16 @@ namespace MAD.Properties {
         internal static System.Drawing.Bitmap USERCONFIG {
             get {
                 object obj = ResourceManager.GetObject("USERCONFIG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UserGroups {
+            get {
+                object obj = ResourceManager.GetObject("UserGroups", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

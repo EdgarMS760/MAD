@@ -341,7 +341,7 @@ namespace MAD.Services
                 connection.Close();
             }
         }
-        public void GuardarFav(string nombreLibro, int? numeroCap, int? numeroVers, string email)
+        public void GuardarFav(string nombreLibro, int? numeroCap, int? numeroVers, string email, string version)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -353,6 +353,7 @@ namespace MAD.Services
                     command.Parameters.AddWithValue("@NombreLibro ", nombreLibro);
                     command.Parameters.AddWithValue("@NumeroVers ", numeroVers);
                     command.Parameters.AddWithValue("@CorreoElectronico", email);
+                    command.Parameters.AddWithValue("@Version", version);
 
                     SqlParameter resultado = new SqlParameter("@Resultado", SqlDbType.Int);
                     resultado.Direction = ParameterDirection.Output;

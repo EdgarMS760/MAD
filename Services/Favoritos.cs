@@ -93,10 +93,10 @@ namespace MAD.Services
                 {
                     command.CommandType = CommandType.StoredProcedure;
 
-                    command.Parameters.AddWithValue("@NombreLibro", Nomlibro); // Proporciona el nombre del libro según tu lógica
+                    command.Parameters.AddWithValue("@NombreLibro", Nomlibro); 
                     command.Parameters.AddWithValue("@NumeroCap", numeroCapitulo);
                     command.Parameters.AddWithValue("@NumeroVers", numeroVersiculo);
-                    command.Parameters.AddWithValue("@CorreoElectronico", email); // Proporciona el correo electrónico según tu lógica
+                    command.Parameters.AddWithValue("@CorreoElectronico", email); 
 
                     SqlParameter resultado = new SqlParameter("@Resultado", SqlDbType.Bit);
                     resultado.Direction = ParameterDirection.Output;

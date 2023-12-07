@@ -137,7 +137,7 @@ namespace MAD
             string[] partsCV = chapterVersicle.Split(':');
             int chapter = int.Parse(partsCV[0]);
             int versiculo = int.Parse(partsCV[1]);
-            _home.GuardarFav(book, chapter, versiculo, SesionUsuario.CorreoElectronico);
+            _home.GuardarFav(book, chapter, versiculo, SesionUsuario.CorreoElectronico, "REINA VALERA 1960");
             PIC_ResultBible_Star.Visible = false;
             PIC_ResultBible_StarFav.Visible = true;
         }
@@ -162,7 +162,7 @@ namespace MAD
             string[] partsCV = chapterVersicle.Split(':');
             int chapter = int.Parse(partsCV[0]);
             int versiculo = int.Parse(partsCV[1]);
-            _home.GuardarFav(book, chapter, versiculo, SesionUsuario.CorreoElectronico);
+            _home.GuardarFav(book, chapter, versiculo, SesionUsuario.CorreoElectronico, "REINA VALERA 1960");
         }
     }
 }
